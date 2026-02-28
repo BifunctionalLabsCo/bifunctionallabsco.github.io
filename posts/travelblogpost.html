@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Travel Entry Template</title>
+
+  <!-- Fonts close to the look you shared: strong sans caps + elegant serif italics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --ink: #1b1b1b;
+      --muted: rgba(27,27,27,.62);
+
+      /* Layout */
+      --page: 1120px;        /* max media width */
+      --text: 760px;         /* readable text column */
+      --gutter: 28px;        /* side padding */
+      --gap: 22px;           /* grid gap */
+
+      /* Type */
+      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif: "Playfair Display", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+    }
+
+    /* Container helpers */
+    .wrap{ max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
+    .text{ max-width: var(--text); margin: 0 auto; padding: 0 var(--gutter); }
+
+    /* Spacing system */
+    .space-xs{ padding: 14px 0; }
+    .space-sm{ padding: 28px 0; }
+    .space-md{ padding: 44px 0; }
+    .space-lg{ padding: 72px 0; }
+
+    /* Header */
+    header.article-header{
+      text-align:center;
+      padding: 64px var(--gutter) 36px;
+    }
+    .title{
+      font-size: clamp(34px, 4.5vw, 56px);
+      letter-spacing: .02em;
+      font-weight: 800;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .subtitle{
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--muted);
+      margin: 10px auto 0;
+      max-width: 70ch;
+      font-size: 16px;
+    }
+    .meta{
+      margin-top: 36px;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .meta strong{ color: var(--ink); letter-spacing: .18em; }
+
+    /* Section headings like in your screenshots */
+    h2.section-title{
+      text-align:center;
+      font-size: clamp(26px, 3.3vw, 40px);
+      letter-spacing: .08em;
+      font-weight: 800;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    /* Text */
+    p{ margin: 16px 0; font-size: 15px; color: rgba(27,27,27,.88); }
+    .lede{ font-size: 16px; color: rgba(27,27,27,.82); }
+    .small-note{ font-size: 13px; color: var(--muted); }
+
+    /* Media blocks */
+    figure{ margin: 0; }
+    img{ max-width: 100%; display:block; }
+
+    .media{
+      width:100%;
+      background:#eee;
+      overflow:hidden;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+
+    /* Full width single image (constrained to page max) */
+    .single{
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .single .media{
+      aspect-ratio: 16 / 10; /* tweak per entry */
+    }
+
+    /* Captions */
+    figcaption{
+      font-family: var(--serif);
+      font-style: italic;
+      text-align:center;
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(27,27,27,.64);
+    }
+
+    /* Grid system for multi-image layouts */
+    .grid{
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: grid;
+      gap: var(--gap);
+    }
+    .grid-2{ grid-template-columns: 1fr 1fr; }
+    .grid-3{ grid-template-columns: 1fr 1fr 1fr; }
+
+    /* “2 top + 1 wide bottom” like your examples */
+    .grid-2plus1{
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+    }
+    .span-2{ grid-column: 1 / -1; }
+
+    /* Default image heights for grid cards */
+    .grid .media{ aspect-ratio: 16 / 10; }
+    .grid-2plus1 .span-2 .media{ aspect-ratio: 21 / 9; } /* wide bottom hero */
+
+    /* Full-bleed cover/footer quote over background image */
+    .cover-quote{
+      position: relative;
+      min-height: 340px;
+      display:flex;
+      align-items:flex-end;
+      padding: 44px var(--gutter);
+      color: #fff;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.20)),
+        url("images/cover-placeholder.jpg") center/cover no-repeat;
+    }
+    .cover-quote .inner{
+      max-width: var(--page);
+      margin: 0 auto;
+      width:100%;
+    }
+    .cover-quote .quote{
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      line-height: 1.25;
+      font-size: clamp(18px, 2.4vw, 30px);
+      max-width: 36ch;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px){
+      :root{ --gutter: 18px; --gap: 14px; }
+      .grid-2, .grid-3{ grid-template-columns: 1fr; }
+      .grid-2plus1{ grid-template-columns: 1fr; }
+      .span-2{ grid-column: auto; }
+      header.article-header{ padding-top: 46px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 1) ARTICLE HEADER (cover-ish, clean white like your first screenshot) -->
+  <header class="article-header">
+    <h1 class="title">INTO THE ALPS: SALZBURG</h1>
+    <p class="subtitle">In this series, follow through weekend getaway options in the Austrian Alps</p>
+
+    <div class="meta">
+      By <strong>ZUBIN JOHN</strong><br />
+      OCTOBER 9TH, 2021
+    </div>
+  </header>
+
+  <!-- 2) SINGLE FULL-WIDTH IMAGE -->
+  <section class="space-md">
+    <div class="single">
+      <figure>
+        <div class="media">
+          <img src="images/salzburg-hero.jpg" alt="Salzburg hero (replace)" />
+        </div>
+        <figcaption>Captivating vista of Salzburg from Hohensalzburg</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3) SECTION TITLE -->
+  <section class="space-sm">
+    <div class="wrap">
+      <h2 class="section-title">JOURNEY TO UNTERSBERG</h2>
+    </div>
+  </section>
+
+  <!-- 4) TEXT BLOCKS (centered readable column) -->
+  <section class="space-sm">
+    <div class="text">
+      <p class="lede">
+        Back down in the heart of the Old Town, there are quite a few sights to see.
+        A short distance from the market you will find the charming little cemetery, Petersfriedhof.
+      </p>
+      <p>
+        Right off the edge of Salzburg Altstadt, walk to the Stieglkeller to ride the FestungsBahn into the heart
+        of the fortress. Take in panoramic views (in every direction), take a leisurely stroll inside, and visit
+        exhibits that transport you through time and offer glimpses into the history and lifestyles of this town.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5) MULTI-IMAGE GRID: 2-up -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media"><img src="images/grid-2a.jpg" alt="Replace" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="images/grid-2b.jpg" alt="Replace" /></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 6) FULL-BLEED COVER/FOOTER QUOTE (text on background image) -->
+  <section class="cover-quote" style='background:
+      linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.20)),
+      url("images/quote-bg.jpg") center/cover no-repeat;'>
+    <div class="inner">
+      <p class="quote">
+        WITH THAT, OUR SHORT DAY IN SALZBURG IS AT AN END. OTHER MUST SEE SPOTS INCLUDE THE MIRABELL GARDENS AND DOM QUARTER IN OLD TOWN.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7) MULTI-IMAGE GRID: “2 top + 1 wide bottom” -->
+  <section class="space-lg">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media"><img src="images/top-left.jpg" alt="Replace" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="images/top-right.jpg" alt="Replace" /></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media"><img src="images/bottom-wide.jpg" alt="Replace" /></div>
+        <figcaption>Mystic, shrouded peaks of the Untersberg range</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 8) NEXT SECTION TITLE EXAMPLE -->
+  <section class="space-sm">
+    <div class="wrap">
+      <h2 class="section-title">FORTRESS HOHENSALZBURG &amp; THE ALTSTADT</h2>
+    </div>
+  </section>
+
+  <!-- 9) More text -->
+  <section class="space-md">
+    <div class="text">
+      <p>
+        Use this block repeatedly for narrative. The layout stays consistent: generous whitespace, centered column,
+        and big uppercase section headers.
+      </p>
+      <p class="small-note">
+        Tip: tweak image aspect-ratios per post (e.g. 16/9, 21/9) to match your original compositions.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
