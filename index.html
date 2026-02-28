@@ -10,25 +10,27 @@
   <!-- Fonts approximating the PDF's serif + clean sans vibe -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       /* Approx palette based on the PDF */
-      --ink: #0c2a24;
-      --ink-2: #12342d;
+       --teal-400:#40ffb5;
+      --teal-600: #00634d;
+      --teal-800: #12342d;
       --cream: #eeeae3;
       --cream-2:#f3efe9;
       --pink: #f6b4d6;
       --rose: #f2a8cd;
+     
       --white:#ffffff;
       --muted:#6e6e6e;
 
       --max: 1120px;
       --gutter: 28px;
 
-      --serif: "Playfair Display", serif;
-      --caps: "Cinzel", serif;
+      --serif: "Fraunces", serif;
+      --caps: "Cormorant Garamond", serif;
       --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 
       --shadow: 0 18px 40px rgba(0,0,0,.18);
@@ -41,7 +43,7 @@
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--ink);
+      color:var(--teal-800);
       background:var(--cream-2);
       font-family:var(--sans);
       line-height:1.45;
@@ -113,27 +115,25 @@
 
     .hero-kicker{
       font-family: var(--caps);
-      letter-spacing: .38em;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 24px;
       opacity:.9;
       margin: 0 0 18px;
     }
 
     .hero-we-are{
       font-family: var(--serif);
-      font-size: clamp(22px, 3.2vw, 40px);
+      font-size: clamp(60px, 4.5vw, 80px);
       margin: 0;
       letter-spacing: .04em;
       color: var(--rose);
-      text-transform: lowercase;
-      font-style: italic;
+      font-style:light;
     }
 
     .hero-title{
-      font-family: var(--serif);
-      font-weight: 700;
-      font-size: clamp(44px, 7vw, 88px);
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: clamp(80px, 7vw, 88px);
       margin: 6px 0 10px;
       letter-spacing: .02em;
       text-transform: lowercase;
@@ -143,8 +143,9 @@
     .hero-subtitle{
       max-width: 720px;
       margin: 0 auto 20px;
-      font-family: var(--sans);
-      font-size: 16px;
+      font-family: var(--caps);
+      font-size: 24px;
+      color:var(--teal-400);
       opacity:.92;
     }
 
@@ -162,11 +163,10 @@
       font-family: var(--caps);
       letter-spacing: .18em;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 16px;
       color: var(--white);
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.38);
-      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.38);
+      border-radius: 10px;
       text-decoration:none;
       backdrop-filter: blur(6px);
       transition: transform .18s ease, background .18s ease;
@@ -183,8 +183,9 @@
     }
     .heading-small{
       font-family: var(--serif);
-      font-weight: 600;
-      font-size: 28px;
+      color: var(--teal-600);
+      font-weight: 400;
+      font-size: 36px;
       margin: 0 0 10px;
     }
     .subcaps{
@@ -193,7 +194,6 @@
       text-transform: uppercase;
       font-size: 12px;
       margin: 0;
-      color: var(--ink);
       opacity:.85;
     }
     .subcaps + .subcaps{ margin-top: 6px; }
@@ -207,7 +207,7 @@
 
     /* SECTION: Saumya dark panel */
     .panel-dark{
-      background: var(--ink);
+      background: var(--teal-600);
       color: var(--cream-2);
     }
     .panel-dark .heading-small{
@@ -242,7 +242,7 @@
       font-size: 14px;
       text-align:center;
       margin: 0 0 18px;
-      color: var(--ink-2);
+      color: var(--teal-800);
     }
     .travel-hero{
       max-width: 760px;
@@ -323,7 +323,7 @@
 
     /* FOOTER */
     .footer{
-      background: var(--ink);
+      background: var(--teal-600);
       color: var(--cream-2);
       padding: 54px 0 64px;
       position:relative;
@@ -420,7 +420,7 @@
       :root{ --gutter: 18px; }
       .section{ padding: 42px 0; }
       .hero-inner{ padding: 56px 0 52px; }
-      .hero-kicker{ letter-spacing: .28em; }
+      .hero-kicker{ letter-spacing: .2em; }
       .hero-btn{ padding: 11px 18px; }
       .title-script{ font-size: 36px; }
       .exp-title{ font-size: 36px; }
