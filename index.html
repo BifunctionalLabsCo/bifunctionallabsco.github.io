@@ -86,7 +86,7 @@
       min-height: 560px;
       background:
         linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.45)),
-        url("images/hero.jpg") center/cover no-repeat;
+        url("assets/hero.png") center/cover no-repeat;
       display:flex;
       align-items:center;
       position:relative;
@@ -97,12 +97,12 @@
     .hero::after{
       content:"";
       position:absolute;
-      top:24px;
-      right:24px;
-      width:58px;
-      height:58px;
-      opacity:.75;
-      background: url("images/mark.svg") center/contain no-repeat;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      background: url("assets/logo.png") center/contain no-repeat;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
       pointer-events:none;
     }
@@ -111,7 +111,7 @@
       width:100%;
       text-align:center;
       color:var(--white);
-      padding: 64px 0 58px;
+      padding: 96px 0 58px;
     }
 
     .hero-kicker{
@@ -447,6 +447,10 @@
       position:relative;
       overflow:hidden;
     }
+    .footer .wrap{
+      position:relative;
+      padding-right: 160px;
+    }
     .footer h3{
       margin: 0 0 18px;
       text-align:center;
@@ -506,25 +510,31 @@
       -webkit-mask-position:center;
     }
     /* placeholder masks (swap to your own SVGs if desired) */
-    .icon.tw{ mask-image: url("images/icons/twitter.svg"); -webkit-mask-image: url("images/icons/twitter.svg"); }
-    .icon.ig{ mask-image: url("images/icons/instagram.svg"); -webkit-mask-image: url("images/icons/instagram.svg"); }
-    .icon.li{ mask-image: url("images/icons/linkedin.svg"); -webkit-mask-image: url("images/icons/linkedin.svg"); }
-    .icon.gh{ mask-image: url("images/icons/github.svg"); -webkit-mask-image: url("images/icons/github.svg"); }
+    .icon.tw{ mask-image: url("assets/images/icons/twitter.svg"); -webkit-mask-image: url("images/icons/twitter.svg"); }
+    .icon.ig{ mask-image: url("assets/images/icons/instagram.svg"); -webkit-mask-image: url("images/icons/instagram.svg"); }
+    .icon.li{ mask-image: url("assets/images/icons/linkedin.svg"); -webkit-mask-image: url("images/icons/linkedin.svg"); }
+    .icon.gh{ mask-image: url("assets/images/icons/github.svg"); -webkit-mask-image: url("images/icons/github.svg"); }
 
-    /* right-side vertical watermark text */
+    /* right-side vertical branding */
     .watermark{
-      position:absolute;
-      right: -10px;
-      bottom: 10px;
-      font-family: var(--sans);
-      font-weight: 600;
-      letter-spacing: .05em;
-      color: rgba(127,255,212,.18); /* mint-ish accent */
-      transform: rotate(-90deg);
-      transform-origin: right bottom;
-      font-size: 36px;
-      user-select:none;
-      pointer-events:none;
+      display:none;
+    }
+    .footer-branding{
+     position: absolute;
+  top: 2%;
+  right: 50px;
+
+  /* MUST have a real box for background to render */
+  width: 420px;     /* your horizontal image width (tweak) */
+  height: 90px;     /* your horizontal image height (tweak) */
+
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
+
+  background: url("assets/footer-branding.png") center / contain no-repeat;
+  opacity: .25;
+  pointer-events: none;
+  z-index: 2;
     }
 
     /* Responsive */
@@ -534,8 +544,10 @@
       .cards{ grid-template-columns: 1fr; }
       .hero{ min-height: 520px; }
       .watermark{ display:none; }
+      .footer-branding{ display:none; }
       .services-grid{ grid-template-columns: 1fr; }
       .service-card{ max-width: 520px; margin: 0 auto; }
+      .footer .wrap{ padding-right: var(--gutter); }
     }
 
     @media (max-width: 520px){
@@ -706,7 +718,7 @@
       </div>
     </div>
 
-    <div class="watermark">bifunctional</div>
+    <div class="footer-branding" aria-hidden="true"></div>
   </footer>
 
 </body>
