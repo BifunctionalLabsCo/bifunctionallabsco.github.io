@@ -29,7 +29,7 @@
 
       --serif: "Fraunces", serif;
       --caps: "Cormorant Garamond", serif;
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      --sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 
       --shadow: 0 18px 40px rgba(0,0,0,.18);
       --shadow-soft: 0 10px 30px rgba(0,0,0,.12);
@@ -61,6 +61,9 @@
       grid-template-columns: 1.05fr 1.35fr;
       gap: 34px;
       align-items:center;
+    }
+    .two-col.image-left{
+      grid-template-columns: 1.35fr 1.05fr;
     }
     .media{
       width:100%;
@@ -236,11 +239,11 @@
     }
     .services-title{
       font-family: var(--serif);
-      font-size: 34px;
+      font-size: 42px;
       font-weight: 600;
       font-style: italic;
       margin: 0 0 10px;
-      color: var(--teal-800);
+      color: var(--teal-600);
       letter-spacing: .01em;
     }
     .services-subtitle{
@@ -270,6 +273,7 @@
       text-align:center;
       margin: 0 0 12px;
       letter-spacing: .01em;
+      color: var(--teal-600);
     }
     .service-meta{
       font-family: "Montserrat", sans-serif;
@@ -309,7 +313,7 @@
       background: var(--teal-600);
       color: var(--white);
       font-family: "Montserrat", sans-serif;
-      font-size: 14px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
@@ -323,6 +327,7 @@
       background: #004f3e;
       box-shadow: 0 14px 30px rgba(0,0,0,.18);
     }
+    .blog-link{ display:none; }
 
     .title-script{
       font-family: var(--serif);
@@ -351,10 +356,10 @@
     }
     .travel-title{
       font-family: "Montserrat", sans-serif;
-      font-weight:600;
+      font-weight:500;
       letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 16px;
+      font-size: 18px;
       text-align:center;
       margin: 0 0 22px;
       color: var(--teal-800);
@@ -591,7 +596,11 @@
   <!-- SAUMYA / DESIGN WITH PURPOSE -->
   <section class="section panel-dark">
     <div class="wrap">
-      <div class="two-col">
+      <div class="two-col image-left">
+        <div class="media" aria-label="Saumya photo">
+          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
+        </div>
+
         <div>
           <h2 class="title-script">Design with Purpose</span></h2>
           <p class="subcaps">EMPATHY IN EVERY PIXEL</p>
@@ -602,10 +611,6 @@
             with a user-centric approach. Passionate about creating meaningful connections,
             Saum’s work is rooted in empathy and innovation, always aiming to make a lasting impact.
           </p>
-        </div>
-
-        <div class="media" aria-label="Saumya photo">
-          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
         </div>
       </div>
     </div>
@@ -671,38 +676,8 @@
         </p>
       </div>
 
-      <p class="exp-sub">Here’s a small preview a preview of some of our more recent trips and expeditions</p>
-
-      <div class="cards">
-        <article class="card">
-          <div class="thumb">
-            <img src="images/expeditions/alps.jpg" alt="Into the Alps — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">INTO THE ALPS | PART 1</div>
-            <div class="place">Salzburg</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="images/expeditions/verona.jpg" alt="Of Brawls & Bridges — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">OF BRAWLS &amp; BRIDGES</div>
-            <div class="place">Verona</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="images/expeditions/thailand.jpg" alt="Glimpses of Thailand — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">GLIMPSES OF THAILAND | 2018</div>
-            <div class="place">Andaman Sands</div>
-          </div>
-        </article>
+      <div class="services-cta">
+        <a class="service-btn blog-link" href="blog.html">View the expedition blog</a>
       </div>
     </div>
   </section>
