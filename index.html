@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bifunctional — Greetings Wanderer</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+
+  <!-- Fonts approximating the PDF's serif + clean sans vibe -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Approx palette based on the PDF */
+      --ink: #0c2a24;
+      --ink-2: #12342d;
+      --cream: #eeeae3;
+      --cream-2:#f3efe9;
+      --pink: #f6b4d6;
+      --rose: #f2a8cd;
+      --white:#ffffff;
+      --muted:#6e6e6e;
+
+      --max: 1120px;
+      --gutter: 28px;
+
+      --serif: "Playfair Display", serif;
+      --caps: "Cinzel", serif;
+      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --shadow: 0 18px 40px rgba(0,0,0,.18);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.12);
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--cream-2);
+      font-family:var(--sans);
+      line-height:1.45;
+    }
+
+    /* Helpers */
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .section{
+      padding: 54px 0;
+    }
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.05fr 1.35fr;
+      gap: 34px;
+      align-items:center;
+    }
+    .media{
+      width:100%;
+      border-radius: var(--radius-lg);
+      overflow:hidden;
+      box-shadow: var(--shadow-soft);
+      background:#ddd;
+      aspect-ratio: 16 / 9;
+      position:relative;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* HERO */
+    .hero{
+      min-height: 560px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.45)),
+        url("images/hero.jpg") center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* optional subtle corner mark (like a minimalist sigil/logo) */
+    .hero::after{
+      content:"";
+      position:absolute;
+      top:24px;
+      right:24px;
+      width:58px;
+      height:58px;
+      opacity:.75;
+      background: url("images/mark.svg") center/contain no-repeat;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+      pointer-events:none;
+    }
+
+    .hero-inner{
+      width:100%;
+      text-align:center;
+      color:var(--white);
+      padding: 64px 0 58px;
+    }
+
+    .hero-kicker{
+      font-family: var(--caps);
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      font-size: 14px;
+      opacity:.9;
+      margin: 0 0 18px;
+    }
+
+    .hero-we-are{
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.2vw, 40px);
+      margin: 0;
+      letter-spacing: .04em;
+      color: var(--rose);
+      text-transform: lowercase;
+      font-style: italic;
+    }
+
+    .hero-title{
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(44px, 7vw, 88px);
+      margin: 6px 0 10px;
+      letter-spacing: .02em;
+      text-transform: lowercase;
+      text-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+
+    .hero-subtitle{
+      max-width: 720px;
+      margin: 0 auto 20px;
+      font-family: var(--sans);
+      font-size: 16px;
+      opacity:.92;
+    }
+
+    .hero-flag{
+      display:inline-block;
+      margin-left: 6px;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+    }
+
+    .hero-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 22px;
+      font-family: var(--caps);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--white);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 999px;
+      text-decoration:none;
+      backdrop-filter: blur(6px);
+      transition: transform .18s ease, background .18s ease;
+      margin-top: 10px;
+    }
+    .hero-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.18);
+    }
+
+    /* SECTION: Zubin */
+    .panel-cream{
+      background: var(--cream);
+    }
+    .heading-small{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 28px;
+      margin: 0 0 10px;
+    }
+    .subcaps{
+      font-family: var(--caps);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 0;
+      color: var(--ink);
+      opacity:.85;
+    }
+    .subcaps + .subcaps{ margin-top: 6px; }
+
+    .body-copy{
+      color: rgba(18,52,45,.85);
+      font-size: 14px;
+      margin: 14px 0 0;
+      max-width: 52ch;
+    }
+
+    /* SECTION: Saumya dark panel */
+    .panel-dark{
+      background: var(--ink);
+      color: var(--cream-2);
+    }
+    .panel-dark .heading-small{
+      color: var(--cream-2);
+    }
+    .panel-dark .subcaps{
+      color: var(--cream-2);
+      opacity: .92;
+    }
+    .panel-dark .body-copy{
+      color: rgba(243,239,233,.86);
+    }
+
+    .title-script{
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: .02em;
+    }
+    .title-script .em{
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* TRAVEL INTRO */
+    .travel-title{
+      font-family: var(--caps);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 14px;
+      text-align:center;
+      margin: 0 0 18px;
+      color: var(--ink-2);
+    }
+    .travel-hero{
+      max-width: 760px;
+      margin: 0 auto;
+      text-align:center;
+    }
+    .caption{
+      font-family: var(--serif);
+      font-size: 13px;
+      color: rgba(18,52,45,.78);
+      margin: 10px auto 0;
+      max-width: 74ch;
+      font-style: italic;
+    }
+
+    /* EXPEDITIONS */
+    .panel-pink{
+      background: var(--pink);
+    }
+    .exp-title{
+      text-align:center;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 42px;
+      margin: 0 0 8px;
+      color: #1d1b1b;
+    }
+    .exp-sub{
+      text-align:center;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: rgba(0,0,0,.65);
+      margin: 0 0 26px;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .card{
+      background: rgba(255,255,255,.0);
+      border-radius: 12px;
+      overflow:hidden;
+      box-shadow: none;
+    }
+    .card .thumb{
+      border-radius: 12px;
+      overflow:hidden;
+      box-shadow: var(--shadow-soft);
+      aspect-ratio: 16 / 10;
+      background:#ddd;
+    }
+    .card .thumb img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .card .meta{
+      text-align:center;
+      margin-top: 10px;
+      line-height:1.05;
+    }
+    .card .meta .kicker{
+      font-family: var(--caps);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: rgba(0,0,0,.65);
+      margin-bottom: 5px;
+    }
+    .card .meta .place{
+      font-family: var(--serif);
+      font-size: 18px;
+      color:#191717;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .footer{
+      background: var(--ink);
+      color: var(--cream-2);
+      padding: 54px 0 64px;
+      position:relative;
+      overflow:hidden;
+    }
+    .footer h3{
+      margin: 0 0 10px;
+      text-align:center;
+      font-family: var(--caps);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .footer .footer-title{
+      text-align:center;
+      font-family: var(--serif);
+      font-size: 22px;
+      margin: 0 0 16px;
+      opacity:.95;
+    }
+    .footer p{
+      margin: 0 auto 14px;
+      text-align:center;
+      max-width: 76ch;
+      font-size: 13px;
+      color: rgba(243,239,233,.82);
+    }
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .icon-btn{
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(243,239,233,.28);
+      background: rgba(255,255,255,.06);
+      transition: transform .18s ease, background .18s ease;
+      text-decoration:none;
+    }
+    .icon-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+    }
+    .icon{
+      width: 16px;
+      height: 16px;
+      opacity: .9;
+      background: rgba(243,239,233,.92);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position:center;
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat:no-repeat;
+      -webkit-mask-position:center;
+    }
+    /* placeholder masks (swap to your own SVGs if desired) */
+    .icon.tw{ mask-image: url("images/icons/twitter.svg"); -webkit-mask-image: url("images/icons/twitter.svg"); }
+    .icon.ig{ mask-image: url("images/icons/instagram.svg"); -webkit-mask-image: url("images/icons/instagram.svg"); }
+    .icon.li{ mask-image: url("images/icons/linkedin.svg"); -webkit-mask-image: url("images/icons/linkedin.svg"); }
+    .icon.gh{ mask-image: url("images/icons/github.svg"); -webkit-mask-image: url("images/icons/github.svg"); }
+
+    /* right-side vertical watermark text */
+    .watermark{
+      position:absolute;
+      right: -10px;
+      bottom: 10px;
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: rgba(127,255,212,.18); /* mint-ish accent */
+      transform: rotate(-90deg);
+      transform-origin: right bottom;
+      font-size: 36px;
+      user-select:none;
+      pointer-events:none;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .two-col{ grid-template-columns: 1fr; }
+      .body-copy{ max-width: unset; }
+      .cards{ grid-template-columns: 1fr; }
+      .hero{ min-height: 520px; }
+      .watermark{ display:none; }
+    }
+
+    @media (max-width: 520px){
+      :root{ --gutter: 18px; }
+      .section{ padding: 42px 0; }
+      .hero-inner{ padding: 56px 0 52px; }
+      .hero-kicker{ letter-spacing: .28em; }
+      .hero-btn{ padding: 11px 18px; }
+      .title-script{ font-size: 36px; }
+      .exp-title{ font-size: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <p class="hero-kicker">G R E E T I N G S&nbsp;&nbsp;W A N D E R E R</p>
+      <p class="hero-we-are">We are</p>
+      <h1 class="hero-title">bifunctional</h1>
+      <p class="hero-subtitle">
+        A community-minded, hobby software<br>
+        studio based out of Berlin <span class="hero-flag">🇩🇪</span>
+      </p>
+      <a class="hero-btn" href="#learn-more">Learn More</a>
+    </div>
+  </header>
+
+  <!-- ZUBIN -->
+  <section id="learn-more" class="section panel-cream">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <h2 class="heading-small">Hey. I'm Zubin</h2>
+          <p class="subcaps">DATA PRACTITIONER,</p>
+          <p class="subcaps">ASPIRING TECHNOLOGIST</p>
+          <p class="subcaps">AND ALL-ROUND NERD</p>
+
+          <p class="body-copy">
+            Focused on my start-up in Berlin but still manage to blog about
+            career, code, data, and design. All my links are collected on the page below.
+          </p>
+        </div>
+
+        <div class="media" aria-label="Zubin photo">
+          <img src="assets/images/00z.jpg" alt="Zubin — placeholder image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAUMYA / DESIGN WITH PURPOSE -->
+  <section class="section panel-dark">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <h2 class="title-script">Design with<br><span class="em">Purpose</span></h2>
+          <p class="subcaps">EMPATHY IN EVERY PIXEL</p>
+
+          <p class="body-copy">
+            Saumya crafts user experiences that blend functionality with aesthetics.
+            With a strong background in UX design, she thrives on solving complex problems
+            with a user-centric approach. Passionate about creating meaningful connections,
+            Saum’s work is rooted in empathy and innovation, always aiming to make a lasting impact.
+          </p>
+        </div>
+
+        <div class="media" aria-label="Saumya photo">
+          <img src="assetsimages/01s.jpg" alt="Saumya — placeholder image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAVEL BLOG NOTE + FAMILY PHOTO -->
+  <section class="section panel-cream">
+    <div class="wrap">
+      <p class="travel-title">LIKE EVERY OTHER BORING TECH DUO WE ALSO<br>BLOG ABOUT TRAVEL</p>
+
+      <div class="travel-hero">
+        <div class="media" style="aspect-ratio: 16 / 11; border-radius: var(--radius-lg);">
+          <img src="assets/images/02f.jpg" alt="Family travel photo — placeholder image" />
+        </div>
+        <p class="caption">
+          A family-postcard selfie with the backdrop of the Marble Mountains, found in central Vietnam,
+          a short excursion from Da Nang or Hoi An.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPEDITIONS -->
+  <section class="section panel-pink">
+    <div class="wrap">
+      <h2 class="exp-title">Expeditions</h2>
+      <p class="exp-sub">Here’s a small preview a preview of some of our more recent<br>trips and expeditions</p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="thumb">
+            <img src="images/expeditions/alps.jpg" alt="Into the Alps — placeholder image" />
+          </div>
+          <div class="meta">
+            <div class="kicker">INTO THE ALPS | PART 1</div>
+            <div class="place">Salzburg</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="images/expeditions/verona.jpg" alt="Of Brawls & Bridges — placeholder image" />
+          </div>
+          <div class="meta">
+            <div class="kicker">OF BRAWLS &amp; BRIDGES</div>
+            <div class="place">Verona</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">
+            <img src="images/expeditions/thailand.jpg" alt="Glimpses of Thailand — placeholder image" />
+          </div>
+          <div class="meta">
+            <div class="kicker">GLIMPSES OF THAILAND | 2018</div>
+            <div class="place">Andaman Sands</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CROSS-COLLABORATION -->
+  <footer class="footer">
+    <div class="wrap">
+      <h3>CROSS-COLLABORATION</h3>
+      <div class="footer-title">We are a community-minded, hobby software<br>studio based out of Berlin.</div>
+
+      <p>
+        We are most passionate about projects at the intersection of design and emergent technologies
+        (think AI &amp; ML).
+      </p>
+      <p>
+        Get in touch if you would like to have a coffee chat about the same.
+      </p>
+      <p>You can find us on a couple different socials:</p>
+
+      <div class="socials" aria-label="social links">
+        <!-- Replace hrefs with your real links -->
+        <a class="icon-btn" href="#" aria-label="Twitter/X"><span class="icon tw"></span></a>
+        <a class="icon-btn" href="#" aria-label="Instagram"><span class="icon ig"></span></a>
+        <a class="icon-btn" href="#" aria-label="LinkedIn"><span class="icon li"></span></a>
+        <a class="icon-btn" href="#" aria-label="GitHub"><span class="icon gh"></span></a>
+      </div>
+    </div>
+
+    <div class="watermark">bifunctional</div>
+  </footer>
+
+</body>
+</html>
