@@ -10,18 +10,16 @@
   <!-- Fonts approximating the PDF's serif + clean sans vibe -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Poppins:wght@400;600;700&family=Montserrat:wght@200;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       /* Approx palette based on the PDF */
        --teal-400:#40ffb5;
       --teal-600: #00634d;
-      --teal-800: #12342d;
-      --cream: #eeeae3;
-      --cream-2:#f3efe9;
-      --pink: #f6b4d6;
-      --rose: #f2a8cd;
+      --teal-800: #032b22;
+      --cream: #efede7;
+      --pink: #ffafda;
      
       --white:#ffffff;
       --muted:#6e6e6e;
@@ -44,7 +42,7 @@
     body{
       margin:0;
       color:var(--teal-800);
-      background:var(--cream-2);
+      background:var(--cream);
       font-family:var(--sans);
       line-height:1.45;
     }
@@ -126,7 +124,7 @@
       font-size: clamp(60px, 4.5vw, 80px);
       margin: 0;
       letter-spacing: .04em;
-      color: var(--rose);
+      color: var(--pink);
       font-style:light;
     }
 
@@ -184,98 +182,211 @@
     .heading-small{
       font-family: var(--serif);
       color: var(--teal-600);
-      font-weight: 400;
-      font-size: 36px;
-      margin: 0 0 10px;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 42px;
+      margin: 0 0 15px;
+      letter-spacing: .02em;
+      line-height: 1.05;
     }
     .subcaps{
-      font-family: var(--caps);
+      font-family: "Montserrat", sans-serif;
       letter-spacing: .18em;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 18px;
+      font-weight: 500;
       margin: 0;
       opacity:.85;
     }
     .subcaps + .subcaps{ margin-top: 6px; }
 
     .body-copy{
-      color: rgba(18,52,45,.85);
-      font-size: 14px;
+      font-family: var(--caps);
+      color: var(--teal-800);
+      font-size: 20px;
       margin: 14px 0 0;
       max-width: 52ch;
+      font-weight: 600;
     }
 
     /* SECTION: Saumya dark panel */
     .panel-dark{
-      background: var(--teal-600);
-      color: var(--cream-2);
+      background: var(--teal-800);
+      color: var(--cream);
     }
     .panel-dark .heading-small{
-      color: var(--cream-2);
+      color: var(--cream);
     }
     .panel-dark .subcaps{
-      color: var(--cream-2);
+      color: var(--cream);
       opacity: .92;
     }
     .panel-dark .body-copy{
-      color: rgba(243,239,233,.86);
+      color: var(--cream);
+    }
+
+    /* STUDIO SERVICES */
+    .services{
+      background: var(--cream);
+    }
+    .services-header{
+      text-align:center;
+      margin: 0 auto 28px;
+      max-width: 720px;
+    }
+    .services-title{
+      font-family: var(--serif);
+      font-size: 34px;
+      font-weight: 600;
+      font-style: italic;
+      margin: 0 0 10px;
+      color: var(--teal-800);
+      letter-spacing: .01em;
+    }
+    .services-subtitle{
+      font-family: var(--sans);
+      font-size: 14px;
+      margin: 0;
+      color: var(--teal-800);
+      opacity: .8;
+    }
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .service-card{
+      border: 2px solid var(--teal-600);
+      border-radius: 6px;
+      padding: 26px 24px 28px;
+      background: var(--cream-2);
+      color: var(--teal-800);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .service-name{
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      text-align:center;
+      margin: 0 0 12px;
+      letter-spacing: .01em;
+    }
+    .service-meta{
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-align:center;
+      margin: 0 0 16px;
+    }
+    .service-copy{
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align:center;
+      margin: 0 0 14px;
+      color: var(--teal-800);
+    }
+    .service-copy + .service-copy{ margin-top: 8px; }
+    .service-price{
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      text-align:center;
+      margin: 18px 0 0;
+    }
+    .services-cta{
+      text-align:center;
+      margin-top: 26px;
+    }
+    .service-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--teal-600);
+      color: var(--white);
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 10px;
+      text-decoration:none;
+      box-shadow: 0 12px 26px rgba(0,0,0,.16);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .service-btn:hover{
+      transform: translateY(-1px);
+      background: #004f3e;
+      box-shadow: 0 14px 30px rgba(0,0,0,.18);
     }
 
     .title-script{
       font-family: var(--serif);
+      color: var(--teal-400);
       font-size: 42px;
       font-weight: 600;
       line-height: 1.05;
-      margin: 0 0 10px;
+      margin: 0 0 15px;
       letter-spacing: .02em;
-    }
-    .title-script .em{
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    /* TRAVEL INTRO */
-    .travel-title{
-      font-family: var(--caps);
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      font-size: 14px;
-      text-align:center;
-      margin: 0 0 18px;
-      color: var(--teal-800);
-    }
-    .travel-hero{
-      max-width: 760px;
-      margin: 0 auto;
-      text-align:center;
-    }
-    .caption{
-      font-family: var(--serif);
-      font-size: 13px;
-      color: rgba(18,52,45,.78);
-      margin: 10px auto 0;
-      max-width: 74ch;
       font-style: italic;
     }
 
-    /* EXPEDITIONS */
+    /* TRAVEL + EXPEDITIONS */
     .panel-pink{
       background: var(--pink);
+      color: var(--teal-800);
     }
     .exp-title{
       text-align:center;
       font-family: var(--serif);
+      font-style: italic;
       font-weight: 600;
       font-size: 42px;
       margin: 0 0 8px;
-      color: #1d1b1b;
+      color: var(--teal-800);
+    }
+    .travel-title{
+      font-family: "Montserrat", sans-serif;
+      font-weight:600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 16px;
+      text-align:center;
+      margin: 0 0 22px;
+      color: var(--teal-800);
+    }
+    .travel-hero{
+      max-width: 560px;
+      margin: 0 auto 10px;
+      text-align:center;
+    }
+    .travel-hero .media{
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .caption{
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--teal-800);
+      margin: 12px auto 0;
+      max-width: 74ch;
+      font-style: italic;
+      text-align:center;
+      line-height: 1.45;
     }
     .exp-sub{
       text-align:center;
-      font-family: var(--sans);
-      font-size: 13px;
-      color: rgba(0,0,0,.65);
-      margin: 0 0 26px;
+      font-family: var(--caps);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--teal-800);
+      margin: 24px 0 24px;
+      letter-spacing: .08em;
     }
     .cards{
       display:grid;
@@ -292,7 +403,7 @@
       border-radius: 12px;
       overflow:hidden;
       box-shadow: var(--shadow-soft);
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 4 / 3;
       background:#ddd;
     }
     .card .thumb img{
@@ -303,54 +414,58 @@
     }
     .card .meta{
       text-align:center;
-      margin-top: 10px;
-      line-height:1.05;
+      margin-top: 8px;
+      
     }
     .card .meta .kicker{
-      font-family: var(--caps);
+      font-family: "Montserrat", sans-serif;
       letter-spacing: .18em;
       text-transform: uppercase;
-      font-size: 10px;
-      color: rgba(0,0,0,.65);
-      margin-bottom: 5px;
+      font-size: 12px;
+      color: var(--teal-800);
+      font-weight: 600;
+      margin-bottom: 4px;
     }
     .card .meta .place{
       font-family: var(--serif);
       font-size: 18px;
-      color:#191717;
+      color: var(--teal-800);
       font-weight: 600;
+      font-style: italic;
     }
 
     /* FOOTER */
     .footer{
-      background: var(--teal-600);
-      color: var(--cream-2);
+      background: var(--teal-800);
+      color: var(--cream);
       padding: 54px 0 64px;
       position:relative;
       overflow:hidden;
     }
     .footer h3{
-      margin: 0 0 10px;
+      margin: 0 0 18px;
       text-align:center;
-      font-family: var(--caps);
-      letter-spacing: .22em;
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 24px;
       font-weight: 600;
+      color: var(--teal-400);
     }
     .footer .footer-title{
       text-align:center;
       font-family: var(--serif);
-      font-size: 22px;
-      margin: 0 0 16px;
-      opacity:.95;
+      font-size: 24px;
+      margin: 0 0 20px;
     }
+
     .footer p{
       margin: 0 auto 14px;
       text-align:center;
+      font-size: 18px;
+      font-weight: 400;
       max-width: 76ch;
-      font-size: 13px;
-      color: rgba(243,239,233,.82);
+      color: var(--cream);
     }
     .socials{
       display:flex;
@@ -414,6 +529,8 @@
       .cards{ grid-template-columns: 1fr; }
       .hero{ min-height: 520px; }
       .watermark{ display:none; }
+      .services-grid{ grid-template-columns: 1fr; }
+      .service-card{ max-width: 520px; margin: 0 auto; }
     }
 
     @media (max-width: 520px){
@@ -424,6 +541,10 @@
       .hero-btn{ padding: 11px 18px; }
       .title-script{ font-size: 36px; }
       .exp-title{ font-size: 36px; }
+      .service-name{ font-size: 20px; }
+      .service-meta{ font-size: 11px; }
+      .service-copy{ font-size: 13px; }
+      .service-btn{ width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -472,7 +593,7 @@
     <div class="wrap">
       <div class="two-col">
         <div>
-          <h2 class="title-script">Design with<br><span class="em">Purpose</span></h2>
+          <h2 class="title-script">Design with Purpose</span></h2>
           <p class="subcaps">EMPATHY IN EVERY PIXEL</p>
 
           <p class="body-copy">
@@ -484,19 +605,64 @@
         </div>
 
         <div class="media" aria-label="Saumya photo">
-          <img src="assetsimages/01s.jpg" alt="Saumya — placeholder image" />
+          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRAVEL BLOG NOTE + FAMILY PHOTO -->
-  <section class="section panel-cream">
+  <!-- STUDIO SERVICES -->
+  <section id="services" class="section services">
     <div class="wrap">
-      <p class="travel-title">LIKE EVERY OTHER BORING TECH DUO WE ALSO<br>BLOG ABOUT TRAVEL</p>
+      <div class="services-header">
+        <h2 class="services-title">Our Studio Services</h2>
+        <p class="services-subtitle">We are currently offering two packaged solutions</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <h3 class="service-name">Venture Kick-Starter Package</h3>
+          <p class="service-meta">1 week | 10 hours</p>
+          <p class="service-copy">For founders ready to launch a new product or business with clarity and momentum.</p>
+          <p class="service-copy">
+            Over one focused week, we design and implement a tailored launch foundation. This includes a website and
+            the configuration of selected software tools aligned to your specific priorities. Depending on your needs,
+            the sprint may focus on e-commerce or shop integrations, automation workflows, customer and market intelligence
+            systems, or lead generation infrastructure — with scope defined collaboratively to ensure meaningful execution
+            within the timeframe.
+          </p>
+          <p class="service-copy">The outcome is a strategic and operational base that gets you live, structured, and ready to grow.</p>
+          <p class="service-price">€800</p>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-name">Brand Design Package</h3>
+          <p class="service-meta">1 week | 4 hrs</p>
+          <p class="service-copy">For founders seeking to establish a clear and cohesive brand foundation.</p>
+          <p class="service-copy">
+            Over one focused week, we collaborate to define and design your core identity system. This results in a concise
+            brand book that includes your primary logo suite, essential visual assets, and digital style guidelines tailored
+            to your direction and ambitions.
+          </p>
+          <p class="service-copy">The outcome is a strategic identity framework designed to evolve alongside your business.</p>
+          <p class="service-price">€400</p>
+        </article>
+      </div>
+
+      <div class="services-cta">
+        <a class="service-btn" href="#contact">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPEDITIONS + TRAVEL -->
+  <section id="expeditions" class="section panel-pink">
+    <div class="wrap">
+      <h2 class="exp-title">Expeditions</h2>
+      <p class="travel-title">LIKE EVERY OTHER BORING TECH DUO WE ALSO BLOG ABOUT TRAVEL</p>
 
       <div class="travel-hero">
-        <div class="media" style="aspect-ratio: 16 / 11; border-radius: var(--radius-lg);">
+        <div class="media">
           <img src="assets/images/02f.jpg" alt="Family travel photo — placeholder image" />
         </div>
         <p class="caption">
@@ -504,14 +670,8 @@
           a short excursion from Da Nang or Hoi An.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- EXPEDITIONS -->
-  <section class="section panel-pink">
-    <div class="wrap">
-      <h2 class="exp-title">Expeditions</h2>
-      <p class="exp-sub">Here’s a small preview a preview of some of our more recent<br>trips and expeditions</p>
+      <p class="exp-sub">Here’s a small preview a preview of some of our more recent trips and expeditions</p>
 
       <div class="cards">
         <article class="card">
@@ -548,19 +708,19 @@
   </section>
 
   <!-- FOOTER / CROSS-COLLABORATION -->
-  <footer class="footer">
+  <footer id="contact" class="footer">
     <div class="wrap">
       <h3>CROSS-COLLABORATION</h3>
       <div class="footer-title">We are a community-minded, hobby software<br>studio based out of Berlin.</div>
 
-      <p>
+      <p class="body-copy">
         We are most passionate about projects at the intersection of design and emergent technologies
         (think AI &amp; ML).
       </p>
-      <p>
+      <p class="body-copy">
         Get in touch if you would like to have a coffee chat about the same.
       </p>
-      <p>You can find us on a couple different socials:</p>
+      <p class="body-copy">You can find us on a couple different socials:</p>
 
       <div class="socials" aria-label="social links">
         <!-- Replace hrefs with your real links -->
