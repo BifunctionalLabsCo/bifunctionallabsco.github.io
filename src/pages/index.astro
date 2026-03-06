@@ -30,8 +30,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
+    html{height:100%;overscroll-behavior:none}
+    body{height:100%;
       margin:0;
       color:var(--teal-800);
       background:var(--cream);
@@ -71,6 +71,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       height:100%;
       object-fit:cover;
       display:block;
+    }
+
+    /* Circular portrait cutout */
+    .portrait-circle{
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      max-width: 85%;
+      justify-self: center;
+    }
+    .portrait-circle img{
+      transform: scale(1.15);
     }
 
     /* HERO */
@@ -620,13 +632,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- SAUMYA / DESIGN WITH PURPOSE -->
   <section class="section panel-dark">
     <div class="wrap">
-      <div class="two-col image-left">
-        <div class="media" aria-label="Saumya photo">
-          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
-        </div>
-
+      <div class="two-col">
         <div>
-          <h2 class="title-script">Design with Purpose</span></h2>
+          <h2 class="title-script">Design with Purpose</h2>
           <p class="subcaps">EMPATHY IN EVERY PIXEL</p>
 
           <p class="body-copy">
@@ -636,6 +644,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Saum's work is rooted in empathy and innovation, always aiming to make a lasting impact.
           </p>
           <a class="section-cta section-cta-dark" href="#services">View My Work</a>
+        </div>
+
+        <div class="media portrait-circle" aria-label="Saumya photo">
+          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
         </div>
       </div>
     </div>
@@ -702,7 +714,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="services-cta">
-        <a class="service-btn blog-link" href="blog.html">To Expeditions</a>
+        <a class="service-btn blog-link" href="expeditions/">To Expeditions</a>
       </div>
     </div>
   </section>
