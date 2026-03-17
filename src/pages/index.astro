@@ -264,12 +264,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       gap: 22px;
     }
     .service-card{
-      border: 2px solid var(--teal-600);
-      border-radius: 6px;
-      padding: 26px 24px 28px;
-      background: var(--cream-2);
-      color: var(--teal-800);
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      border: none;
+      border-top: 4px solid var(--teal-400);
+      border-radius: 16px;
+      padding: 36px 30px 34px;
+      background: var(--teal-800);
+      color: var(--cream);
+      box-shadow: 0 14px 34px rgba(0,0,0,.14);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .service-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px rgba(0,0,0,.2);
+    }
+    .service-icon{
+      font-size: 36px;
+      text-align:center;
+      margin-bottom: 14px;
     }
     .service-name{
       font-family: var(--serif);
@@ -278,7 +289,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       text-align:center;
       margin: 0 0 12px;
       letter-spacing: .01em;
-      color: var(--teal-600);
+      color: var(--teal-400);
     }
     .service-meta{
       font-family: "Montserrat", sans-serif;
@@ -295,15 +306,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       line-height: 1.55;
       text-align:center;
       margin: 0 0 14px;
-      color: var(--teal-800);
+      color: var(--cream);
+      opacity: .88;
     }
     .service-copy + .service-copy{ margin-top: 8px; }
     .service-price{
       font-family: var(--serif);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
       text-align:center;
       margin: 18px 0 0;
+      color: var(--teal-400);
     }
     .services-cta{
       text-align:center;
@@ -332,6 +345,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       background: #004f3e;
     }
     .blog-link{ display:inline-flex; }
+
+    /* STORY GRID (expedition cards) */
+    .story-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+    .story-card{
+      position:relative;
+      display:block;
+      border-radius: 14px;
+      overflow:hidden;
+      aspect-ratio: 4 / 5;
+      background: #ddd center/cover no-repeat;
+      text-decoration:none;
+      box-shadow: var(--shadow-soft);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .story-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.22);
+    }
+    .story-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding: 24px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.18) 50%, transparent 100%);
+      color: var(--white);
+    }
+    .story-badge{
+      position:absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Montserrat", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 6px;
+    }
+    .story-title{
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+    }
+    .story-subtitle{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      margin: 0 0 6px;
+      opacity: .88;
+    }
+    .story-date{
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .72;
+    }
 
     .section-cta{
       display:inline-flex;
@@ -567,6 +650,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .two-col{ grid-template-columns: 1fr; }
       .body-copy{ max-width: unset; }
       .cards{ grid-template-columns: 1fr; }
+      .story-grid{ grid-template-columns: 1fr; }
       .hero{ min-height: 520px; }
       .watermark{ display:none; }
       .footer-branding{ display:none; }
@@ -598,12 +682,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="hero-we-are">We are</p>
       <h1 class="hero-title">bifunctional</h1>
       <p class="hero-subtitle">
-        A community-minded, hobby software<br>
-        studio based out of Berlin <span class="hero-flag">🇩🇪</span>
+        A Berlin-based venture builder studio guiding you from<br>
+        conception to delivery <span class="hero-flag">🇩🇪</span><br>
+        <span style="font-size:18px;opacity:.82;">Specializing in data, design &amp; emergent technologies</span>
       </p>
       <a class="hero-btn" href="#learn-more">Learn More</a>
     </div>
   </header>
+
+  <!-- STUDIO SERVICES -->
+  <section id="services" class="section services">
+    <div class="wrap">
+      <div class="services-header">
+        <h2 class="services-title">Our Studio Offerings</h2>
+        <p class="services-subtitle">End-to-end packages to take your venture from zero to launch</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🚀</div>
+          <h3 class="service-name">Venture Kick-Starter Package</h3>
+          <p class="service-meta">1 week | 10 hours</p>
+          <p class="service-copy">For founders ready to launch a new product or business with clarity and momentum.</p>
+          <p class="service-copy">
+            Over one focused week, we design and implement a tailored launch foundation — website,
+            tooling, automation workflows, customer intelligence, or lead-gen infrastructure —
+            scoped collaboratively to ensure meaningful execution.
+          </p>
+          <p class="service-price">€800</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-name">Brand Design Package</h3>
+          <p class="service-meta">1 week | 4 hrs</p>
+          <p class="service-copy">For founders seeking a clear and cohesive brand foundation.</p>
+          <p class="service-copy">
+            We collaborate to define your core identity system — logo suite,
+            visual assets, and digital style guidelines tailored to your
+            direction and ambitions.
+          </p>
+          <p class="service-price">€400</p>
+        </article>
+      </div>
+
+      <div class="services-cta">
+        <a class="service-btn" href="#contact">Book a Call</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ZUBIN -->
   <section id="learn-more" class="section panel-cream">
@@ -653,50 +780,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- STUDIO SERVICES -->
-  <section id="services" class="section services">
-    <div class="wrap">
-      <div class="services-header">
-        <h2 class="services-title">Our Studio Services</h2>
-        <p class="services-subtitle">We are currently offering two packaged solutions</p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <h3 class="service-name">Venture Kick-Starter Package</h3>
-          <p class="service-meta">1 week | 10 hours</p>
-          <p class="service-copy">For founders ready to launch a new product or business with clarity and momentum.</p>
-          <p class="service-copy">
-            Over one focused week, we design and implement a tailored launch foundation. This includes a website and
-            the configuration of selected software tools aligned to your specific priorities. Depending on your needs,
-            the sprint may focus on e-commerce or shop integrations, automation workflows, customer and market intelligence
-            systems, or lead generation infrastructure — with scope defined collaboratively to ensure meaningful execution
-            within the timeframe.
-          </p>
-          <p class="service-copy">The outcome is a strategic and operational base that gets you live, structured, and ready to grow.</p>
-          <p class="service-price">€800</p>
-        </article>
-
-        <article class="service-card">
-          <h3 class="service-name">Brand Design Package</h3>
-          <p class="service-meta">1 week | 4 hrs</p>
-          <p class="service-copy">For founders seeking to establish a clear and cohesive brand foundation.</p>
-          <p class="service-copy">
-            Over one focused week, we collaborate to define and design your core identity system. This results in a concise
-            brand book that includes your primary logo suite, essential visual assets, and digital style guidelines tailored
-            to your direction and ambitions.
-          </p>
-          <p class="service-copy">The outcome is a strategic identity framework designed to evolve alongside your business.</p>
-          <p class="service-price">€400</p>
-        </article>
-      </div>
-
-      <div class="services-cta">
-        <a class="service-btn" href="#contact">Book a Call</a>
-      </div>
-    </div>
-  </section>
-
   <!-- EXPEDITIONS + TRAVEL -->
   <section id="expeditions" class="section panel-pink">
     <div class="wrap">
@@ -713,8 +796,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
 
+      <p class="exp-sub">A small preview of our recent trips &amp; expeditions</p>
+
+      <div class="story-grid">
+        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/alps.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Into the Alps: Salzburg</h3>
+            <p class="story-subtitle">Weekend getaway options in the Austrian Alps</p>
+            <time class="story-date">October 9<sup>th</sup>, 2021</time>
+          </div>
+        </a>
+        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/verona.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Verona</h3>
+            <p class="story-subtitle">Of Bridges &amp; Brawls</p>
+            <time class="story-date">October 8<sup>th</sup>, 2020</time>
+          </div>
+        </a>
+        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/thailand.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Andaman Sands</h3>
+            <p class="story-subtitle">Glimpses of Thailand 2018</p>
+            <time class="story-date">January 7<sup>th</sup>, 2019</time>
+          </div>
+        </a>
+      </div>
+
       <div class="services-cta">
-        <a class="service-btn blog-link" href="expeditions/">To Expeditions</a>
+        <a class="service-btn blog-link" href="expeditions/">All Expeditions</a>
       </div>
     </div>
   </section>
@@ -723,14 +835,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <footer id="contact" class="footer">
     <div class="wrap">
       <h3>CROSS-COLLABORATION</h3>
-      <div class="footer-title">We are a community-minded, hobby software<br>studio based out of Berlin.</div>
+      <div class="footer-title">A Berlin-based venture builder studio guiding you<br>from conception to delivery.</div>
 
       <p class="body-copy">
-        We are most passionate about projects at the intersection of design and emergent technologies
-        (think AI &amp; ML).
+        We specialize in projects at the intersection of data, design &amp; emergent technologies
+        (AI, ML &amp; beyond).
       </p>
       <p class="body-copy">
-        Get in touch if you would like to have a coffee chat about the same.
+        Get in touch if you'd like to chat about building something together.
       </p>
       <p class="body-copy">You can find us on a couple different socials:</p>
 
