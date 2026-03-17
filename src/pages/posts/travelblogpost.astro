@@ -2,92 +2,202 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Travel Entry Template">
+<BaseLayout title="Bangkok Airwaves — bifunctional">
   <Fragment slot="head">
     <style is:inline>
     :root{
+      --black: #1b1b1b;
+      --muted: rgba(27,27,27,.58);
+      --faint: rgba(27,27,27,.38);
       --bg: #ffffff;
-      --teal-600: #1b1b1b;
-      --muted: rgba(27,27,27,.62);
+      --bg-alt: #f7f7f7;
+      --border: rgba(27,27,27,.10);
 
-      /* Layout */
-      --page: 1120px;        /* max media width */
-      --text: 760px;         /* readable text column */
-      --gutter: 28px;        /* side padding */
-      --gap: 22px;           /* grid gap */
+      --page: 1120px;
+      --text: 740px;
+      --gutter: 28px;
+      --gap: 22px;
 
-      /* Type */
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --serif: "Playfair Display", Georgia, serif;
+      --serif: "Fraunces", serif;
+      --caps: "Cormorant Garamond", serif;
+      --sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      --display: "Poppins", sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       background: var(--bg);
-      color: var(--teal-600);
+      color: var(--black);
       font-family: var(--sans);
       line-height: 1.7;
     }
 
-    /* Container helpers */
+    /* ─── NAV BAR ─── */
+    .post-nav{
+      position:absolute; top:0; left:0; right:0; z-index:10;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px var(--gutter);
+      max-width: var(--page);
+      margin: 0 auto;
+    }
+    .post-nav .nav-left{
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #fff;
+      opacity:.8;
+    }
+    .post-nav .nav-icons{
+      display:flex;
+      gap: 12px;
+    }
+    .post-nav .nav-icon{
+      width: 28px; height: 28px;
+      display:grid; place-items:center;
+      border-radius: 6px;
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+      color:#fff;
+      text-decoration:none;
+      font-size: 13px;
+      transition: background .15s;
+    }
+    .post-nav .nav-icon:hover{ background: rgba(255,255,255,.22); }
+    .post-nav .edit-btn{
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(6px);
+      padding: 7px 16px;
+      border-radius: 6px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      transition: background .15s;
+    }
+    .post-nav .edit-btn:hover{ background: rgba(255,255,255,.24); }
+
+    /* ─── HERO ─── */
+    .post-hero{
+      position:relative;
+      min-height: 520px;
+      display:flex;
+      align-items:flex-end;
+      background: #333 center/cover no-repeat;
+      overflow:hidden;
+    }
+    .post-hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.68) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.10) 100%);
+    }
+    .hero-content{
+      position:relative; z-index:2;
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 0 var(--gutter) 52px;
+      width:100%;
+      color:#fff;
+    }
+    .hero-content .post-title{
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      max-width: 14ch;
+      line-height: 1.1;
+    }
+    .hero-content .post-subtitle{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      margin: 0;
+      opacity:.85;
+    }
+
+    /* ─── AUTHOR LINE ─── */
+    .author-line{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      max-width: var(--text);
+      margin: 36px auto 0;
+      padding: 0 var(--gutter);
+    }
+    .author-avatar{
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: #ddd;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .author-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .author-info{
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .author-info strong{
+      color: var(--black);
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+    .author-info .date{
+      display:block;
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--faint);
+    }
+
+    /* ─── CONTAINERS ─── */
     .wrap{ max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); }
     .text{ max-width: var(--text); margin: 0 auto; padding: 0 var(--gutter); }
 
-    /* Spacing system */
+    /* ─── SPACING ─── */
     .space-xs{ padding: 14px 0; }
     .space-sm{ padding: 28px 0; }
     .space-md{ padding: 44px 0; }
     .space-lg{ padding: 72px 0; }
 
-    /* Header */
-    header.article-header{
-      text-align:center;
-      padding: 64px var(--gutter) 36px;
-    }
-    .title{
-      font-size: clamp(34px, 4.5vw, 56px);
-      letter-spacing: .02em;
+    /* ─── SECTION HEADINGS ─── */
+    h2.section-title{
+      font-family: var(--sans);
+      font-size: clamp(24px, 3.3vw, 38px);
+      letter-spacing: .08em;
       font-weight: 800;
       margin: 0;
       text-transform: uppercase;
     }
-    .subtitle{
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--muted);
-      margin: 10px auto 0;
-      max-width: 70ch;
-      font-size: 16px;
-    }
-    .meta{
-      margin-top: 36px;
-      font-size: 13px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .meta strong{ color: var(--teal-600); letter-spacing: .18em; }
-
-    /* Section headings like in your screenshots */
-    h2.section-title{
+    h2.section-title-center{
       text-align:center;
-      font-size: clamp(26px, 3.3vw, 40px);
+      font-family: var(--sans);
+      font-size: clamp(24px, 3.3vw, 38px);
       letter-spacing: .08em;
       font-weight: 800;
       margin: 0;
       text-transform: uppercase;
     }
 
-    /* Text */
-    p{ margin: 16px 0; font-size: 15px; color: rgba(27,27,27,.88); }
-    .lede{ font-size: 16px; color: rgba(27,27,27,.82); }
-    .small-note{ font-size: 13px; color: var(--muted); }
+    /* ─── TEXT ─── */
+    p{ margin: 16px 0; font-size: 15px; color: rgba(27,27,27,.85); }
+    .lede{ font-size: 16px; color: rgba(27,27,27,.78); }
 
-    /* Media blocks */
+    /* ─── MEDIA ─── */
     figure{ margin: 0; }
-    img{ max-width: 100%; display:block; }
-
+    img{ max-width:100%; display:block; }
     .media{
       width:100%;
       background:#eee;
@@ -96,30 +206,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .media img{
       width:100%;
       height:100%;
-      object-fit: cover;
+      object-fit:cover;
     }
-
-    /* Full width single image (constrained to page max) */
-    .single{
-      max-width: var(--page);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-    .single .media{
-      aspect-ratio: 16 / 10; /* tweak per entry */
-    }
-
-    /* Captions */
     figcaption{
       font-family: var(--serif);
       font-style: italic;
       text-align:center;
       margin-top: 10px;
       font-size: 13px;
-      color: rgba(27,27,27,.64);
+      color: var(--faint);
     }
 
-    /* Grid system for multi-image layouts */
+    /* Single full-width */
+    .single{
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .single .media{ aspect-ratio: 16 / 10; }
+
+    /* Full-bleed (no side padding) */
+    .full-bleed .media{
+      aspect-ratio: 21 / 9;
+    }
+
+    /* ─── GRIDS ─── */
     .grid{
       max-width: var(--page);
       margin: 0 auto;
@@ -129,157 +240,522 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
     .grid-2{ grid-template-columns: 1fr 1fr; }
     .grid-3{ grid-template-columns: 1fr 1fr 1fr; }
+    .grid .media{ aspect-ratio: 16 / 10; }
 
-    /* "2 top + 1 wide bottom" like your examples */
+    /* 2+1 layout */
     .grid-2plus1{
       grid-template-columns: 1fr 1fr;
       grid-auto-rows: auto;
     }
     .span-2{ grid-column: 1 / -1; }
+    .grid-2plus1 .span-2 .media{ aspect-ratio: 21 / 9; }
 
-    /* Default image heights for grid cards */
-    .grid .media{ aspect-ratio: 16 / 10; }
-    .grid-2plus1 .span-2 .media{ aspect-ratio: 21 / 9; } /* wide bottom hero */
-
-    /* Full-bleed cover/footer quote over background image */
+    /* ─── COVER QUOTE ─── */
     .cover-quote{
-      position: relative;
+      position:relative;
       min-height: 340px;
       display:flex;
       align-items:flex-end;
       padding: 44px var(--gutter);
       color: #fff;
-      background:
-        linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.20)),
-        url("images/cover-placeholder.jpg") center/cover no-repeat;
+      background: #333 center/cover no-repeat;
+    }
+    .cover-quote::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.15));
     }
     .cover-quote .inner{
+      position:relative; z-index:2;
       max-width: var(--page);
       margin: 0 auto;
       width:100%;
     }
     .cover-quote .quote{
+      font-family: var(--sans);
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       line-height: 1.25;
-      font-size: clamp(18px, 2.4vw, 30px);
+      font-size: clamp(16px, 2.2vw, 28px);
       max-width: 36ch;
       margin: 0;
     }
+    .cover-quote figcaption{
+      text-align:left;
+      color: rgba(255,255,255,.6);
+      margin-top: 14px;
+    }
 
-    /* Responsive */
+    /* ─── ARTICLE FOOTER ─── */
+    .article-footer{
+      text-align:center;
+      padding: 44px var(--gutter) 24px;
+      max-width: var(--text);
+      margin: 0 auto;
+    }
+    .article-footer .location-label{
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: 0 0 4px;
+    }
+    .article-footer .location{
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      margin: 0 0 6px;
+      color: var(--black);
+    }
+    .article-footer .footnote{
+      font-family: var(--caps);
+      font-size: 13px;
+      color: var(--faint);
+      margin: 0;
+    }
+    .article-footer .share-row{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .share-btn{
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display:grid; place-items:center;
+      border: 1px solid var(--border);
+      background: transparent;
+      text-decoration:none;
+      transition: background .15s;
+    }
+    .share-btn:hover{ background: var(--bg-alt); }
+    .share-btn svg{ width: 14px; height: 14px; fill: var(--black); }
+
+    .article-divider{
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 44px auto;
+      max-width: var(--page);
+    }
+
+    /* ─── AUTHOR BIO FOOTER ─── */
+    .author-footer{
+      background: var(--black);
+      color: #fff;
+      padding: 64px var(--gutter);
+      text-align:center;
+    }
+    .author-footer .af-avatar{
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background:#555;
+      overflow:hidden;
+      margin: 0 auto 18px;
+      border: 3px solid rgba(255,255,255,.15);
+    }
+    .author-footer .af-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .author-footer .af-name{
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+    }
+    .af-section-label{
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin: 0 0 8px;
+    }
+    .af-email{
+      font-family: var(--sans);
+      font-size: 13px;
+      color: rgba(255,255,255,.7);
+      text-decoration:none;
+      margin: 0 0 14px;
+      display:block;
+    }
+    .af-email:hover{ color:#fff; }
+    .af-subscribe{
+      display:inline-flex;
+      align-items:center;
+      padding: 10px 24px;
+      background: #fff;
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 8px;
+      text-decoration:none;
+      transition: opacity .15s;
+      margin-bottom: 18px;
+    }
+    .af-subscribe:hover{ opacity:.85; }
+    .af-powered{
+      font-size: 11px;
+      color: rgba(255,255,255,.35);
+      margin: 8px 0 20px;
+    }
+    .af-socials{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .af-social{
+      width: 30px; height: 30px;
+      display:grid; place-items:center;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: transparent;
+      text-decoration:none;
+      transition: background .15s;
+    }
+    .af-social:hover{ background: rgba(255,255,255,.1); }
+    .af-social svg{ width: 14px; height: 14px; fill: rgba(255,255,255,.7); }
+
+    /* ─── MORE IN TRAVEL ─── */
+    .more-section{
+      background: var(--black);
+      padding: 0 var(--gutter) 64px;
+      text-align:center;
+    }
+    .more-divider{
+      width: 60px;
+      height: 1px;
+      background: rgba(255,255,255,.12);
+      margin: 0 auto 36px;
+    }
+    .more-title{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 24px;
+      color: #fff;
+      margin: 0 0 28px;
+    }
+    .more-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: var(--page);
+      margin: 0 auto;
+    }
+    .more-card{
+      text-decoration:none;
+      color:#fff;
+      transition: transform .2s;
+    }
+    .more-card:hover{ transform: translateY(-3px); }
+    .more-card .more-thumb{
+      border-radius: 10px;
+      overflow:hidden;
+      aspect-ratio: 4 / 3;
+      background:#444;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
+    .more-card .more-thumb img{
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .more-card .more-card-title{
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 10px 0 2px;
+      text-align:left;
+    }
+    .more-card .more-card-badge{
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      text-align:left;
+      display:block;
+    }
+    .more-card .more-card-sub{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      margin: 4px 0 0;
+      text-align:left;
+    }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 860px){
       :root{ --gutter: 18px; --gap: 14px; }
       .grid-2, .grid-3{ grid-template-columns: 1fr; }
       .grid-2plus1{ grid-template-columns: 1fr; }
       .span-2{ grid-column: auto; }
-      header.article-header{ padding-top: 46px; }
+      .post-hero{ min-height: 420px; }
+      .hero-content .post-title{ font-size: 32px; }
+      .more-grid{ grid-template-columns: 1fr; max-width: 360px; }
     }
     </style>
   </Fragment>
 
-  <!-- 1) ARTICLE HEADER (cover-ish, clean white like your first screenshot) -->
-  <header class="article-header">
-    <h1 class="title">INTO THE ALPS: SALZBURG</h1>
-    <p class="subtitle">In this series, follow through weekend getaway options in the Austrian Alps</p>
+  <!-- NAV (floating over hero) -->
+  <nav class="post-nav">
+    <span class="nav-left">WHAT'S NEW 🔥</span>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="nav-icons">
+        <a class="nav-icon" href="#" aria-label="Search">⌕</a>
+        <a class="nav-icon" href="#" aria-label="Grid">☷</a>
+        <a class="nav-icon" href="#" aria-label="Bell">♡</a>
+      </div>
+      <a class="edit-btn" href="#">✎ EDIT STORY</a>
+    </div>
+  </nav>
 
-    <div class="meta">
-      By <strong>ZUBIN JOHN</strong><br />
-      OCTOBER 9TH, 2021
+  <!-- HERO -->
+  <header class="post-hero" style="background-image:url('images/hero-placeholder.jpg')">
+    <div class="hero-content">
+      <h1 class="post-title">Bangkok<br>Airwaves</h1>
+      <p class="post-subtitle">Glimpses of Thailand 2018</p>
     </div>
   </header>
 
-  <!-- 2) SINGLE FULL-WIDTH IMAGE -->
+  <!-- AUTHOR LINE -->
+  <div class="author-line">
+    <div class="author-avatar">
+      <img src="../assets/images/00z.jpg" alt="Zubin John" />
+    </div>
+    <div class="author-info">
+      By <strong>ZUBIN JOHN</strong>
+      <span class="date">MARCH 24TH, 2019</span>
+    </div>
+  </div>
+
+  <!-- INTRO TEXT -->
   <section class="space-md">
-    <div class="single">
-      <figure>
-        <div class="media">
-          <img src="images/salzburg-hero.jpg" alt="Salzburg hero (replace)" />
-        </div>
-        <figcaption>Captivating vista of Salzburg from Hohensalzburg</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 3) SECTION TITLE -->
-  <section class="space-sm">
-    <div class="wrap">
-      <h2 class="section-title">JOURNEY TO UNTERSBERG</h2>
-    </div>
-  </section>
-
-  <!-- 4) TEXT BLOCKS (centered readable column) -->
-  <section class="space-sm">
     <div class="text">
       <p class="lede">
-        Back down in the heart of the Old Town, there are quite a few sights to see.
-        A short distance from the market you will find the charming little cemetery, Petersfriedhof.
-      </p>
-      <p>
-        Right off the edge of Salzburg Altstadt, walk to the Stieglkeller to ride the FestungsBahn into the heart
-        of the fortress. Take in panoramic views (in every direction), take a leisurely stroll inside, and visit
-        exhibits that transport you through time and offer glimpses into the history and lifestyles of this town.
+        A transit arrival by more than 50 flights a day, getting to our destination from Phuket was no
+        challenge. A full-take a good part of the opening hours to explore to our hearts' content the heart of
+        Bangkok Old Town area, in the between adjacent 8-odd temples.
       </p>
     </div>
   </section>
 
-  <!-- 5) MULTI-IMAGE GRID: 2-up -->
+  <!-- SECTION: HIGHLIGHTS -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">Highlights</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        With only an afternoon to sample the best of Bangkok, we immediately set out for the Phra Nakhon
+        District area — an incredibly historic part of Thailand's largest city and no surprise either. Here, in bold shades of red and
+        lacquer, dozens of old temples, each with a unique characteristic — from temples displaying relics which
+        formed a reputation from the entire world.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2-UP GRID -->
   <section class="space-md">
     <div class="grid grid-2">
       <figure>
-        <div class="media"><img src="images/grid-2a.jpg" alt="Replace" /></div>
+        <div class="media"><img src="images/grid-2a.jpg" alt="Temple detail" /></div>
       </figure>
       <figure>
-        <div class="media"><img src="images/grid-2b.jpg" alt="Replace" /></div>
+        <div class="media"><img src="images/grid-2b.jpg" alt="Temple detail" /></div>
       </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        Located on Rattanakosin Island, south of the Grand Palace, stands the Wat Pho temple — home to a 46-metre-long
+        gilded Buddhist reclining figure, the temple's greatest, most treasured artwork.
+      </figcaption>
     </div>
   </section>
 
-  <!-- 6) FULL-BLEED COVER/FOOTER QUOTE (text on background image) -->
-  <section class="cover-quote" style='background:
-      linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.20)),
-      url("images/quote-bg.jpg") center/cover no-repeat;'>
-    <div class="inner">
-      <p class="quote">
-        WITH THAT, OUR SHORT DAY IN SALZBURG IS AT AN END. OTHER MUST SEE SPOTS INCLUDE THE MIRABELL GARDENS AND DOM QUARTER IN OLD TOWN.
-      </p>
-    </div>
+  <!-- FULL-BLEED IMAGE -->
+  <section class="full-bleed">
+    <figure>
+      <div class="media"><img src="images/full-bleed-1.jpg" alt="Wat Arun panorama" /></div>
+    </figure>
   </section>
 
-  <!-- 7) MULTI-IMAGE GRID: "2 top + 1 wide bottom" -->
-  <section class="space-lg">
-    <div class="grid grid-2plus1">
-      <figure>
-        <div class="media"><img src="images/top-left.jpg" alt="Replace" /></div>
-      </figure>
-      <figure>
-        <div class="media"><img src="images/top-right.jpg" alt="Replace" /></div>
-      </figure>
-      <figure class="span-2">
-        <div class="media"><img src="images/bottom-wide.jpg" alt="Replace" /></div>
-        <figcaption>Mystic, shrouded peaks of the Untersberg range</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 8) NEXT SECTION TITLE EXAMPLE -->
-  <section class="space-sm">
-    <div class="wrap">
-      <h2 class="section-title">FORTRESS HOHENSALZBURG &amp; THE ALTSTADT</h2>
-    </div>
-  </section>
-
-  <!-- 9) More text -->
+  <!-- TEXT -->
   <section class="space-md">
     <div class="text">
       <p>
-        Use this block repeatedly for narrative. The layout stays consistent: generous whitespace, centered column,
-        and big uppercase section headers.
+        On the 'Thonburi' west bank of the Chao Phraya river lies <em>Wat Arun</em>, or the <strong>Temple of the Dawn</strong>.
+        It's one of the many sites in Thailand where the neighbouring influence of intermingling Asian cultures is
+        most evident. To an outside observer, it's a distinctly <strong>Khmer</strong> tower, a Hindu deity worshipped extensively in
+        India, powered by <em>the radiance of the sun</em>.
       </p>
-      <p class="small-note">
-        Tip: tweak image aspect-ratios per post (e.g. 16/9, 21/9) to match your original compositions.
+    </div>
+  </section>
+
+  <!-- 3-UP GRID -->
+  <section class="space-md">
+    <div class="grid grid-3">
+      <figure>
+        <div class="media"><img src="images/grid-3a.jpg" alt="Temple scene" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="images/grid-3b.jpg" alt="Temple scene" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="images/grid-3c.jpg" alt="Temple scene" /></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        Buddhist structures in the Phra Nakhon district, from ancient stupas, painted and carved stone statues and ornaments.
+        On the right, we see the iconic faces of the most cherished temple.
+      </figcaption>
+    </div>
+  </section>
+
+  <!-- 2+1 GRID -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media"><img src="images/top-left.jpg" alt="Snapshot" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="images/top-right.jpg" alt="Snapshot" /></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media"><img src="images/bottom-wide.jpg" alt="Wide panorama" /></div>
+        <figcaption>
+          Snapshots capturing some of the whiskful farmers surrounded simply by stupas or statues ranging from 40-50 meters in
+          height. On our return, a lot of fun things.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- COVER QUOTE -->
+  <section class="cover-quote" style="background-image:url('images/cover-quote.jpg')">
+    <div class="inner">
+      <figure>
+        <figcaption>A majestic view of the temple's towering central stupa.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SECTION TITLE: HIGHLIGHTS CONTINUED -->
+  <section class="space-lg">
+    <div class="text">
+      <h2 class="section-title-center">Highlights</h2>
+    </div>
+  </section>
+
+  <!-- MORE TEXT -->
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        A short cut and a definitive — to long-planned good times with good friends — To Beaches…
+        Diving, Curry and Mekhong, Presto!
       </p>
+    </div>
+  </section>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <p class="location-label">COMPOSITION</p>
+    <p class="location">Bangkok, Thailand</p>
+    <p class="footnote">© ZUBINDOTCO</p>
+
+    <div class="share-row">
+      <a class="share-btn" href="#" aria-label="Bookmark">
+        <svg viewBox="0 0 24 24"><path d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-3.5L5 22V4z"/></svg>
+      </a>
+      <a class="share-btn" href="#" aria-label="Share">
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+      <a class="share-btn" href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-top:12px;">
+      <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);">ENJOY</span>
+      <span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);">7%</span>
+    </div>
+  </div>
+
+  <div class="article-divider"></div>
+
+  <!-- AUTHOR BIO FOOTER -->
+  <section class="author-footer">
+    <div class="af-avatar">
+      <img src="../assets/images/00z.jpg" alt="Zubin John" />
+    </div>
+    <h3 class="af-name">Zubin John</h3>
+
+    <p class="af-section-label">Stay Updated</p>
+    <a class="af-email" href="mailto:zubin@zub.co">zubin@zub.co</a>
+    <a class="af-subscribe" href="#">Subscribe to Stories</a>
+    <p class="af-powered">Powered by <strong>bifunctional</strong> Blogs Engine</p>
+
+    <p class="af-section-label" style="margin-top:20px;">Follow Me</p>
+    <div class="af-socials">
+      <a class="af-social" href="#" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+      <a class="af-social" href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0z"/></svg>
+      </a>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:18px;margin-top:28px;flex-wrap:wrap;">
+      <a href="#" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Privacy Policy</a>
+      <a href="#" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Terms of Service</a>
+      <a href="#" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Cookie</a>
+      <a href="#" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Accessibility</a>
+    </div>
+  </section>
+
+  <!-- MORE IN TRAVEL -->
+  <section class="more-section">
+    <div class="more-divider"></div>
+    <h2 class="more-title">More in Travel</h2>
+
+    <div class="more-grid">
+      <a class="more-card" href="#">
+        <div class="more-thumb">
+          <img src="../images/expeditions/alps.jpg" alt="Peru" />
+        </div>
+        <p class="more-card-title">Peru</p>
+        <span class="more-card-badge">READ</span>
+        <p class="more-card-sub">Andes, July 2018 Blog</p>
+      </a>
+      <a class="more-card" href="#">
+        <div class="more-thumb">
+          <img src="../images/expeditions/verona.jpg" alt="Spirited Away in Jeju" />
+        </div>
+        <p class="more-card-title">Spirited Away in Jeju…</p>
+        <span class="more-card-badge">READ</span>
+        <p class="more-card-sub">In search of this blog…</p>
+      </a>
+      <a class="more-card" href="#">
+        <div class="more-thumb">
+          <img src="../images/expeditions/thailand.jpg" alt="This is Africa" />
+        </div>
+        <p class="more-card-title">This is Africa</p>
+        <span class="more-card-badge">READ</span>
+        <p class="more-card-sub">A journey from Nairobi…</p>
+      </a>
     </div>
   </section>
 </BaseLayout>

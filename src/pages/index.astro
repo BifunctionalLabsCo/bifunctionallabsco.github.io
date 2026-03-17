@@ -235,7 +235,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     /* STUDIO SERVICES */
     .services{
-      background: var(--cream);
+      background: var(--teal-800);
+      color: var(--cream);
     }
     .services-header{
       text-align:center;
@@ -248,14 +249,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-weight: 600;
       font-style: italic;
       margin: 0 0 10px;
-      color: var(--teal-600);
+      color: var(--cream);
       letter-spacing: .01em;
     }
     .services-subtitle{
       font-family: var(--sans);
       font-size: 14px;
       margin: 0;
-      color: var(--teal-800);
+      color: var(--cream);
       opacity: .8;
     }
     .services-grid{
@@ -268,9 +269,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border-top: 4px solid var(--teal-400);
       border-radius: 16px;
       padding: 36px 30px 34px;
-      background: var(--teal-800);
+      background: rgba(255,255,255,.1);
       color: var(--cream);
-      box-shadow: 0 14px 34px rgba(0,0,0,.14);
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+      backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .service-card:hover{
@@ -328,93 +330,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       justify-content:center;
       gap: 8px;
       padding: 14px 28px;
-      background: var(--teal-600);
-      color: var(--cream);
+      background: var(--teal-400);
+      color: var(--teal-800);
       font-family: "Montserrat", sans-serif;
       font-size: 16px;
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
-      border: 2px solid var(--teal-600);
+      border: 2px solid var(--teal-400);
       border-radius: 10px;
       text-decoration:none;
       transition: transform .15s ease, background .15s ease;
     }
     .service-btn:hover{
       transform: translateY(-1px);
-      background: #004f3e;
+      background: #33e6a3;
     }
     .blog-link{ display:inline-flex; }
-
-    /* STORY GRID (expedition cards) */
-    .story-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 28px;
-    }
-    .story-card{
-      position:relative;
-      display:block;
-      border-radius: 14px;
-      overflow:hidden;
-      aspect-ratio: 4 / 5;
-      background: #ddd center/cover no-repeat;
-      text-decoration:none;
-      box-shadow: var(--shadow-soft);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .story-card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.22);
-    }
-    .story-overlay{
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding: 24px 20px;
-      background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.18) 50%, transparent 100%);
-      color: var(--white);
-    }
-    .story-badge{
-      position:absolute;
-      top: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "Montserrat", sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,.18);
-      backdrop-filter: blur(6px);
-      padding: 5px 14px;
-      border-radius: 6px;
-    }
-    .story-title{
-      font-family: "Montserrat", sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin: 0 0 4px;
-    }
-    .story-subtitle{
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 14px;
-      margin: 0 0 6px;
-      opacity: .88;
-    }
-    .story-date{
-      font-family: "Montserrat", sans-serif;
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      opacity: .72;
-    }
 
     .section-cta{
       display:inline-flex;
@@ -650,7 +582,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .two-col{ grid-template-columns: 1fr; }
       .body-copy{ max-width: unset; }
       .cards{ grid-template-columns: 1fr; }
-      .story-grid{ grid-template-columns: 1fr; }
       .hero{ min-height: 520px; }
       .watermark{ display:none; }
       .footer-branding{ display:none; }
@@ -796,37 +727,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
 
-      <p class="exp-sub">A small preview of our recent trips &amp; expeditions</p>
-
-      <div class="story-grid">
-        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/alps.jpg')">
-          <div class="story-overlay">
-            <span class="story-badge">PUBLISHED</span>
-            <h3 class="story-title">Into the Alps: Salzburg</h3>
-            <p class="story-subtitle">Weekend getaway options in the Austrian Alps</p>
-            <time class="story-date">October 9<sup>th</sup>, 2021</time>
-          </div>
-        </a>
-        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/verona.jpg')">
-          <div class="story-overlay">
-            <span class="story-badge">PUBLISHED</span>
-            <h3 class="story-title">Verona</h3>
-            <p class="story-subtitle">Of Bridges &amp; Brawls</p>
-            <time class="story-date">October 8<sup>th</sup>, 2020</time>
-          </div>
-        </a>
-        <a class="story-card" href="expeditions/" style="background-image:url('images/expeditions/thailand.jpg')">
-          <div class="story-overlay">
-            <span class="story-badge">PUBLISHED</span>
-            <h3 class="story-title">Andaman Sands</h3>
-            <p class="story-subtitle">Glimpses of Thailand 2018</p>
-            <time class="story-date">January 7<sup>th</sup>, 2019</time>
-          </div>
-        </a>
-      </div>
-
       <div class="services-cta">
-        <a class="service-btn blog-link" href="expeditions/">All Expeditions</a>
+        <a class="service-btn blog-link" href="expeditions/">To Expeditions</a>
       </div>
     </div>
   </section>
