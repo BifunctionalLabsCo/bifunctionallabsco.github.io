@@ -6,57 +6,80 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <Fragment slot="head">
     <style is:inline>
     :root{
-      --teal-400:#40ffb5;
-      --teal-600: #00634d;
-      --teal-800: #032b22;
-      --cream: #eeeae3;
-      --cream-2:#f3efe9;
-      --pink: #f6b4d6;
-      --white:#ffffff;
+      --black: #1b1b1b;
+      --muted: rgba(27,27,27,.58);
+      --bg: #ffffff;
+      --border: rgba(27,27,27,.10);
       --max: 1120px;
       --gutter: 28px;
       --serif: "Fraunces", serif;
       --caps: "Cormorant Garamond", serif;
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-      --shadow-soft: 0 10px 30px rgba(0,0,0,.12);
+      --sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.10);
       --radius-lg: 14px;
     }
     *{box-sizing:border-box;}
     body{
       margin:0;
-      background: var(--pink);
-      color: var(--teal-800);
+      background: var(--bg);
+      color: var(--black);
       font-family: var(--sans);
+      line-height: 1.5;
     }
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
-    .section{ padding: 54px 0 64px; }
 
-    .exp-title{
-      text-align:center;
-      font-family: var(--serif);
-      font-style: italic;
+    /* NAV */
+    .exp-nav{
+      display:flex;
+      align-items:center;
+      padding: 18px var(--gutter);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .exp-nav .back{
+      font-family: var(--sans);
+      font-size: 13px;
       font-weight: 600;
-      font-size: 42px;
-      margin: 0 0 8px;
-      color: var(--teal-800);
+      color: var(--black);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
     }
-    .travel-title{
-      font-family: "Montserrat", sans-serif;
-      font-weight:600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: 16px;
+    .exp-nav .back:hover{ opacity:.7; }
+    .exp-nav .back strong{ font-weight:700; }
+
+    /* HEADER */
+    .exp-header{
       text-align:center;
-      margin: 0 0 22px;
-      color: var(--teal-800);
+      padding: 48px var(--gutter) 10px;
     }
+    .exp-title{
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin: 0;
+      color: var(--black);
+    }
+    .exp-subtitle{
+      font-family: var(--caps);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--muted);
+      margin: 12px 0 0;
+      letter-spacing: .04em;
+    }
+
+    /* HERO */
     .travel-hero{
       max-width: 560px;
-      margin: 0 auto 10px;
+      margin: 32px auto 0;
       text-align:center;
     }
     .travel-hero .media{
@@ -65,99 +88,162 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       overflow:hidden;
       aspect-ratio: 1 / 1;
       box-shadow: var(--shadow-soft);
-      background:#ddd;
+      background:#eee;
     }
     .travel-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
     .caption{
       font-family: var(--serif);
-      font-size: 14px;
-      color: var(--teal-800);
-      margin: 12px auto 0;
-      max-width: 74ch;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 14px auto 0;
+      max-width: 60ch;
       font-style: italic;
       text-align:center;
-      line-height: 1.45;
+      line-height: 1.5;
     }
-    .exp-sub{
+
+    /* DIVIDER */
+    .divider{
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin: 44px auto;
+    }
+
+    /* STORIES SECTION */
+    .stories-header{
       text-align:center;
-      font-family: var(--caps);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--teal-800);
-      margin: 24px 0 24px;
-      letter-spacing: .08em;
+      margin-bottom: 28px;
     }
-    .cards{
+    .stories-title{
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      color: var(--black);
+    }
+    .stories-sub{
+      font-family: var(--caps);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--muted);
+      margin: 0;
+      letter-spacing: .04em;
+    }
+
+    /* STORY GRID */
+    .story-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
-    .card{
-      background: rgba(255,255,255,.0);
-      border-radius: 12px;
-      overflow:hidden;
-      box-shadow: none;
-    }
-    .card .thumb{
-      border-radius: 12px;
-      overflow:hidden;
-      box-shadow: var(--shadow-soft);
-      aspect-ratio: 4 / 3;
-      background:#ddd;
-    }
-    .card .thumb img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
+    .story-card{
+      position:relative;
       display:block;
+      border-radius: 12px;
+      overflow:hidden;
+      aspect-ratio: 4 / 5;
+      background: #eee center/cover no-repeat;
+      text-decoration:none;
+      box-shadow: var(--shadow-soft);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .card .meta{
-      text-align:center;
-      margin-top: 8px;
+    .story-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
     }
-    .card .meta .kicker{
-      font-family: "Montserrat", sans-serif;
-      letter-spacing: .18em;
+    .story-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding: 24px 20px;
+      background: linear-gradient(to top, rgba(0,0,0,.74) 0%, rgba(0,0,0,.15) 50%, transparent 100%);
+      color: #fff;
+    }
+    .story-badge{
+      position:absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      font-size: 12px;
-      color: var(--teal-800);
-      font-weight: 600;
-      margin-bottom: 4px;
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 6px;
+      white-space:nowrap;
     }
-    .card .meta .place{
-      font-family: var(--serif);
-      font-size: 18px;
-      color: var(--teal-800);
-      font-weight: 600;
-      font-style: italic;
-    }
-    .back-link{
-      display:inline-block;
-      margin-top: 22px;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
+    .story-title{
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
-      color: var(--teal-800);
-      text-decoration:none;
-      border-bottom: 1px solid rgba(0,0,0,.25);
-      padding-bottom: 3px;
+      margin: 0 0 4px;
     }
+    .story-subtitle{
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      margin: 0 0 6px;
+      opacity: .88;
+    }
+    .story-date{
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .68;
+    }
+
+    /* BACK LINK */
+    .back-link{
+      display:inline-block;
+      margin-top: 36px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration:none;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 3px;
+      transition: opacity .15s;
+    }
+    .back-link:hover{ opacity:.6; }
+
     @media (max-width: 780px){
-      .cards{ grid-template-columns: 1fr; }
+      .story-grid{ grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
       .travel-hero{ max-width: 100%; }
+      .exp-header{ padding-top: 32px; }
     }
     </style>
   </Fragment>
 
-  <section class="section">
-    <div class="wrap">
-      <h1 class="exp-title">Expeditions</h1>
-      <p class="travel-title">LIKE EVERY OTHER BORING TECH DUO WE ALSO BLOG ABOUT TRAVEL</p>
+  <!-- NAV -->
+  <nav class="exp-nav">
+    <a class="back" href="../">← Back to <strong>Home</strong></a>
+  </nav>
 
+  <!-- HEADER -->
+  <header class="exp-header">
+    <h1 class="exp-title">Expeditions</h1>
+    <p class="exp-subtitle">Like every other boring tech duo, we also blog about travel</p>
+  </header>
+
+  <section>
+    <div class="wrap">
       <div class="travel-hero">
         <div class="media">
-          <img src="../assets/images/02f.jpg" alt="Family travel photo — placeholder image" />
+          <img src="../assets/images/02f.jpg" alt="Family travel photo" />
         </div>
         <p class="caption">
           A family-postcard selfie with the backdrop of the Marble Mountains, found in central Vietnam,
@@ -165,41 +251,68 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </p>
       </div>
 
-      <p class="exp-sub">Here's a small preview a preview of some of our more recent trips and expeditions</p>
+      <div class="divider"></div>
 
-      <div class="cards">
-        <article class="card">
-          <div class="thumb">
-            <img src="../images/expeditions/alps.jpg" alt="Into the Alps — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">INTO THE ALPS | PART 1</div>
-            <div class="place">Salzburg</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="../images/expeditions/verona.jpg" alt="Of Brawls & Bridges — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">OF BRAWLS &amp; BRIDGES</div>
-            <div class="place">Verona</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb">
-            <img src="../images/expeditions/thailand.jpg" alt="Glimpses of Thailand — placeholder image" />
-          </div>
-          <div class="meta">
-            <div class="kicker">GLIMPSES OF THAILAND | 2018</div>
-            <div class="place">Andaman Sands</div>
-          </div>
-        </article>
+      <!-- PUBLISHED STORIES -->
+      <div class="stories-header">
+        <h2 class="stories-title">Published Stories</h2>
+        <p class="stories-sub">A preview of some of our more recent trips and expeditions</p>
       </div>
 
-      <a class="back-link" href="../">← Back to home</a>
+      <div class="story-grid">
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/alps.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Into the Alps: Salzburg</h3>
+            <p class="story-subtitle">Weekend getaway options in the Austrian Alps</p>
+            <time class="story-date">October 9<sup>th</sup>, 2021</time>
+          </div>
+        </a>
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/innsbruck.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Into the Alps: Innsbruck</h3>
+            <p class="story-subtitle">Weekend getaway options in the Austrian Alps</p>
+            <time class="story-date">October 9<sup>th</sup>, 2021</time>
+          </div>
+        </a>
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/verona.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Verona</h3>
+            <p class="story-subtitle">Of Bridges &amp; Brawls</p>
+            <time class="story-date">October 8<sup>th</sup>, 2020</time>
+          </div>
+        </a>
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/thailand-temple.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Bangkok Airwaves</h3>
+            <p class="story-subtitle">Glimpses of Thailand 2018</p>
+            <time class="story-date">March 24<sup>th</sup>, 2019</time>
+          </div>
+        </a>
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/thailand.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">Andaman Sands</h3>
+            <p class="story-subtitle">Glimpses of Thailand 2018</p>
+            <time class="story-date">January 7<sup>th</sup>, 2019</time>
+          </div>
+        </a>
+        <a class="story-card" href="#" style="background-image:url('../images/expeditions/bruges.jpg')">
+          <div class="story-overlay">
+            <span class="story-badge">PUBLISHED</span>
+            <h3 class="story-title">In Bruges via Ghent &amp; Cologne</h3>
+            <p class="story-subtitle">European Rail Trails: Volume II</p>
+            <time class="story-date">January 7<sup>th</sup>, 2019</time>
+          </div>
+        </a>
+      </div>
+
+      <a class="back-link" href="../">← Back to Home</a>
     </div>
   </section>
+
+  <div style="height:64px"></div>
 </BaseLayout>
