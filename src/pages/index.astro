@@ -282,7 +282,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     .services-grid{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
     }
     .service-card{
@@ -663,8 +663,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="service-meta">1 week | 10 hours</p>
           <p class="service-copy">For founders ready to launch a new product or business with clarity and momentum.</p>
           <p class="service-copy">
-            Over one focused week, we design and implement a tailored launch foundation — website,
-            tooling, automation workflows, customer intelligence, or lead-gen infrastructure —
+            Over one focused week, we design and implement a tailored launch foundation, website,
+            tooling, automation workflows, customer intelligence, or lead-gen infrastructure:
             scoped collaboratively to ensure meaningful execution.
           </p>
           <p class="service-price">€800</p>
@@ -676,11 +676,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <p class="service-meta">1 week | 4 hrs</p>
           <p class="service-copy">For founders seeking a clear and cohesive brand foundation.</p>
           <p class="service-copy">
-            We collaborate to define your core identity system — logo suite,
+            We collaborate to define your core identity system - logo suite,
             visual assets, and digital style guidelines tailored to your
             direction and ambitions.
           </p>
           <p class="service-price">€400</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3 class="service-name">Custom Work Packages</h3>
+          <p class="service-meta">Flexible duration | Tailored scope</p>
+          <p class="service-copy">For teams with an existing business, venture or startup looking to extend and enhance their current digital presence.</p>
+          <p class="service-copy">
+            We design and implement bespoke work packages to add new software features, automation layers,
+            or intelligent workflows to your existing website or digital service offering.
+          </p>
+          <p class="service-price">Custom pricing</p>
         </article>
       </div>
 
@@ -749,7 +761,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <img src="assets/images/02c.jpg" alt="Zubin and Saumya" />
         </div>
         <p class="caption">
-          yes, we're married. tied the knot in 2019 — been travelling, freelancing &amp; building startups together ever since.
+          Yes, we're married. tied the knot in 2019 — been travelling, freelancing &amp; building startups together ever since.
         </p>
       </div>
 
