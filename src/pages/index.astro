@@ -121,9 +121,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .hero-inner{
       width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
       text-align:center;
       color:var(--white);
-      padding: 110px 0 72px;
+      padding: 110px var(--gutter) 72px;
     }
 
     .hero-kicker{
@@ -136,30 +138,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .hero-we-are{
       font-family: var(--serif);
-      font-size: clamp(60px, 4.5vw, 80px);
+      font-size: clamp(28px, 6vw, 80px);
       margin: 0 0 4px;
       letter-spacing: .04em;
       color: var(--pink);
-      font-style:light;
     }
 
     .hero-title{
       font-family: "Poppins", sans-serif;
       font-weight: 600;
-      font-size: clamp(80px, 7vw, 88px);
+      font-size: clamp(42px, 10vw, 88px);
       margin: 0 0 8px;
       letter-spacing: .02em;
       text-transform: lowercase;
       text-shadow: 0 10px 24px rgba(0,0,0,.35);
+      word-break: break-word;
     }
 
     .hero-subtitle{
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto 20px;
       font-family: var(--caps);
-      font-size: 24px;
+      font-size: clamp(14px, 3.5vw, 24px);
       color:var(--teal-400);
       opacity:.92;
+      padding: 0 8px;
     }
 
     .hero-flag{
@@ -615,7 +618,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     @media (max-width: 520px){
       :root{ --gutter: 18px; }
       .section{ padding: 58px 0; }
-      .hero-inner{ padding: 56px 0 52px; }
+      .hero-inner{
+        padding: 80px var(--gutter) 48px;
+      }
       .hero-kicker{ letter-spacing: .2em; }
       .hero-btn{ padding: 11px 18px; }
       .title-script{ font-size: 36px; }
@@ -741,11 +746,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="travel-hero">
         <div class="media">
-          <img src="assets/images/02f.jpg" alt="Family travel photo — placeholder image" />
+          <img src="assets/images/02c.jpg" alt="Zubin and Saumya" />
         </div>
         <p class="caption">
-          A family-postcard selfie with the backdrop of the Marble Mountains, found in central Vietnam,
-          a short excursion from Da Nang or Hoi An.
+          yes, we're married. tied the knot in 2019 — been travelling, freelancing &amp; building startups together ever since.
         </p>
       </div>
 
