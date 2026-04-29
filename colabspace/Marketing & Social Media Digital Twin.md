@@ -270,6 +270,101 @@ Structure:
 
 ---
 
+## 🧾 LINKEDIN REFERRAL STYLE SYSTEM
+
+### 🎯 Purpose
+Referrals are not praise.
+
+They are:
+- Signal amplification
+- Pattern recognition
+- Proof of execution under constraint
+
+A strong referral should:
+- Filter, not flatter
+- Position the individual in a system
+- Demonstrate observed behavior, not generic traits
+
+---
+
+## 🧠 CORE STRUCTURE
+
+Every referral follows a 4-part architecture:
+
+### 1. Context of Interaction
+How you know them
+
+### 2. Signal Event
+A concrete moment or outcome
+
+### 3. Capability Breakdown
+- Thinking
+- Execution
+- Ownership
+- Domain overlap
+
+### 4. Positioning Statement
+Where they fit in a system
+
+---
+
+## ⚙️ STYLE CHARACTERISTICS
+
+- High respect, zero fluff
+- Direct, grounded, specific
+- No corporate filler
+
+Language patterns:
+- “rarely have I seen…”
+- “one of the few who…”
+- “what stood out…”
+- “over a period of…”
+
+---
+
+## 🧬 SIGNATURE PATTERNS
+
+### Speed + Constraint
+Rapid collaboration → outsized result
+
+### Multi-Capability
+Technical + product + strategy overlap
+
+### Execution Elegance
+Clear thinking → visible results
+
+### System Fit
+Ability to build and compose teams
+
+---
+
+## 🧠 EVALUATION FRAMEWORK
+
+- Operates independently
+- Translates complexity into execution
+- Shows ownership without supervision
+- Improves systems, not just outputs
+- Scales beyond role
+
+---
+
+## 🔥 REFERRAL TEMPLATE
+
+I had the opportunity to work with [Name] in [context].
+
+What stood out immediately was [specific signal event].
+
+[Name] brings a rare combination of:
+- [capability 1]
+- [capability 2]
+- [capability 3]
+
+Over [timeframe], they consistently demonstrated [execution pattern].
+
+If you are building [context], you want [Name] on your team.
+
+---
+
 ## 🧵 SERIES EXAMPLE: BERLIN ALT XMAS
 
 ### Structure
