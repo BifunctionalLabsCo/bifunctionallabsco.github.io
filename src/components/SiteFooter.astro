@@ -1,0 +1,105 @@
+<footer id="contact" class="site-footer">
+  <div class="wrap footer-wrap">
+    <p class="footer-brand">Bifunctional Labs</p>
+    <p class="footer-positioning">A Berlin-based freelance studio for product, software, data, and delivery.</p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/#services">Services</a>
+      <a href="/expeditions/">Expeditions</a>
+      <a href="/legal-notice/">Legal Notice</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:bifunctionallabsco@gmail.com">bifunctionallabsco@gmail.com</a>
+      <span aria-hidden="true">•</span>
+      <span>Berlin, Germany</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer{
+    background: var(--teal-800, #032b22);
+    color: var(--cream, #efede7);
+    padding: 72px 0 64px;
+    box-shadow: inset 0 8px 28px rgba(0,0,0,.2);
+  }
+  .footer-wrap{
+    max-width: var(--max, 1120px);
+    margin: 0 auto;
+    padding: 0 var(--gutter, 28px);
+    text-align: center;
+  }
+  .footer-brand{
+    margin: 0;
+    font-family: var(--sans, "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--teal-400, #40ffb5);
+  }
+  .footer-positioning{
+    margin: 16px auto 0;
+    max-width: 58ch;
+    font-family: var(--serif, "Fraunces", serif);
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--cream, #efede7);
+  }
+  .footer-nav{
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 16px 20px;
+    flex-wrap: wrap;
+  }
+  .footer-nav a{
+    color: var(--cream, #efede7);
+    text-decoration: none;
+    font-family: var(--sans, "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(239,237,231,.22);
+    padding-bottom: 3px;
+    transition: opacity .18s ease, border-color .18s ease;
+  }
+  .footer-nav a:hover{
+    opacity: .78;
+    border-color: rgba(64,255,181,.5);
+  }
+  .footer-meta{
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: var(--caps, "Cormorant Garamond", serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cream, #efede7);
+  }
+  .footer-meta a{
+    color: var(--cream, #efede7);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(239,237,231,.28);
+    line-height: 1.1;
+  }
+  .footer-meta a:hover{
+    opacity: .78;
+  }
+  @media (max-width: 520px){
+    .site-footer{
+      padding: 56px 0 52px;
+    }
+    .footer-positioning{
+      font-size: 19px;
+    }
+    .footer-meta{
+      font-size: 16px;
+      gap: 8px;
+    }
+  }
+</style>
