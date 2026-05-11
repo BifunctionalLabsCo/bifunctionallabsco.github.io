@@ -24,12 +24,13 @@
       </a>
     </div>
     <div class="footer-links">
-      <a href="/#services">Services</a>
       <a href="/expeditions/">Expeditions</a>
       <a href="/legal-notice/">Legal Notice</a>
       <a href="/privacy-policy/">Privacy Policy</a>
-      <a href="mailto:bifunctionallabsco@gmail.com">bifunctionallabsco@gmail.com</a>
-      <span>Berlin, Germany</span>
+    </div>
+    <div class="footer-signoff">
+      <span>From BER</span>
+      <span class="heart" aria-hidden="true">♥</span>
     </div>
   </div>
   <div class="footer-branding" aria-hidden="true"></div>
@@ -130,6 +131,24 @@
   .footer-links a:hover{
     opacity: 1;
     border-color: rgba(64,255,181,.5);
+  }
+  .footer-signoff{
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cream, #efede7);
+    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    opacity: .9;
+  }
+  .footer-signoff .heart{
+    color: var(--pink, #ff4fb4);
+    font-size: 14px;
+    line-height: 1;
   }
   .footer-branding{
     position: absolute;
