@@ -6,9 +6,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <Fragment slot="head">
     <style is:inline>
       :root{
-        --black: #1b1b1b;
-        --muted: rgba(27,27,27,.66);
-        --bg: #ffffff;
+        --cream: #efede7;
+        --teal-400: #40ffb5;
+        --teal-800: #032b22;
+        --muted: rgba(239,237,231,.76);
+        --bg: #032b22;
         --max: 1120px;
         --text: 760px;
         --gutter: 28px;
@@ -20,7 +22,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       body{
         margin:0;
         background: var(--bg);
-        color: var(--black);
+        color: var(--cream);
         font-family: var(--sans);
         line-height: 1.6;
       }
@@ -46,6 +48,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         color: var(--muted);
         max-width: 62ch;
       }
+      .policy h1{
+        color: var(--cream);
+      }
       .content{
         max-width: var(--text);
         margin-top: 32px;
@@ -58,7 +63,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         margin-top: 14px;
       }
       a{
-        color: var(--black);
+        color: var(--teal-400);
       }
       @media (max-width: 520px){
         :root{ --gutter: 18px; }
