@@ -9,12 +9,40 @@
  */
 
 :root{
-  /* Approx palette based on the PDF */
-   --teal-400:#40ffb5;
-  --teal-600: #00634d;
-  --teal-800: #032b22;
+  /* Core brand palette — Coolors nomenclature */
+  --blush-pop: #ffafda;
+  --bubblegum-pink: #ff4f81;
+  --tropical-mint: #40ffb5;
+  --emerald-depths: #00634d;
+  --evergreen: #032b22;
+
+  /* Core brand gradients */
+  --gradient-top: linear-gradient(0deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-right: linear-gradient(90deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-bottom: linear-gradient(180deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-left: linear-gradient(270deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-top-right: linear-gradient(45deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-bottom-right: linear-gradient(135deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-top-left: linear-gradient(225deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-bottom-left: linear-gradient(315deg, var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+  --gradient-radial: radial-gradient(var(--blush-pop), var(--bubblegum-pink), var(--tropical-mint), var(--emerald-depths), var(--evergreen));
+
+  /* Backward-compatible aliases */
+  --teal-400: var(--tropical-mint);
+  --teal-600: var(--emerald-depths);
+  --teal-800: var(--evergreen);
   --cream: #efede7;
-  --pink: #ffafda;
+  --pink: var(--blush-pop);
+  --wild-rose: var(--bubblegum-pink);
+
+  /* Complementary surface palette */
+  --surface-dark-primary: #1a1f1d;
+  --surface-dark-secondary: #22302b;
+  --surface-dark-forest: #10231d;
+  --surface-light-primary: #f7f5f0;
+  --surface-light-secondary: #efede7;
+  --surface-light-concrete: #e4e0d8;
+  --surface-atmospheric: #d8f2ea;
  
   --white:#ffffff;
   --muted:#6e6e6e;
