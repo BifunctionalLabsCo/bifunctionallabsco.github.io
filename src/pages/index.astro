@@ -258,6 +258,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       color: var(--cream);
       position:relative;
       box-shadow: inset 0 12px 28px rgba(0,0,0,.15);
+      overflow:hidden;
+    }
+    .services::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(135deg, rgba(64,255,181,.08), transparent 34%),
+        radial-gradient(circle at 78% 12%, rgba(255,175,218,.18), transparent 28%);
+      pointer-events:none;
+    }
+    .services .wrap{
+      position:relative;
     }
     .services-header{
       text-align:center;
@@ -284,32 +297,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 28px;
+      align-items:stretch;
     }
     .service-card{
       border: none;
       border-top: 4px solid var(--teal-400);
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 36px 30px 34px;
       background: rgba(255,255,255,.1);
       color: var(--cream);
       box-shadow: 0 14px 34px rgba(0,0,0,.18);
       backdrop-filter: blur(6px);
       transition: transform .2s ease, box-shadow .2s ease;
+      position:relative;
+      overflow:hidden;
+      min-height:100%;
+    }
+    .service-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(145deg, rgba(255,255,255,.12), transparent 38%);
+      pointer-events:none;
     }
     .service-card:hover{
       transform: translateY(-4px);
       box-shadow: 0 20px 44px rgba(0,0,0,.2);
     }
+    .service-card > *{
+      position:relative;
+    }
     .service-icon{
-      font-size: 36px;
-      text-align:center;
+      width: 42px;
+      height: 42px;
+      display:grid;
+      place-items:center;
+      margin: 0 0 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(64,255,181,.28);
+      background: rgba(3,43,34,.28);
+      color: var(--teal-400);
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
       margin-bottom: 14px;
     }
     .service-name{
       font-family: var(--serif);
       font-size: 22px;
       font-weight: 600;
-      text-align:center;
+      text-align:left;
       margin: 0 0 12px;
       letter-spacing: .01em;
       color: var(--teal-400);
@@ -320,14 +357,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
-      text-align:center;
+      text-align:left;
       margin: 0 0 16px;
     }
     .service-copy{
       font-family: var(--sans);
       font-size: 14px;
       line-height: 1.55;
-      text-align:center;
+      text-align:left;
       margin: 0 0 14px;
       color: var(--cream);
       opacity: .88;
@@ -337,9 +374,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 600;
-      text-align:center;
+      text-align:left;
       margin: 18px 0 0;
       color: var(--teal-400);
+    }
+    .service-list{
+      display:grid;
+      gap: 8px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style:none;
+    }
+    .service-list li{
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height:1.45;
+      color: rgba(239,237,231,.86);
+      padding-left: 18px;
+      position:relative;
+    }
+    .service-list li::before{
+      content:"";
+      width: 6px;
+      height: 6px;
+      border-radius:999px;
+      background: var(--pink);
+      position:absolute;
+      left:0;
+      top:.55em;
     }
     .services-cta{
       text-align:center;
@@ -658,7 +720,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="services-grid">
         <article class="service-card">
-          <div class="service-icon">🚀</div>
+          <div class="service-icon">01</div>
           <h3 class="service-name">Venture Kick-Starter</h3>
           <p class="service-meta">1 week | 10 hours</p>
           <p class="service-copy">For founders who need a sharp technical and product partner to move from idea to first working version.</p>
@@ -667,11 +729,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             prototype, tooling, automation workflow, customer intelligence, or lead-gen infrastructure,
             scoped around what creates real momentum fastest.
           </p>
+          <ul class="service-list">
+            <li>Scope, architecture, and launch priorities</li>
+            <li>Prototype, website, automation, or intelligence layer</li>
+            <li>Clear handoff on what to build next</li>
+          </ul>
           <p class="service-price">€800</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">🎨</div>
+          <div class="service-icon">02</div>
           <h3 class="service-name">Brand Design Package</h3>
           <p class="service-meta">1 week | 4 hrs</p>
           <p class="service-copy">For founders who need a visual identity that feels considered, usable, and ready to ship.</p>
@@ -680,11 +747,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             visual assets, AI-assisted illustration, and digital style guidelines tailored to your
             product, audience, and ambitions.
           </p>
+          <ul class="service-list">
+            <li>Logo direction and compact identity system</li>
+            <li>AI-assisted image and asset direction</li>
+            <li>Practical digital style guide for shipping</li>
+          </ul>
           <p class="service-price">€400</p>
         </article>
 
         <article class="service-card">
-          <div class="service-icon">⚙️</div>
+          <div class="service-icon">03</div>
           <h3 class="service-name">Custom Work Packages</h3>
           <p class="service-meta">Flexible duration | Tailored scope</p>
           <p class="service-copy">For an existing business, venture, or startup that needs focused technical execution without hiring a full in-house team.</p>
@@ -692,6 +764,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             We design and implement bespoke work packages to add software features, automation layers,
             data workflows, or intelligent systems to your existing website, product, or service operation.
           </p>
+          <ul class="service-list">
+            <li>Software features and product improvements</li>
+            <li>Data workflows and system integrations</li>
+            <li>AI-assisted operations and internal tools</li>
+          </ul>
           <p class="service-price">Custom pricing</p>
         </article>
       </div>
@@ -740,7 +817,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
 
         <div class="media portrait-circle" aria-label="Saumya photo">
-          <img src="assets/images/01s.jpg" alt="Saumya — placeholder image" />
+          <img src="assets/images/01s.jpg" alt="Saumya placeholder image" />
         </div>
       </div>
     </div>
@@ -757,7 +834,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <img src="assets/images/02c.jpg" alt="Zubin and Saumya" />
         </div>
         <p class="caption">
-          Yes, we're married. tied the knot in 2019 — been travelling, freelancing &amp; building startups together ever since.
+          Yes, we're married. tied the knot in 2019, been travelling, freelancing &amp; building startups together ever since.
         </p>
       </div>
 
