@@ -21,7 +21,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     *{box-sizing:border-box;}
     body{
       margin:0;
-      background: var(--bg);
+      background: #efede7;
       color: var(--black);
       font-family: var(--sans);
       line-height: 1.5;
@@ -36,43 +36,65 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .exp-nav{
       display:flex;
       align-items:center;
-      padding: 18px var(--gutter);
+      padding: 20px var(--gutter);
       max-width: var(--max);
       margin: 0 auto;
+      border-bottom: 1px solid rgba(27,27,27,.08);
     }
     .exp-nav .back{
       font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
       color: var(--black);
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       gap: 6px;
+      opacity: .65;
+      transition: opacity .15s;
     }
-    .exp-nav .back:hover{ opacity:.7; }
-    .exp-nav .back strong{ font-weight:700; }
+    .exp-nav .back:hover{ opacity:1; }
 
     /* HEADER */
     .exp-header{
       text-align:center;
-      padding: 48px var(--gutter) 10px;
+      padding: 56px var(--gutter) 16px;
+    }
+    .exp-kicker{
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #00634d;
+      opacity: .7;
+      margin: 0 0 14px;
     }
     .exp-title{
-      font-family: var(--sans);
-      font-weight: 800;
-      font-size: clamp(36px, 5vw, 56px);
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-style: italic;
+      font-size: clamp(40px, 6vw, 68px);
+      letter-spacing: .01em;
       margin: 0;
       color: var(--black);
+      line-height: 1.05;
+    }
+    .exp-rule{
+      width: 40px;
+      height: 3px;
+      background: #00634d;
+      border-radius: 2px;
+      margin: 18px auto 16px;
     }
     .exp-subtitle{
       font-family: var(--caps);
       font-size: 17px;
       font-weight: 500;
       color: var(--muted);
-      margin: 12px 0 0;
+      margin: 0;
       letter-spacing: .04em;
     }
 
@@ -145,7 +167,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       border-radius: 12px;
       overflow:hidden;
       aspect-ratio: 4 / 5;
-      background: #eee center/cover no-repeat;
+      background: #c8d8d2 center/cover no-repeat;
       text-decoration:none;
       box-shadow: var(--shadow-soft);
       transition: transform .2s ease, box-shadow .2s ease;
@@ -235,7 +257,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <!-- HEADER -->
   <header class="exp-header">
+    <p class="exp-kicker">S &amp; Z &mdash; Berlin</p>
     <h1 class="exp-title">Expeditions</h1>
+    <div class="exp-rule"></div>
     <p class="exp-subtitle">Like every other boring tech duo, we also blog about travel</p>
   </header>
 
@@ -243,7 +267,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="wrap">
       <div class="travel-hero">
         <div class="media">
-          <img src="../assets/images/02f.jpg" alt="Family travel photo" />
+          <img src="/assets/images/00f.jpg" alt="Family travel photo" />
         </div>
         <p class="caption">
           A family-postcard selfie with the backdrop of the Marble Mountains, found in central Vietnam,
