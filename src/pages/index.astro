@@ -94,9 +94,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     /* HERO */
     .hero{
-      min-height: 600px;
+      min-height: 85svh;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.45)),
+        linear-gradient(to bottom, rgba(0,0,0,.28) 0%, rgba(0,0,0,.52) 100%),
         url("assets/hero.png") center/cover no-repeat;
       display:flex;
       align-items:center;
@@ -105,7 +105,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       box-shadow: 0 8px 40px rgba(0,0,0,.25);
     }
 
-    /* optional subtle corner mark (like a minimalist sigil/logo) */
+    /* bottom fade into first section */
+    .hero-fade{
+      position:absolute;
+      bottom:0; left:0; right:0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--teal-800));
+      pointer-events:none;
+      z-index:1;
+    }
+
+    /* logo sigil */
     .hero::after{
       content:"";
       position:absolute;
@@ -125,7 +135,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       margin: 0 auto;
       text-align:center;
       color:var(--white);
-      padding: 110px var(--gutter) 72px;
+      padding: 140px var(--gutter) 120px;
+      position:relative;
+      z-index:2;
+    }
+
+    /* descriptor pills */
+    .hero-pills{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid rgba(64,255,181,.30);
+      border-radius: 999px;
+      background: rgba(64,255,181,.07);
+      backdrop-filter: blur(4px);
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+    }
+    .hero-pill-dot{
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--teal-400);
+      flex-shrink:0;
+    }
+
+    /* scroll cue */
+    .hero-scroll{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 6px;
+      margin-top: 40px;
+      opacity: .55;
+    }
+    .hero-scroll span{
+      font-family: "Montserrat", sans-serif;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal-400);
+    }
+    .hero-scroll-line{
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--teal-400), transparent);
+      animation: scrollpulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollpulse{
+      0%,100%{ opacity:.55; transform:scaleY(1); }
+      50%{ opacity:1; transform:scaleY(1.1); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .hero-scroll-line{ animation:none; }
     }
 
     .hero-kicker{
@@ -293,9 +366,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       color: var(--cream);
       opacity: .8;
     }
+    .services .wrap{
+      max-width: 1380px;
+    }
     .services-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 28px;
       align-items:stretch;
     }
@@ -403,6 +479,69 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       left:0;
       top:.55em;
     }
+    .service-card.accent-pink{
+      border-top-color: var(--pink);
+    }
+    .service-card.accent-pink .service-name{
+      color: var(--pink);
+    }
+    .service-card.accent-pink .service-price{
+      color: var(--pink);
+    }
+    .service-card.accent-pink .service-icon{
+      border-color: rgba(255,175,218,.28);
+      color: var(--pink);
+    }
+
+    /* decorative heading rule */
+    .heading-rule{
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--teal-400);
+      margin: 12px 0 18px;
+    }
+    .panel-dark .heading-rule{
+      background: var(--teal-400);
+    }
+    .panel-pink .heading-rule{
+      background: var(--teal-800);
+    }
+
+    /* open-to-projects status chip */
+    .status-chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 7px;
+      padding: 4px 12px 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,99,77,.28);
+      background: rgba(0,99,77,.08);
+      font-family: "Montserrat", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--teal-600);
+      margin-bottom: 16px;
+    }
+    .panel-dark .status-chip{
+      border-color: rgba(64,255,181,.28);
+      background: rgba(64,255,181,.08);
+      color: var(--teal-400);
+    }
+    .status-chip-dot{
+      width: 7px; height: 7px;
+      border-radius:999px;
+      background: var(--teal-400);
+      box-shadow: 0 0 6px rgba(64,255,181,.7);
+      flex-shrink:0;
+    }
+    .panel-cream .status-chip-dot{
+      background: var(--teal-600);
+      box-shadow: none;
+    }
+
     .services-cta{
       text-align:center;
       margin-top: 36px;
@@ -523,6 +662,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       font-style: italic;
       text-align:center;
       line-height: 1.45;
+    }
+    .travel-quote{
+      position: relative;
+      margin: 28px auto 0;
+      max-width: 52ch;
+      padding: 22px 28px 22px 32px;
+      background: rgba(3,43,34,.07);
+      border-radius: 10px;
+      text-align: left;
+    }
+    .travel-quote::before{
+      content: "\201C";
+      position: absolute;
+      top: -10px;
+      left: 18px;
+      font-family: var(--serif);
+      font-size: 72px;
+      line-height: 1;
+      color: var(--teal-600);
+      opacity: .28;
+      pointer-events: none;
+    }
+    .travel-quote p{
+      font-family: var(--serif);
+      font-size: clamp(17px, 2.2vw, 21px);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--teal-800);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .travel-quote cite{
+      display: block;
+      margin-top: 12px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal-600);
+      font-style: normal;
+      opacity: .75;
     }
     .exp-sub{
       text-align:center;
@@ -709,8 +890,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         idea to design, build, and launch <span class="hero-flag">🇩🇪</span><br>
         <span style="font-size:18px;opacity:.82;">Product, data, design &amp; emerging technology for early-stage teams</span>
       </p>
+      <div class="hero-pills">
+        <span class="hero-pill"><span class="hero-pill-dot"></span>Berlin Studio</span>
+        <span class="hero-pill"><span class="hero-pill-dot"></span>Founder-First</span>
+        <span class="hero-pill"><span class="hero-pill-dot"></span>Ship-Ready</span>
+      </div>
       <a class="hero-btn" href="#learn-more">Learn More</a>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
     </div>
+    <div class="hero-fade"></div>
   </header>
 
   <!-- STUDIO SERVICES -->
@@ -787,7 +978,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="wrap">
       <div class="two-col">
         <div>
+          <span class="status-chip"><span class="status-chip-dot"></span>Open to Projects</span>
           <h2 class="heading-small">Hey. I'm Zubin</h2>
+          <div class="heading-rule"></div>
           <p class="subcaps">DATA PRACTITIONER,</p>
           <p class="subcaps">ASPIRING TECHNOLOGIST</p>
           <p class="subcaps">AND ALL-ROUND NERD</p>
@@ -810,7 +1003,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="wrap">
       <div class="two-col">
         <div>
+          <span class="status-chip"><span class="status-chip-dot"></span>Selected Projects</span>
           <h2 class="title-script">Design with Purpose</h2>
+          <div class="heading-rule"></div>
           <p class="subcaps">EMPATHY IN EVERY PIXEL</p>
 
           <p class="body-copy">
@@ -830,15 +1025,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="expeditions" class="section panel-pink">
     <div class="wrap">
       <h2 class="exp-title">Expeditions</h2>
-      <p class="travel-title">LIKE EVERY OTHER BORING TECH DUO WE ALSO BLOG ABOUT TRAVEL</p>
+      <div class="heading-rule" style="margin:10px auto 0;"></div>
+      <p class="travel-title" style="margin-top:18px;">LIKE EVERY OTHER BORING TECH DUO WE ALSO BLOG ABOUT TRAVEL</p>
 
-      <div class="travel-hero">
-        <div class="media">
+      <div class="travel-hero" style="max-width:760px;">
+        <div class="media" style="border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.22);">
           <img src="assets/images/02c.jpg" alt="Zubin and Saumya" />
         </div>
-        <p class="caption">
-          Yes, we're married. tied the knot in 2019, been travelling, freelancing &amp; building startups together ever since.
-        </p>
+        <blockquote class="travel-quote">
+          <p>Yes, we're married. Tied the knot in 2019, been travelling, freelancing, and empowering startups together ever since.</p>
+          <cite>S &amp; Z, Berlin</cite>
+        </blockquote>
       </div>
 
       <div class="services-cta">
