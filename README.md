@@ -1,54 +1,57 @@
-# studio-website
+# bifunctional
 
-A simple website for the Bifunctional Labs Co, built with [Astro](https://astro.build) and optionally enhanced with [Alpine.js](https://alpinejs.dev).
+Website for [Bifunctional Labs Co](https://bifunctional.xyz), a Berlin-based freelance studio. Built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
 ## Local development
 
 ```bash
 npm install
-npm run dev        # → http://localhost:4321/studio-website/
-```
-
-## Build & preview
-
-```bash
+npm run dev        # → http://localhost:4321/
 npm run build      # Static output → dist/
-npm run preview    # Preview the built site locally
+npm run preview    # Preview the built output locally
 ```
 
 ## Deployment
 
-Every push to **main** automatically builds and deploys to **GitHub Pages** via `.github/workflows/deploy.yml`.
-
-### Setup (one-time)
-
-1. Go to **Settings → Pages** in the GitHub repo.
-2. Under **Build and deployment → Source**, select **GitHub Actions**.
-
-### Custom domain (optional)
-
-1. Add a `public/CNAME` file containing your domain (e.g. `www.example.com`).
-2. In `astro.config.mjs`, change `site` to your domain and set `base: '/'`.
-3. Configure DNS per [GitHub's docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+Every push to **main** automatically builds and deploys to GitHub Pages via `.github/workflows/deploy.yml`. The live site is at [bifunctional.xyz](https://bifunctional.xyz).
 
 ## Project structure
 
 ```
 src/
-  layouts/BaseLayout.astro   - shared <head>, fonts, Alpine.js CDN
-  pages/index.astro          - homepage
-  pages/blog.astro           - expeditions listing
-  pages/posts/               - travel blog post templates
-  theme/tokens.css           - design tokens (CSS variables)
-  theme/global.css           - full homepage CSS (reference copy)
-public/assets/               - images, icons, favicon, PDF
-.github/workflows/deploy.yml - CI/CD pipeline
+  layouts/
+    BaseLayout.astro              - shared shell: <head>, fonts, Alpine.js CDN, footer
+  pages/
+    index.astro                   - homepage (hero, services, bios, expeditions teaser)
+    expeditions/
+      index.astro                 - expeditions listing page
+      innsbruck.astro             - Into the Alps: Innsbruck (Oct 2021)
+      salzburg.astro              - Into the Alps: Salzburg (Oct 2021)
+      verona.astro                - Verona: Of Bridges & Brawls (Oct 2020)
+    posts/
+      travelblogpost.astro        - Bangkok Airwaves (Mar 2019)
+    privacy-policy/index.astro
+    legal-notice/index.astro
+    impressum/index.astro
+  components/
+    SiteFooter.astro
+  theme/
+    tokens.css                    - design tokens (CSS variables, reference only)
+    global.css                    - global style reference
+public/
+  assets/
+    images/                       - portraits and travel photos
+    favicon.ico.png
+    hero.png, logo.png, etc.
+.github/workflows/deploy.yml      - CI/CD pipeline
 ```
 
-## Contribution Guidelines
+## Images and assets
 
-See `CONTRIBUTING.md` before making site changes. It covers brand context, coding practices, formatting, copy style, and commit message conventions.
+Image assets in `public/assets/` are copyright Zubin John and are not covered by any open source licence. The code is open; the photos and brand visuals are not.
 
-## Alpine.js
+Expedition post pages currently use labeled placeholder divs where images will go. See [issue #2](https://github.com/BifunctionalLabsCo/bifunctionallabsco.github.io/issues/2) for the planned migration to Cloudflare R2.
 
-Alpine.js is loaded globally via CDN. It is a no-op by default. Interactive behaviors only activate when `x-data` attributes are present in the markup. The site renders identically with JS disabled.
+## Contributing
+
+See `CONTRIBUTING.md` before making changes. It covers brand context, coding practices, copy style, and commit message conventions.
