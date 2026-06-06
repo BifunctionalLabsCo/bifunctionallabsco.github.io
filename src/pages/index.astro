@@ -672,9 +672,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       .hero{ min-height: 520px; }
       .watermark{ display:none; }
       .footer-branding{ display:none; }
-      .services-grid{ grid-template-columns: 1fr; }
-      .service-card{ max-width: 520px; margin: 0 auto; }
       .footer .wrap{ padding-right: var(--gutter); }
+    }
+
+    @media (max-width: 720px){
+      .services-grid{ grid-template-columns: 1fr; }
+      .service-card{ max-width: 560px; margin: 0 auto; }
     }
 
     @media (max-width: 520px){

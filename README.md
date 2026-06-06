@@ -45,6 +45,18 @@ public/assets/               — images, icons, favicon, PDF
 .github/workflows/deploy.yml — CI/CD pipeline
 ```
 
+## Agentic Contribution And Coding Guidelines
+
+Before applying any site changes, always read the local brand and code context first:
+
+- Brand guidelines: `colabspace/Bifunctional Brand Guidelines.md`
+- Design tokens: `src/theme/tokens.css`
+- Global style reference: `src/theme/global.css`
+- Shared page shell: `src/layouts/BaseLayout.astro`
+- The exact page or component being changed, such as `src/pages/index.astro`
+
+Use those files as the source of truth for palette, typography, spacing, tone, imagery, and existing Astro structure. Keep changes inside the current theme direction unless the task explicitly asks for a redesign.
+
 ## Alpine.js
 
 Alpine.js is loaded globally via CDN. It is a no-op by default — interactive behaviors only activate when `x-data` attributes are present in the markup. The site renders identically with JS disabled.
