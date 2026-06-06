@@ -1,0 +1,390 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Into the Alps: Innsbruck | Expeditions">
+  <Fragment slot="head">
+    <style is:inline>
+    :root{
+      --black: #1b1b1b;
+      --muted: rgba(27,27,27,.58);
+      --faint: rgba(27,27,27,.38);
+      --bg: #ffffff;
+      --bg-alt: #f7f7f7;
+      --border: rgba(27,27,27,.10);
+      --page: 1120px;
+      --text: 740px;
+      --gutter: 28px;
+      --gap: 22px;
+      --serif: "Fraunces", serif;
+      --caps: "Cormorant Garamond", serif;
+      --sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      --display: "Poppins", sans-serif;
+    }
+    *{ box-sizing:border-box; }
+    body{ margin:0; background:var(--bg); color:var(--black); font-family:var(--sans); line-height:1.7; }
+    .wrap{ max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
+    .text{ max-width:var(--text); margin:0 auto; padding:0 var(--gutter); }
+    .space-xs{ padding:14px 0; }
+    .space-sm{ padding:28px 0; }
+    .space-md{ padding:44px 0; }
+    .space-lg{ padding:72px 0; }
+    p{ margin:16px 0; font-size:15px; color:rgba(27,27,27,.85); }
+    .lede{ font-size:16px; color:rgba(27,27,27,.78); }
+    figure{ margin:0; }
+    img{ max-width:100%; display:block; }
+    figcaption{ font-family:var(--serif); font-style:italic; text-align:center; margin-top:10px; font-size:13px; color:var(--faint); }
+
+    /* NAV */
+    .post-nav{
+      position:absolute; top:0; left:0; right:0; z-index:10;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px var(--gutter); max-width:var(--page); margin:0 auto;
+    }
+    .post-nav .nav-left{ font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#fff; opacity:.8; }
+    .post-nav .back-btn{ font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:rgba(255,255,255,.14); backdrop-filter:blur(6px); padding:7px 16px; border-radius:6px; text-decoration:none; transition:background .15s; }
+    .post-nav .back-btn:hover{ background:rgba(255,255,255,.24); }
+
+    /* HERO */
+    .post-hero{ position:relative; min-height:520px; display:flex; align-items:flex-end; overflow:hidden; }
+    .post-hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.12) 100%); }
+    .hero-ph{ position:absolute; inset:0; background:linear-gradient(135deg, #2c4a3e 0%, #1a3028 100%); display:flex; align-items:center; justify-content:center; }
+    .hero-ph-label{ font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35); z-index:1; }
+    .hero-content{ position:relative; z-index:2; max-width:var(--page); margin:0 auto; padding:0 var(--gutter) 52px; width:100%; color:#fff; }
+    .hero-content .series-label{ font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.6); margin:0 0 10px; display:block; }
+    .hero-content .post-title{ font-family:var(--display); font-weight:700; font-size:clamp(36px,5vw,56px); letter-spacing:.02em; text-transform:uppercase; margin:0 0 6px; max-width:18ch; line-height:1.1; }
+    .hero-content .post-subtitle{ font-family:var(--serif); font-style:italic; font-size:18px; margin:0; opacity:.85; }
+
+    /* AUTHOR */
+    .author-line{ display:flex; align-items:center; gap:14px; max-width:var(--text); margin:36px auto 0; padding:0 var(--gutter); }
+    .author-avatar{ width:42px; height:42px; border-radius:50%; background:#ddd; overflow:hidden; flex-shrink:0; }
+    .author-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .author-info{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    .author-info strong{ color:var(--black); font-weight:700; letter-spacing:.14em; }
+    .author-info .date{ display:block; margin-top:2px; font-size:11px; color:var(--faint); }
+
+    /* SECTION HEADINGS */
+    h2.section-title{ font-family:var(--sans); font-size:clamp(22px,3vw,34px); letter-spacing:.08em; font-weight:800; margin:0; text-transform:uppercase; }
+    h2.section-title-center{ text-align:center; font-family:var(--sans); font-size:clamp(22px,3vw,34px); letter-spacing:.08em; font-weight:800; margin:0; text-transform:uppercase; }
+
+    /* MEDIA + GRIDS */
+    .media{ width:100%; background:#e8eeec; overflow:hidden; position:relative; }
+    .media img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .single{ max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
+    .single .media{ aspect-ratio:16/10; }
+    .full-bleed .media{ aspect-ratio:21/9; }
+    .grid{ max-width:var(--page); margin:0 auto; padding:0 var(--gutter); display:grid; gap:var(--gap); }
+    .grid-2{ grid-template-columns:1fr 1fr; }
+    .grid-3{ grid-template-columns:1fr 1fr 1fr; }
+    .grid .media{ aspect-ratio:16/10; }
+    .grid-2plus1{ grid-template-columns:1fr 1fr; grid-auto-rows:auto; }
+    .span-2{ grid-column:1/-1; }
+    .grid-2plus1 .span-2 .media{ aspect-ratio:21/9; }
+
+    /* IMAGE PLACEHOLDERS */
+    .media.ph{ background:linear-gradient(135deg, #dce8e4 0%, #c8d8d2 100%); }
+    .media.ph::after{ content:attr(data-label); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:16px; font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(3,43,34,.4); text-align:center; }
+
+    /* COVER QUOTE */
+    .cover-quote{ position:relative; min-height:340px; display:flex; align-items:flex-end; padding:44px var(--gutter); color:#fff; overflow:hidden; }
+    .cover-quote .cover-ph{ position:absolute; inset:0; background:linear-gradient(135deg, #2c4a3e 0%, #1a3028 100%); }
+    .cover-quote::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.18)); }
+    .cover-quote .inner{ position:relative; z-index:2; max-width:var(--page); margin:0 auto; width:100%; }
+    .cover-quote .quote{ font-family:var(--sans); font-weight:800; text-transform:uppercase; letter-spacing:.06em; line-height:1.25; font-size:clamp(16px,2.2vw,28px); max-width:36ch; margin:0; }
+    .cover-quote figcaption{ text-align:left; color:rgba(255,255,255,.6); margin-top:14px; }
+
+    /* ARTICLE FOOTER */
+    .article-footer{ text-align:center; padding:44px var(--gutter) 24px; max-width:var(--text); margin:0 auto; }
+    .article-footer .location-label{ font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); margin:0 0 4px; }
+    .article-footer .location{ font-family:var(--sans); font-weight:700; font-size:15px; margin:0 0 6px; color:var(--black); }
+    .article-footer .footnote{ font-family:var(--caps); font-size:13px; color:var(--faint); margin:0; }
+    .article-footer .share-row{ display:flex; justify-content:center; gap:10px; margin-top:18px; }
+    .share-btn{ width:32px; height:32px; border-radius:8px; display:grid; place-items:center; border:1px solid var(--border); background:transparent; text-decoration:none; transition:background .15s; }
+    .share-btn:hover{ background:var(--bg-alt); }
+    .share-btn svg{ width:14px; height:14px; fill:var(--black); }
+    .article-divider{ width:100%; height:1px; background:var(--border); margin:44px auto; max-width:var(--page); }
+
+    /* AUTHOR BIO */
+    .author-footer{ background:var(--black); color:#fff; padding:64px var(--gutter); text-align:center; }
+    .author-footer .af-avatar{ width:80px; height:80px; border-radius:50%; background:#555; overflow:hidden; margin:0 auto 18px; border:3px solid rgba(255,255,255,.15); }
+    .author-footer .af-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .author-footer .af-name{ font-family:var(--sans); font-weight:800; font-size:22px; letter-spacing:.06em; text-transform:uppercase; margin:0 0 20px; }
+    .af-section-label{ font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5); margin:0 0 8px; }
+    .af-email{ font-family:var(--sans); font-size:13px; color:rgba(255,255,255,.7); text-decoration:none; margin:0 0 14px; display:block; }
+    .af-email:hover{ color:#fff; }
+    .af-subscribe{ display:inline-flex; align-items:center; padding:10px 24px; background:#fff; color:var(--black); font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:8px; text-decoration:none; transition:opacity .15s; margin-bottom:18px; }
+    .af-subscribe:hover{ opacity:.85; }
+    .af-socials{ display:flex; justify-content:center; gap:12px; margin-top:8px; }
+    .af-social{ width:30px; height:30px; display:grid; place-items:center; border-radius:6px; border:1px solid rgba(255,255,255,.15); background:transparent; text-decoration:none; transition:background .15s; }
+    .af-social:hover{ background:rgba(255,255,255,.1); }
+    .af-social svg{ width:14px; height:14px; fill:rgba(255,255,255,.7); }
+
+    /* MORE IN TRAVEL */
+    .more-section{ background:var(--black); padding:0 var(--gutter) 64px; text-align:center; }
+    .more-divider{ width:60px; height:1px; background:rgba(255,255,255,.12); margin:0 auto 36px; }
+    .more-title{ font-family:var(--serif); font-style:italic; font-size:24px; color:#fff; margin:0 0 28px; }
+    .more-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:var(--page); margin:0 auto; }
+    .more-card{ text-decoration:none; color:#fff; transition:transform .2s; }
+    .more-card:hover{ transform:translateY(-3px); }
+    .more-card .more-thumb{ border-radius:10px; overflow:hidden; aspect-ratio:4/3; background:#2c4a3e; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+    .more-card .more-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .more-card .more-card-title{ font-family:var(--sans); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin:10px 0 2px; text-align:left; }
+    .more-card .more-card-badge{ font-family:var(--sans); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.45); text-align:left; display:block; }
+    .more-card .more-card-sub{ font-family:var(--serif); font-style:italic; font-size:12px; color:rgba(255,255,255,.55); margin:4px 0 0; text-align:left; }
+
+    @media (max-width:860px){
+      :root{ --gutter:18px; --gap:14px; }
+      .grid-2, .grid-3, .grid-2plus1{ grid-template-columns:1fr; }
+      .span-2{ grid-column:auto; }
+      .post-hero{ min-height:420px; }
+      .more-grid{ grid-template-columns:1fr; max-width:360px; }
+    }
+    </style>
+  </Fragment>
+
+  <nav class="post-nav">
+    <span class="nav-left">Into the Alps</span>
+    <a class="back-btn" href="/expeditions/">← All Expeditions</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="post-hero">
+    <div class="hero-ph">
+      <span class="hero-ph-label">Hero image: Innsbruck Altstadt and Inn river valley</span>
+    </div>
+    <div class="hero-content">
+      <span class="series-label">Into the Alps &mdash; Vol. I</span>
+      <h1 class="post-title">Into the Alps:<br>Innsbruck</h1>
+      <p class="post-subtitle">Weekend getaway options in the Austrian Alps</p>
+    </div>
+  </header>
+
+  <!-- AUTHOR -->
+  <div class="author-line">
+    <div class="author-avatar">
+      <img src="/assets/images/00z.jpg" alt="Zubin John" />
+    </div>
+    <div class="author-info">
+      By <strong>ZUBIN JOHN</strong>
+      <span class="date">OCTOBER 9TH, 2021</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="space-md">
+    <div class="text">
+      <p class="lede">
+        "The bridge over the Inn" &mdash; that is literally how this town gets its name, after the eponymous river Inn.
+        The Tyrolean capital has a history going back at least 800 years, yet in modern times it has built quite a
+        reputation as a skiing capital and a hub for all things outdoors.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION: ALTSTADT -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">Altstadt Innsbruck</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        The first item on every itinerary has to be a stroll around the Altstadt to soak in the general vibe and the
+        gorgeous natural mountain scenery that frames the entire city. The old town sits right at the foot of the
+        Nordkette range, making every street corner feel like a painting.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2-UP: Altstadt street + Golden Roof -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media ph" data-label="Altstadt street scene, Innsbruck"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="The Golden Roof (Goldenes Dachl), Innsbruck Altstadt"></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>The heart of the Altstadt, with the iconic Golden Roof at its centre.</figcaption>
+    </div>
+  </section>
+
+  <!-- SECTION: CITY TOWER -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">The City Tower</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        For the best views of the city, we made our way up the spiral staircase to the top of the Innsbruck
+        Stadtturm. The intricate design, added to the original 450-year-old structure, allows two-way traffic
+        and ascends 51 metres to offer panoramic views of the entire city and its surrounding landscape.
+      </p>
+    </div>
+  </section>
+
+  <!-- FULL BLEED: Tower view -->
+  <section class="full-bleed">
+    <figure>
+      <div class="media ph" data-label="Panoramic view from the Innsbruck Stadtturm: river Inn and Golden Terrace below"></div>
+    </figure>
+  </section>
+  <div class="text" style="margin-top:14px; padding-bottom:28px;">
+    <figcaption>Views of the river Inn and the Golden Terrace from the top of the Innsbruck Tower.</figcaption>
+  </div>
+
+  <!-- SECTION: NORDKETTE -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">On the Nordkette Trail</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        Another magical journey is the trip up Innsbruck's local mountain Hafelekar via the Bergbahn. Once up
+        in the Nordkettes, on a clear day you can catch views extending far into the Karwendel Mountains and
+        down into the valley below. If you are lucky, you might even encounter a herd of Wild Ibex.
+      </p>
+    </div>
+  </section>
+
+  <!-- GRID-3: Nordkette -->
+  <section class="space-md">
+    <div class="grid grid-3">
+      <figure>
+        <div class="media ph" data-label="Bergbahn ascent, Nordkette Innsbruck"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Karwendel Mountain panorama from Hafelekar summit"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Wild Ibex on the Nordkette range"></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>The ascent on the Hungerburgbahn and Nordkettenbahn, and the alpine landscape that greets you at the top.</figcaption>
+    </div>
+  </section>
+
+  <!-- COVER QUOTE: Nordkette -->
+  <section class="cover-quote">
+    <div class="cover-ph"></div>
+    <div class="inner">
+      <figure>
+        <p class="quote">On a good visibility day, views extend far into the Karwendel Mountains.</p>
+        <figcaption>Hafelekar summit, Nordkette, Innsbruck</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SECTION: CASTLE AMBRAS -->
+  <section class="space-sm" style="padding-top:44px;">
+    <div class="text">
+      <h2 class="section-title">Castle Ambras</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        Rounding out the trip was a short excursion outside the city centre to Schloss Ambras, known for housing
+        the eccentric collection of Archduke Ferdinand II. The castle is a fine example of German Renaissance
+        architecture and is most famous for its Spanish Hall and an extensive Habsburg Portrait gallery.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2+1: Castle -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media ph" data-label="Castle Ambras exterior, German Renaissance facade"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="The Spanish Hall interior, Schloss Ambras"></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media ph" data-label="Castle Ambras grounds and gardens, Innsbruck valley in background"></div>
+        <figcaption>The grounds of Schloss Ambras, with the Inn valley stretching out below.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ARTICLE FOOTER -->
+  <div class="article-footer">
+    <p class="location-label">Location</p>
+    <p class="location">Innsbruck, Tyrol, Austria</p>
+    <p class="footnote">Our weekend getaway to Innsbruck occurred in the Fall of 2021 after quite an eventful two years. &copy; Zubin John</p>
+    <div class="share-row">
+      <a class="share-btn" href="#" aria-label="Bookmark">
+        <svg viewBox="0 0 24 24"><path d="M5 4a2 2 0 012-2h10a2 2 0 012 2v18l-7-3.5L5 22V4z"/></svg>
+      </a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Into+the+Alps%3A+Innsbruck" aria-label="Share on X">
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="article-divider"></div>
+
+  <!-- AUTHOR BIO -->
+  <section class="author-footer">
+    <div class="af-avatar">
+      <img src="/assets/images/00z.jpg" alt="Zubin John" />
+    </div>
+    <h3 class="af-name">Zubin John</h3>
+    <p class="af-section-label">Stay Updated</p>
+    <a class="af-email" href="mailto:zubin@bifunctional.co">zubin@bifunctional.co</a>
+    <a class="af-subscribe" href="/expeditions/">More Expeditions</a>
+    <p class="af-section-label" style="margin-top:20px;">Follow</p>
+    <div class="af-socials">
+      <a class="af-social" href="#" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </a>
+      <a class="af-social" href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0z"/></svg>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:18px;margin-top:28px;flex-wrap:wrap;">
+      <a href="/privacy-policy/" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Privacy Policy</a>
+      <a href="/legal-notice/" style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;">Legal Notice</a>
+    </div>
+  </section>
+
+  <!-- MORE IN TRAVEL -->
+  <section class="more-section">
+    <div class="more-divider"></div>
+    <h2 class="more-title">More Expeditions</h2>
+    <div class="more-grid">
+      <a class="more-card" href="/expeditions/salzburg/">
+        <div class="more-thumb"></div>
+        <p class="more-card-title">Into the Alps: Salzburg</p>
+        <span class="more-card-badge">Published &mdash; Oct 2021</span>
+        <p class="more-card-sub">Untersberg, Hohensalzburg, and the Sound of Music</p>
+      </a>
+      <a class="more-card" href="/expeditions/verona/">
+        <div class="more-thumb"></div>
+        <p class="more-card-title">Verona</p>
+        <span class="more-card-badge">Published &mdash; Oct 2020</span>
+        <p class="more-card-sub">Of Bridges and Brawls</p>
+      </a>
+      <a class="more-card" href="/expeditions/">
+        <div class="more-thumb" style="display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);">All Expeditions</span>
+        </div>
+        <p class="more-card-title">View All</p>
+        <span class="more-card-badge">Expeditions Index</span>
+        <p class="more-card-sub">Bangkok, Thailand and more coming soon</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
