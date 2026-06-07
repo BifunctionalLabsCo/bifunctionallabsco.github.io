@@ -1,0 +1,159 @@
+---
+import PostLayout from '../../layouts/PostLayout.astro';
+---
+
+<PostLayout
+  pageTitle="Bangkok Airwaves | Expeditions"
+  heroTitle="Bangkok<br>Airwaves"
+  heroSubtitle="Glimpses of Thailand 2018"
+  seriesLabel="Thailand &mdash; Vol. II"
+  heroBgLabel="Hero image: Wat Arun temple complex on the Chao Phraya river, Bangkok"
+  heroBgGradient="linear-gradient(135deg, #1a2c1a 0%, #0d1a0d 100%)"
+  date="MARCH 24TH, 2019"
+  location="Bangkok, Thailand"
+  footnote="A shout-out to long-planned good times with good friends &mdash; Bhaskar, Umang, Gravy and Shivam. Prost! &copy; Zubin John"
+  moreTitle="More Expeditions"
+>
+  <Fragment slot="nav-left">Thailand</Fragment>
+  <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
+
+  <!-- INTRO -->
+  <section class="space-md">
+    <div class="text">
+      <p class="lede">
+        A routed service by more than 50 flights a day, getting to our destination from Phuket was no challenge.
+        It did take a good part of the day getting from the airport to our hotel in the heart of Bangkok Old Town,
+        close to the infamous Khaosan Road night market.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION: HIGHLIGHTS -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">Highlights</h2>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
+      <p>
+        With only an afternoon to sample the best of Bangkok, we immediately set out for the Phra Nakhon
+        district where we could explore two of Bangkok's largest <em>wat</em> complexes. Wats, in Buddhist culture,
+        denote small temples with a unique characteristic &mdash; these temples had enclosing walls which formed
+        a separation from the secular world.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2-UP: Wat Pho + Grand Palace area -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media ph" data-label="Wat Pho temple complex, Rattanakosin Island &mdash; golden chedis"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Temple detail, Phra Nakhon district"></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        Located on Rattanakosin Island, south of the Grand Palace, stands the Wat Pho complex &mdash;
+        housing one of Bangkok's oldest Buddhist temples and several ornate chedis.
+      </figcaption>
+    </div>
+  </section>
+
+  <!-- FULL BLEED: Wat Arun -->
+  <section class="full-bleed">
+    <figure>
+      <div class="media ph" data-label="Wat Arun (Temple of the Dawn) from across the Chao Phraya river, Bangkok"></div>
+    </figure>
+  </section>
+
+  <section class="space-md">
+    <div class="text">
+      <p>
+        On the Thonburi west bank of the Chao Phraya river lies <em>Wat Arun</em>, or the <strong>Temple of the Dawn</strong>.
+        It is one of the many sites in Thailand where the neighbouring influence of intermingling Asian cultures
+        is most evident. The temple derives its name from Aruna, a Hindu deity worshipped commonly in India,
+        personifying the radiance of the sun.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3-UP: Buddhist structures -->
+  <section class="space-md">
+    <div class="grid grid-3">
+      <figure>
+        <div class="media ph" data-label="Faience-encrusted prangs, Wat Arun &mdash; 60&ndash;80m towers"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Restored Buddhist structures, Wat Arun site"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Inner facade of the main functional temple, Wat Arun"></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        Buddhist structures at the Wat Arun site are remnants from earlier temples, preserved over several bouts
+        of restoration. The site contains five faience-encrusted prang towers, ranging from 60&ndash;80 metres.
+      </figcaption>
+    </div>
+  </section>
+
+  <!-- COVER QUOTE -->
+  <section class="cover-quote">
+    <div class="cover-ph" style="background:linear-gradient(135deg, #1a2c1a 0%, #0d1a0d 100%)"></div>
+    <div class="inner">
+      <figure>
+        <p class="quote">A majestic view of the complex's looming central prang.</p>
+        <figcaption>Wat Arun, Bangkok, Thailand</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2+1: Final shots -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media ph" data-label="Colourful temple ornamentation, Phra Nakhon district"></div>
+      </figure>
+      <figure>
+        <div class="media ph" data-label="Street view toward the Grand Palace, Bangkok"></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media ph" data-label="Panoramic view of Rattanakosin Island temples from across the river"></div>
+        <figcaption>
+          Snapshots capturing the colourful faience-encrusted pagodas and the broader temple precinct
+          of Rattanakosin Island, as seen from the riverbanks.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- MORE CARDS -->
+  <Fragment slot="more-cards">
+    <a class="more-card" href="/expeditions/andaman/">
+      <div class="more-thumb"></div>
+      <p class="more-card-title">Andaman Sands</p>
+      <span class="more-card-badge">Published &mdash; Jan 2019</span>
+      <p class="more-card-sub">Phuket sunsets, rock pools, and island hopping</p>
+    </a>
+    <a class="more-card" href="/expeditions/innsbruck/">
+      <div class="more-thumb"></div>
+      <p class="more-card-title">Into the Alps: Innsbruck</p>
+      <span class="more-card-badge">Published &mdash; Oct 2021</span>
+      <p class="more-card-sub">Altstadt, Nordkette, and Castle Ambras</p>
+    </a>
+    <a class="more-card" href="/expeditions/">
+      <div class="more-thumb" style="display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(3,43,34,.4);">All Expeditions</span>
+      </div>
+      <p class="more-card-title">View All</p>
+      <span class="more-card-badge">Expeditions Index</span>
+      <p class="more-card-sub">Alps, Italy, and more coming soon</p>
+    </a>
+  </Fragment>
+</PostLayout>
