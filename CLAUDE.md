@@ -125,8 +125,18 @@ All images live in `public/assets/images/` and are served at `/assets/images/fil
 
 1. Create `src/pages/expeditions/yourslug.astro`
 2. Use `PostLayout` -- pass props (see existing posts for reference), fill `default` slot with article sections, fill `more-cards` slot with three `<a class="more-card">` links
-3. Add a card for it in `src/pages/expeditions/index.astro` (`.story-grid`)
-4. Update the `more-cards` slot on related posts to cross-link
+3. Pass a `description` prop (one or two sentences, used for `<meta name="description">` and OG/Twitter tags)
+4. Add a card for it in `src/pages/expeditions/index.astro` (`.story-grid`)
+5. Update the `more-cards` slot on related posts to cross-link
+6. Add an entry to `src/pages/rss.xml.js` (title, description, link, pubDate)
+
+## SEO / metadata
+
+`BaseLayout.astro` accepts `description`, `canonical`, `ogImage`, `ogType`, and `robots` props and renders `<meta name="description">`, canonical link, Open Graph, and Twitter card tags. `PostLayout` forwards `description`/`ogImage` through automatically (falls back to `heroSubtitle` + `location` if not set).
+
+- Sitemap: generated at build time via `@astrojs/sitemap` (`astro.config.mjs`), output to `dist/sitemap-index.xml`. The legacy `/posts/travelblogpost/` redirect is excluded via the `filter` option.
+- RSS: `src/pages/rss.xml.js`, output to `dist/rss.xml`. Manually maintained list of expedition entries -- update this file whenever a new post is added (see step 6 above).
+- Legal pages (`impressum`, `privacy-policy`, `legal-notice`) pass `robots="noindex, follow"`.
 
 ---
 

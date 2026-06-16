@@ -18,6 +18,8 @@
  * locationLabel?   string   — label above location (defaults to "Location")
  * footnote         string   — small footer note / copyright line
  * moreTitle?       string   — heading inside the pink section (defaults to "More Expeditions")
+ * description?     string   — meta description / OG description (falls back to heroSubtitle)
+ * ogImage?          string   — social preview image path (falls back to BaseLayout default)
  *
  * Named slots
  * ──────────────────────────────────────────────────────────────
@@ -42,6 +44,8 @@ interface Props {
   locationLabel?: string;
   footnote: string;
   moreTitle?: string;
+  description?: string;
+  ogImage?: string;
 }
 
 const {
@@ -57,10 +61,17 @@ const {
   locationLabel = 'Location',
   footnote,
   moreTitle = 'More Expeditions',
+  description,
+  ogImage,
 } = Astro.props;
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout
+  title={pageTitle}
+  description={description ?? `${heroSubtitle} — ${location}.`}
+  ogType="article"
+  ogImage={ogImage}
+>
   <Fragment slot="head">
     <style is:inline>
     /* ─── TOKENS ─── */
