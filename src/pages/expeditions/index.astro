@@ -29,6 +29,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       font-family: var(--sans);
       line-height: 1.5;
     }
+    /* brand gradient hairline — visual punctuation at the very top of the page */
+    body::before{
+      content:"";
+      display:block;
+      height:3px;
+      background:linear-gradient(90deg, #ffafda, #ff4f81, #40ffb5, #00634d, #032b22);
+    }
+    ::selection{ background:#40ffb5; color:#032b22; }
+    a:focus-visible{ outline:2px solid #00634d; outline-offset:3px; border-radius:4px; }
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
@@ -86,9 +95,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       line-height: 1.05;
     }
     .exp-rule{
-      width: 40px;
+      width: 48px;
       height: 3px;
-      background: #00634d;
+      background: linear-gradient(90deg, #00634d, #40ffb5);
       border-radius: 2px;
       margin: 18px auto 16px;
     }
@@ -170,14 +179,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       border-radius: 12px;
       overflow:hidden;
       aspect-ratio: 4 / 5;
-      background: #c8d8d2 center/cover no-repeat;
+      /* industrial dark surfaces (brand surface palette) until real photos land */
+      background: linear-gradient(160deg, #22302b 0%, #10231d 100%) center/cover no-repeat;
       text-decoration:none;
       box-shadow: var(--shadow-soft);
       transition: transform .2s ease, box-shadow .2s ease;
     }
+    .story-card:nth-child(3n+2){
+      background: linear-gradient(160deg, #00634d 0%, #032b22 100%) center/cover no-repeat;
+    }
+    .story-card:nth-child(3n){
+      background: linear-gradient(160deg, #1a1f1d 0%, #22302b 100%) center/cover no-repeat;
+    }
     .story-card:hover{
       transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,.22), inset 0 0 0 1px rgba(64,255,181,.3);
     }
     .story-overlay{
       position:absolute;
@@ -199,11 +215,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       font-weight: 700;
       letter-spacing: .16em;
       text-transform: uppercase;
-      background: rgba(255,255,255,.18);
+      background: rgba(3,43,34,.4);
+      border: 1px solid rgba(64,255,181,.38);
+      color: #40ffb5;
       backdrop-filter: blur(6px);
       padding: 5px 14px;
       border-radius: 6px;
       white-space:nowrap;
+    }
+    /* coming-soon cards (href="#") get the blush signal instead of mint */
+    .story-card[href="#"] .story-badge{
+      border-color: rgba(255,175,218,.45);
+      color: #ffafda;
     }
     .story-title{
       font-family: var(--sans);
@@ -243,7 +266,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       padding-bottom: 3px;
       transition: opacity .15s;
     }
-    .back-link:hover{ opacity:.6; }
+    .back-link:hover{ opacity:.75; border-color: rgba(0,99,77,.5); }
 
     @media (max-width: 780px){
       .story-grid{ grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
