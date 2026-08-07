@@ -4,6 +4,8 @@ A local-first MCP server for querying Bifunctional repositories, searching canon
 
 The server is written in Go and uses the official Model Context Protocol SDK. It runs over stdio so credentials remain in the operator environment and no network listener is exposed by default.
 
+The canonical organization hosting guidance, including the small-VPS posture and provider evaluation criteria, is in [`../colabspace/org/mcp-hosting.md`](../colabspace/org/mcp-hosting.md).
+
 ## Trust model
 
 - A repository must exist in `config/repos.json` before it is visible.

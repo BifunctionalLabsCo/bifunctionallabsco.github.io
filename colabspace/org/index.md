@@ -17,6 +17,7 @@ This folder contains public-safe operating knowledge for the Bifunctional organi
 - [Security and information policy](security-policy.md)
 - [Brand inheritance model](brand-inheritance.md)
 - [MCP roadmap](mcp-roadmap.md)
+- [MCP hosting posture](mcp-hosting.md)
 
 ## Boundary
 
