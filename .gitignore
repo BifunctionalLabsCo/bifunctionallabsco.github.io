@@ -3,3 +3,7 @@ dist/
 .astro/
 .DS_Store
 colabspace/.obsidian/
+mcp/bin/
+mcp/var/
+mcp/config/repos.local.json
+mcp/coverage.out

@@ -1,0 +1,4 @@
+bin
+var
+coverage.out
+config/repos.local.json

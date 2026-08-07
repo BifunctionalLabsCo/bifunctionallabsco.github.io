@@ -2,6 +2,8 @@
 
 Website for [Bifunctional Labs Co](https://bifunctional.xyz), a Berlin-based freelance studio. Built with [Astro](https://astro.build) and deployed to GitHub Pages.
 
+This repository also hosts the separately bounded [Bifunctional organization MCP control plane](mcp/README.md). The MCP service is not included in the public Astro build and indexes only documentation roots explicitly allowlisted in its registry.
+
 ## Local development
 
 ```bash
@@ -44,6 +46,8 @@ public/
     favicon.ico.png
     hero.png, logo.png, etc.
 .github/workflows/deploy.yml      - CI/CD pipeline
+mcp/                              - Go MCP server and repository control plane
+colabspace/org/                   - OKF organization standards and policy
 ```
 
 ## Images and assets
