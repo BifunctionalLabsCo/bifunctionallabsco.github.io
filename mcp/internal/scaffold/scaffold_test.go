@@ -2,6 +2,7 @@ package scaffold
 
 import (
 	"os"
+	"os/exec"
 	"path/filepath"
 	"testing"
 
@@ -13,6 +14,12 @@ import (
 
 func TestGenerateCreatesCompleteRepo(t *testing.T) {
 	root := t.TempDir()
+	// The scaffold intentionally uses the operator's Git identity. Supply one
+	// only for this isolated test so CI does not depend on runner configuration.
+	t.Setenv("GIT_AUTHOR_NAME", "Bifunctional MCP Test")
+	t.Setenv("GIT_AUTHOR_EMAIL", "mcp-test@bifunctional.invalid")
+	t.Setenv("GIT_COMMITTER_NAME", "Bifunctional MCP Test")
+	t.Setenv("GIT_COMMITTER_EMAIL", "mcp-test@bifunctional.invalid")
 	cfg := &config.Config{Organization: "BifunctionalLabsCo", BootstrapRoots: []string{root}, AuditLog: filepath.Join(root, "audit.jsonl")}
 	service := New(cfg, audit.New(cfg.AuditLog))
 	result, err := service.Generate(Request{Project: completeProject(), Parent: root, License: "proprietary", Gitignore: "go", Confirmation: security.Confirmation})
@@ -23,6 +30,9 @@ func TestGenerateCreatesCompleteRepo(t *testing.T) {
 		if _, err := os.Stat(filepath.Join(result.Path, relative)); err != nil {
 			t.Errorf("missing %s: %v", relative, err)
 		}
+	}
+	if err := exec.Command("git", "-C", result.Path, "rev-parse", "--verify", "HEAD").Run(); err != nil {
+		t.Fatalf("expected initial commit: %v", err)
 	}
 	if _, err := service.Generate(Request{Project: completeProject(), Parent: root, Confirmation: security.Confirmation}); err == nil {
 		t.Fatal("expected existing destination to fail")
