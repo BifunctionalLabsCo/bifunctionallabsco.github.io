@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "organization": "BifunctionalLabsCo",
+  "auditLog": "../var/audit.jsonl",
+  "maxDocumentBytes": 1048576,
+  "commandTimeout": "30s",
+  "bootstrapRoots": ["../../.."],
+  "repositories": [
+    {
+      "slug": "BifunctionalLabsCo/bifunctionallabsco.github.io",
+      "localPath": "../..",
+      "visibility": "public",
+      "defaultBranch": "main",
+      "docsRoots": ["colabspace/org", "colabspace/projects"],
+      "sensitivity": "public",
+      "allowedOperations": [
+        "repo:read",
+        "docs:read",
+        "issues:read",
+        "issues:write",
+        "pulls:read",
+        "pulls:write",
+        "branches:write"
+      ],
+      "excludedPaths": [
+        "colabspace/.obsidian",
+        "colabspace/projects/private",
+        "mcp/var"
+      ]
+    }
+  ]
+}
