@@ -22,6 +22,15 @@ Use these files as the source of truth for palette, typography, spacing, tone, i
 - Use existing CSS variables and brand colors before inventing new values.
 - Keep responsive rules simple and check desktop, tablet-ish, and mobile widths when changing layout.
 - Do not change unrelated content, routes, assets, or legal pages while doing visual work.
+
+## Diagram work
+
+The repository carries the MIT-licensed `diagram-design` system under `skills/diagram-design/`. Its layout grammar and type references are inherited from the upstream project; the project-owned visual layer is [`skills/diagram-design/references/style-guide.md`](skills/diagram-design/references/style-guide.md).
+
+- Keep diagram source and generated exports in `diagrams/` unless they are intentionally published as website content.
+- Change brand colors and typography in the style guide, not in individual type references.
+- Use one focal accent, no shadows, a 4px grid, and orthogonal connectors.
+- Do not include private client data, credentials, or internal control-plane details in public diagrams.
 - Run `npm run build` before finishing code changes.
 
 ## Visual And Content Style
@@ -62,4 +71,3 @@ If a Codex-specific signature is requested, include it separately:
 ```text
 Code-agent-signature: Codex
 ```
-

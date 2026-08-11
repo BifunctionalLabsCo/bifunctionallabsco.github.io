@@ -1,0 +1,39 @@
+{
+  "name": "diagram-design",
+  "description": "Bifunctional-branded editorial technical and product diagrams, inherited from Cathryn Lavery's diagram-design system",
+  "version": "2.0.0",
+  "author": {
+    "name": "Cathryn Lavery",
+    "url": "https://github.com/cathrynlavery"
+  },
+  "homepage": "https://github.com/cathrynlavery/diagram-design",
+  "repository": "https://github.com/cathrynlavery/diagram-design",
+  "license": "MIT",
+  "keywords": [
+    "diagrams",
+    "svg",
+    "architecture",
+    "flowchart",
+    "visualization",
+    "editorial"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Diagram Design",
+    "shortDescription": "Create Bifunctional-branded editorial diagrams as standalone HTML.",
+    "longDescription": "Generate architecture, flowchart, sequence, state machine, ER, timeline, swimlane, quadrant, nested, tree, layers, venn, and pyramid diagrams with an opinionated editorial design system.",
+    "developerName": "Cathryn Lavery",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/cathrynlavery/diagram-design",
+    "defaultPrompt": [
+      "Make an architecture diagram of my app.",
+      "Create a flowchart for this decision process.",
+      "Build a sequence diagram for this workflow."
+    ],
+    "brandColor": "#ff4f81"
+  }
+}

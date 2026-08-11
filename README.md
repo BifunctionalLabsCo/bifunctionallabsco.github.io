@@ -40,6 +40,11 @@ src/
   theme/
     tokens.css                    - design tokens (CSS variables, reference only)
     global.css                    - global style reference
+skills/
+  diagram-design/                 - vendored editorial diagram skill with Bifunctional skin
+diagrams/                         - working area for generated diagram HTML/SVG/PNG
+commands/export-diagram.md        - diagram export command definition
+.codex-plugin/plugin.json         - project-local plugin manifest
 public/
   assets/
     images/                       - portraits and travel photos
@@ -49,6 +54,10 @@ public/
 mcp/                              - Go MCP server and repository control plane
 colabspace/org/                   - OKF organization standards and policy
 ```
+
+## Diagram system
+
+The project-local `diagram-design` plugin is inherited from [Cathryn Lavery's diagram-design repository](https://github.com/cathrynlavery/diagram-design) and customized through [`skills/diagram-design/references/style-guide.md`](skills/diagram-design/references/style-guide.md). New diagrams should use that skill and live in `diagrams/` unless they are being published as part of the Astro site. Run `npm run check:diagrams` after changing the branded examples or skin.
 
 ## Images and assets
 

@@ -4,6 +4,7 @@ This repository has two deliberately separate products:
 
 - `src/` and `public/`: the public Bifunctional Astro website.
 - `mcp/`: the local-first organization knowledge and repository control plane.
+- `skills/diagram-design/`, `.codex-plugin/`, `commands/`, and `diagrams/`: the project-local editorial diagram system and its branded working area.
 
 ## Before editing
 
@@ -17,6 +18,7 @@ This repository has two deliberately separate products:
 - Never add credentials, client data, private exports, or personal information.
 - Do not broaden repository roots or write permissions as a side effect of another change.
 - Keep public-site content independent from `colabspace/` and `mcp/`.
+- Keep diagram outputs free of private source material unless they are explicitly scoped for a private documentation root.
 - Preserve explicit confirmation gates for filesystem and GitHub writes.
 - Add tests for path handling, authorization, redaction, and external command changes.
 
