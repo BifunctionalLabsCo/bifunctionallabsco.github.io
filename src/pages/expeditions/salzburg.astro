@@ -23,7 +23,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
     .parallax-section::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.42); }
     .parallax-inner{ position:relative; z-index:1; width:100%; max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
     .parallax-inner .text{ padding:0; }
-    .parallax-section p{ color:rgba(255,255,255,.95); font-size:clamp(1.9rem, 3.6vw, 3rem); line-height:1.2; }
+    .parallax-section h3{ font-family:var(--sans); font-size:clamp(24px,3.3vw,38px); letter-spacing:.08em; font-weight:800; text-transform:uppercase; line-height:1.25; color:#fff; margin:0; }
     @media (max-width:768px){ .parallax-section{ min-height:clamp(260px, 36vh, 340px); background-attachment:scroll; } }
   </style>
 
@@ -148,6 +148,17 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
+  <!-- COVER QUOTE: Hohensalzburg (mint quote) -->
+  <section class="cover-quote">
+    <div class="cover-ph" style="background:linear-gradient(135deg, #2c3e50 0%, #1a2533 100%)"></div>
+    <div class="inner">
+      <figure>
+        <p class="quote">Panoramic views in every direction, a leisured stroll inside the fortress.</p>
+        <figcaption>Hohensalzburg Fortress, Salzburg, Austria</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- SECTION: SOUND OF MUSIC -->
   <section class="space-sm" style="padding-top:44px;">
     <div class="text">
@@ -184,7 +195,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <section class="parallax-section" style="background-image:url('https://media.bifunctional.xyz/expeditions/salzburg/04.jpg')">
     <div class="parallax-inner">
       <div class="text">
-        <p>With that, our short day in Salzburg is at an end. Other must see spots include the Mirabell Gardens and Dom Quarter in Old Town.</p>
+        <h3>With that, our short day in Salzburg is at an end. Other must see spots include the Mirabell Gardens and Dom Quarter in Old Town.</h3>
       </div>
     </div>
   </section>
