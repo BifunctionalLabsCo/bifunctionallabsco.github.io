@@ -7,13 +7,13 @@ import PostLayout from '../../layouts/PostLayout.astro';
   heroTitle="Bangkok<br>Airwaves"
   heroSubtitle="Glimpses of Thailand 2018"
   seriesLabel="Thailand &mdash; Vol. II"
-  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/bangkok/01.jpg')"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/bangkok/02.jpg')"
   date="MARCH 24TH, 2019"
   location="Bangkok, Thailand"
   footnote="A shout-out to long-planned good times with good friends &mdash; Bhaskar, Umang, Gravy and Shivam. Prost! &copy; Zubin John"
   moreTitle="More Expeditions"
   description="Wat Pho, Wat Arun, and the temples of Bangkok's Phra Nakhon district. March 2019."
-  ogImage="https://media.bifunctional.xyz/expeditions/bangkok/01.jpg"
+  ogImage="https://media.bifunctional.xyz/expeditions/bangkok/02.jpg"
 >
   <Fragment slot="nav-left">Thailand</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
@@ -47,14 +47,14 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 2-UP: Wat Pho + Grand Palace area -->
+  <!-- 2-UP: Highlights (10, 11) -->
   <section class="space-md">
     <div class="grid grid-2">
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/02.jpg" alt="Bangkok Airwaves photo 2" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/10.jpg" alt="Bangkok Airwaves photo 10" /></div>
       </figure>
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/03.jpg" alt="Bangkok Airwaves photo 3" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/11.jpg" alt="Bangkok Airwaves photo 11" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
@@ -65,11 +65,13 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- FULL BLEED: Wat Arun -->
-  <section class="full-bleed">
-    <figure>
-      <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/04.jpg" alt="Bangkok Airwaves photo 4" /></div>
-    </figure>
+  <!-- FULL WIDTH: 09 (no caption, not parallax) -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/09.jpg" alt="Bangkok Airwaves photo 9" /></div>
+      </figure>
+    </div>
   </section>
 
   <section class="space-md">
@@ -83,17 +85,14 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 3-UP: Buddhist structures -->
+  <!-- 2-UP: Buddhist structures (07, 06) -->
   <section class="space-md">
-    <div class="grid grid-3">
+    <div class="grid grid-2">
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/05.jpg" alt="Bangkok Airwaves photo 5" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/07.jpg" alt="Bangkok Airwaves photo 7" /></div>
       </figure>
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/06.jpg" alt="Bangkok Airwaves photo 6" /></div>
-      </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/07.jpg" alt="Bangkok Airwaves photo 7" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
@@ -104,35 +103,37 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- COVER QUOTE -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #1a2c1a 0%, #0d1a0d 100%)"></div>
-    <div class="inner">
+  <!-- 2-UP: after caption (05, 03) -->
+  <section class="space-md">
+    <div class="grid grid-2">
       <figure>
-        <p class="quote">A majestic view of the complex's looming central prang.</p>
-        <figcaption>Wat Arun, Bangkok, Thailand</figcaption>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/05.jpg" alt="Bangkok Airwaves photo 5" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/03.jpg" alt="Bangkok Airwaves photo 3" /></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        Snapshots capturing the colourful faience-encrusted pagodas and the broader temple precinct
+        of Rattanakosin Island, as seen from the riverbanks.
+      </figcaption>
+    </div>
+  </section>
+
+  <!-- SINGLE: 01, between the two captions -->
+  <section class="space-md">
+    <div class="single">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/01.jpg" alt="Bangkok Airwaves photo 1" /></div>
       </figure>
     </div>
   </section>
 
-  <!-- 2+1: Final shots -->
-  <section class="space-md">
-    <div class="grid grid-2plus1">
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/08.jpg" alt="Bangkok Airwaves photo 8" /></div>
-      </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/09.jpg" alt="Bangkok Airwaves photo 9" /></div>
-      </figure>
-      <figure class="span-2">
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/10.jpg" alt="Bangkok Airwaves photo 10" /></div>
-        <figcaption>
-          Snapshots capturing the colourful faience-encrusted pagodas and the broader temple precinct
-          of Rattanakosin Island, as seen from the riverbanks.
-        </figcaption>
-      </figure>
-    </div>
-  </section>
+  <!-- FINAL CAPTION -->
+  <div class="text" style="margin-top:14px; padding-bottom:28px;">
+    <figcaption>A majestic view of the complex's looming central prang.</figcaption>
+  </div>
 
   <!-- MORE CARDS -->
   <Fragment slot="more-cards">
