@@ -7,13 +7,13 @@ import PostLayout from '../../layouts/PostLayout.astro';
   heroTitle="Bangkok<br>Airwaves"
   heroSubtitle="Glimpses of Thailand 2018"
   seriesLabel="Thailand &mdash; Vol. II"
-  heroBgLabel="Hero image: Wat Arun temple complex on the Chao Phraya river, Bangkok"
-  heroBgGradient="linear-gradient(135deg, #1a2c1a 0%, #0d1a0d 100%)"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/bangkok/02.jpg')"
   date="MARCH 24TH, 2019"
   location="Bangkok, Thailand"
   footnote="A shout-out to long-planned good times with good friends &mdash; Bhaskar, Umang, Gravy and Shivam. Prost! &copy; Zubin John"
   moreTitle="More Expeditions"
   description="Wat Pho, Wat Arun, and the temples of Bangkok's Phra Nakhon district. March 2019."
+  ogImage="https://media.bifunctional.xyz/expeditions/bangkok/02.jpg"
 >
   <Fragment slot="nav-left">Thailand</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
@@ -47,17 +47,17 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 2-UP: Wat Pho + Grand Palace area -->
-  <section class="space-md">
+  <!-- 2-UP: Highlights (10, 11) -->
+  <section class="photo-group">
     <div class="grid grid-2">
       <figure>
-        <div class="media ph" data-label="Wat Pho temple complex, Rattanakosin Island &mdash; golden chedis"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/10.jpg" alt="Bangkok Airwaves photo 10" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Temple detail, Phra Nakhon district"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/11.jpg" alt="Bangkok Airwaves photo 11" /></div>
       </figure>
     </div>
-    <div class="text" style="margin-top:14px;">
+    <div class="text caption-block">
       <figcaption>
         Located on Rattanakosin Island, south of the Grand Palace, stands the Wat Pho complex &mdash;
         housing one of Bangkok's oldest Buddhist temples and several ornate chedis.
@@ -65,10 +65,10 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- FULL BLEED: Wat Arun -->
+  <!-- FULL BLEED: 09 (edge to edge, fixed frame, no parallax, no caption) -->
   <section class="full-bleed">
     <figure>
-      <div class="media ph" data-label="Wat Arun (Temple of the Dawn) from across the Chao Phraya river, Bangkok"></div>
+      <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/09.jpg" alt="Bangkok Airwaves photo 9" /></div>
     </figure>
   </section>
 
@@ -83,20 +83,17 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 3-UP: Buddhist structures -->
-  <section class="space-md">
-    <div class="grid grid-3">
+  <!-- 2-UP: Buddhist structures (07, 06) -->
+  <section class="photo-group">
+    <div class="grid grid-2">
       <figure>
-        <div class="media ph" data-label="Faience-encrusted prangs, Wat Arun &mdash; 60&ndash;80m towers"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/07.jpg" alt="Bangkok Airwaves photo 7" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Restored Buddhist structures, Wat Arun site"></div>
-      </figure>
-      <figure>
-        <div class="media ph" data-label="Inner facade of the main functional temple, Wat Arun"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/06.jpg" alt="Bangkok Airwaves photo 6" /></div>
       </figure>
     </div>
-    <div class="text" style="margin-top:14px;">
+    <div class="text caption-block">
       <figcaption>
         Buddhist structures at the Wat Arun site are remnants from earlier temples, preserved over several bouts
         of restoration. The site contains five faience-encrusted prang towers, ranging from 60&ndash;80 metres.
@@ -104,54 +101,54 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- COVER QUOTE -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #1a2c1a 0%, #0d1a0d 100%)"></div>
-    <div class="inner">
+  <!-- 2-UP: after caption (05, 03) -->
+  <section class="photo-group">
+    <div class="grid grid-2">
       <figure>
-        <p class="quote">A majestic view of the complex's looming central prang.</p>
-        <figcaption>Wat Arun, Bangkok, Thailand</figcaption>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/05.jpg" alt="Bangkok Airwaves photo 5" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/03.jpg" alt="Bangkok Airwaves photo 3" /></div>
+      </figure>
+    </div>
+    <div class="text caption-block">
+      <figcaption>
+        Snapshots capturing the colourful faience-encrusted pagodas and the broader temple precinct
+        of Rattanakosin Island, as seen from the riverbanks.
+      </figcaption>
+    </div>
+  </section>
+
+  <!-- SINGLE: 01, between the two captions (same row width as the photo rows) -->
+  <section class="photo-group">
+    <div class="grid grid-2plus1">
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/bangkok/01.jpg" alt="Bangkok Airwaves photo 1" /></div>
       </figure>
     </div>
   </section>
 
-  <!-- 2+1: Final shots -->
-  <section class="space-md">
-    <div class="grid grid-2plus1">
-      <figure>
-        <div class="media ph" data-label="Colourful temple ornamentation, Phra Nakhon district"></div>
-      </figure>
-      <figure>
-        <div class="media ph" data-label="Street view toward the Grand Palace, Bangkok"></div>
-      </figure>
-      <figure class="span-2">
-        <div class="media ph" data-label="Panoramic view of Rattanakosin Island temples from across the river"></div>
-        <figcaption>
-          Snapshots capturing the colourful faience-encrusted pagodas and the broader temple precinct
-          of Rattanakosin Island, as seen from the riverbanks.
-        </figcaption>
-      </figure>
-    </div>
-  </section>
+  <!-- FINAL CAPTION -->
+  <div class="text caption-block">
+    <figcaption>A majestic view of the complex's looming central prang.</figcaption>
+  </div>
 
   <!-- MORE CARDS -->
   <Fragment slot="more-cards">
     <a class="more-card" href="/expeditions/andaman/">
-      <div class="more-thumb"></div>
+      <div class="more-thumb"><img src="https://media.bifunctional.xyz/expeditions/andaman/08.jpg" alt="" /></div>
       <p class="more-card-title">Andaman Sands</p>
       <span class="more-card-badge">Published &mdash; Jan 2019</span>
       <p class="more-card-sub">Phuket sunsets, rock pools, and island hopping</p>
     </a>
     <a class="more-card" href="/expeditions/innsbruck/">
-      <div class="more-thumb"></div>
+      <div class="more-thumb"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/05.jpg" alt="" /></div>
       <p class="more-card-title">Into the Alps: Innsbruck</p>
       <span class="more-card-badge">Published &mdash; Oct 2021</span>
       <p class="more-card-sub">Altstadt, Nordkette, and Castle Ambras</p>
     </a>
     <a class="more-card" href="/expeditions/">
-      <div class="more-thumb" style="display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(3,43,34,.4);">All Expeditions</span>
-      </div>
+      <div class="more-thumb"><div class="postcard-mini"><img src="https://media.bifunctional.xyz/expeditions/index/00f.jpg" alt="Family travel photo" /></div></div>
       <p class="more-card-title">View All</p>
       <span class="more-card-badge">Expeditions Index</span>
       <p class="more-card-sub">Alps, Italy, and more coming soon</p>

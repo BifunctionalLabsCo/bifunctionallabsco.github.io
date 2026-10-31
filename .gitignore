@@ -7,3 +7,9 @@ mcp/bin/
 mcp/var/
 mcp/config/repos.local.json
 mcp/coverage.out
+
+# Image files are served from Cloudflare R2, not committed (see issue #2)
+public/assets/images/
+public/assets/*.png
+public/assets/*.jpg
+public/assets/*.svg

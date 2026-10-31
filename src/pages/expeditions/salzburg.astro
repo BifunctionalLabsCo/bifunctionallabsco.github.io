@@ -1,19 +1,20 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 ---
 
 <PostLayout
   pageTitle="Into the Alps: Salzburg | Expeditions"
   heroTitle="Into the Alps:<br>Salzburg"
   heroSubtitle="Weekend getaway options in the Austrian Alps"
-  seriesLabel="Into the Alps &mdash; Vol. II"
-  heroBgLabel="Hero image: Salzburg Altstadt from Hohensalzburg fortress"
-  heroBgGradient="linear-gradient(135deg, #2c3e50 0%, #1a2533 100%)"
+  seriesLabel="Into the Alps &mdash; Vol. I"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/salzburg/04.jpg')"
   date="OCTOBER 9TH, 2021"
   location="Salzburg, Austria"
   footnote="Our weekend getaway to Salzburg occurred in the Fall of 2021 after quite an eventful two years. &copy; Zubin John"
   moreTitle="More Expeditions"
   description="A weekend in Salzburg: Untersberg, Hohensalzburg fortress, and the Sound of Music filming locations. October 2021."
+  ogImage="https://media.bifunctional.xyz/expeditions/salzburg/04.jpg"
 >
   <Fragment slot="nav-left">Into the Alps</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
@@ -27,6 +28,15 @@ import PostLayout from '../../layouts/PostLayout.astro';
         a place where baroque architecture, mountain terrain, and pop culture mythology exist in surprisingly
         close proximity.
       </p>
+    </div>
+  </section>
+
+  <!-- FULL IMAGE: 13, centred, no caption -->
+  <section class="photo-group">
+    <div class="single">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/13.jpg" alt="Into the Alps: Salzburg photo 13" /></div>
+      </figure>
     </div>
   </section>
 
@@ -47,15 +57,23 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- FULL BLEED: Untersberg -->
-  <section class="full-bleed">
-    <figure>
-      <div class="media ph" data-label="Mystic, shrouded peaks of the Untersberg range"></div>
-    </figure>
+  <!-- 2+1: Untersberg (09, 08 top, 10 full width, tight rows) -->
+  <section class="photo-group">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/09.jpg" alt="Into the Alps: Salzburg photo 9" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/08.jpg" alt="Into the Alps: Salzburg photo 8" /></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/10.jpg" alt="Into the Alps: Salzburg photo 10" /></div>
+      </figure>
+    </div>
+    <div class="text caption-block">
+      <figcaption>Mystic, shrouded peaks of the Untersberg range on a misty October morning.</figcaption>
+    </div>
   </section>
-  <div class="text" style="margin-top:14px; padding-bottom:28px;">
-    <figcaption>Mystic, shrouded peaks of the Untersberg range on a misty October morning.</figcaption>
-  </div>
 
   <!-- SECTION: HOHENSALZBURG -->
   <section class="space-sm">
@@ -71,6 +89,35 @@ import PostLayout from '../../layouts/PostLayout.astro';
         the heart of the fortress. Once there, take in the panoramic views in every direction, stroll inside
         the fortress walls, and visit exhibits that transport you through the history of this European town.
       </p>
+    </div>
+  </section>
+
+  <!-- 2+1: Hohensalzburg (01, 14 top, 03 full width, 12 and 05 row, then caption) -->
+  <section class="photo-group">
+    <div class="grid grid-2plus1">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/01.jpg" alt="Into the Alps: Salzburg photo 1" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/14.jpg" alt="Into the Alps: Salzburg photo 14" /></div>
+      </figure>
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/03.jpg" alt="Into the Alps: Salzburg photo 3" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/12.jpg" alt="Into the Alps: Salzburg photo 12" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/05.jpg" alt="Into the Alps: Salzburg photo 5" /></div>
+      </figure>
+    </div>
+    <div class="text caption-block">
+      <figcaption>Captivating vistas of Salzburg and its surroundings from the ramparts of Hohensalzburg.</figcaption>
+    </div>
+  </section>
+
+  <section class="space-sm">
+    <div class="text">
       <p>
         Back down in the heart of the Old Town, a short distance from the market you will find the charming
         little cemetery, Petersfriedhof, one of the oldest Christian burial sites in the German-speaking world.
@@ -78,35 +125,23 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID 2+1: Hohensalzburg -->
-  <section class="space-md">
+  <!-- 2+1: Old Town (06, 02 top, 07 full width, no caption) -->
+  <section class="photo-group">
     <div class="grid grid-2plus1">
       <figure>
-        <div class="media ph" data-label="FestungsBahn funicular, ascending Hohensalzburg"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/06.jpg" alt="Into the Alps: Salzburg photo 6" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Petersfriedhof cemetery, Salzburg Altstadt"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/02.jpg" alt="Into the Alps: Salzburg photo 2" /></div>
       </figure>
       <figure class="span-2">
-        <div class="media ph" data-label="Captivating vistas of Salzburg and surroundings from Hohensalzburg fortress"></div>
-        <figcaption>Captivating vistas of Salzburg and its surroundings from the ramparts of Hohensalzburg.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- COVER QUOTE -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #2c3e50 0%, #1a2533 100%)"></div>
-    <div class="inner">
-      <figure>
-        <p class="quote">Panoramic views in every direction, a leisured stroll inside the fortress.</p>
-        <figcaption>Hohensalzburg Fortress, Salzburg, Austria</figcaption>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/07.jpg" alt="Into the Alps: Salzburg photo 7" /></div>
       </figure>
     </div>
   </section>
 
   <!-- SECTION: SOUND OF MUSIC -->
-  <section class="space-sm" style="padding-top:44px;">
+  <section class="space-sm">
     <div class="text">
       <h2 class="section-title">Ode to Hollywood</h2>
     </div>
@@ -122,47 +157,42 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID 2: Leopoldskron -->
-  <section class="space-md">
+  <!-- GRID 2: Leopoldskron (11, 15) -->
+  <section class="photo-group">
     <div class="grid grid-2">
       <figure>
-        <div class="media ph" data-label="Leopoldskron Palace exterior, Salzburg"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/11.jpg" alt="Into the Alps: Salzburg photo 11" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Lake view from Leopoldskron Palace, the Von Trapp Villa backdrop"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/salzburg/15.jpg" alt="Into the Alps: Salzburg photo 15" /></div>
       </figure>
     </div>
-    <div class="text" style="margin-top:14px;">
+    <div class="text caption-block">
       <figcaption>Leopoldskron Palace, one of the filming locations for the Villa Trapp in The Sound of Music.</figcaption>
     </div>
   </section>
 
-  <!-- CLOSING NOTE -->
-  <section class="space-sm">
-    <div class="text">
-      <p>
-        With that, our short day in Salzburg comes to a close. Other must-see spots include the Mirabell
-        Gardens and the Dom Quarter in the Old Town, both easily walkable from the Altstadt.
-      </p>
-    </div>
-  </section>
+  <!-- PARALLAX: closing, 04 with text on top, directly above the location footer -->
+  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/salzburg/04.jpg" alt="Mirabell Gardens, Salzburg">
+    <p class="quote">With that, our short day in Salzburg is at an end. Other must see spots include the Mirabell Gardens and Dom Quarter in Old Town.</p>
+  </ParallaxBand>
 
   <!-- MORE CARDS -->
   <Fragment slot="more-cards">
     <a class="more-card" href="/expeditions/innsbruck/">
-      <div class="more-thumb"></div>
+      <div class="more-thumb"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/05.jpg" alt="" /></div>
       <p class="more-card-title">Into the Alps: Innsbruck</p>
       <span class="more-card-badge">Published &mdash; Oct 2021</span>
       <p class="more-card-sub">Altstadt, Nordkette, and Castle Ambras</p>
     </a>
     <a class="more-card" href="/expeditions/verona/">
-      <div class="more-thumb"></div>
+      <div class="more-thumb"><img src="https://media.bifunctional.xyz/expeditions/verona/11.jpg" alt="" /></div>
       <p class="more-card-title">Verona</p>
       <span class="more-card-badge">Published &mdash; Oct 2020</span>
       <p class="more-card-sub">Of Bridges and Brawls</p>
     </a>
     <a class="more-card" href="/expeditions/bangkok/">
-      <div class="more-thumb"></div>
+      <div class="more-thumb"><img src="https://media.bifunctional.xyz/expeditions/bangkok/01.jpg" alt="" /></div>
       <p class="more-card-title">Bangkok Airwaves</p>
       <span class="more-card-badge">Published &mdash; Mar 2019</span>
       <p class="more-card-sub">Wat Pho, Wat Arun, Phra Nakhon district</p>
