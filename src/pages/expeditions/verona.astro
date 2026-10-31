@@ -1,18 +1,19 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 ---
 
 <PostLayout
   pageTitle="Verona: Of Bridges &amp; Brawls | Expeditions"
   heroTitle="Verona"
   heroSubtitle="Of Bridges &amp; Brawls"
-  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/verona/01.jpg')"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/verona/03.jpg')"
   date="OCTOBER 8TH, 2020"
   location="Verona, VR, Italy"
   footnote="&copy; Zubin John"
   moreTitle="More Expeditions"
   description="The Arena di Verona, Piazza Bra, and the Roman ruins of Verona's old city. October 2020."
-  ogImage="https://media.bifunctional.xyz/expeditions/verona/01.jpg"
+  ogImage="https://media.bifunctional.xyz/expeditions/verona/03.jpg"
 >
   <Fragment slot="nav-left">Expeditions</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
@@ -28,27 +29,33 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- SECTION: THE ARENA -->
-  <section class="space-sm">
-    <div class="text">
-      <h2 class="section-title">The Arena</h2>
+  <!-- ROW 1: 07, 04 -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/07.jpg" alt="Verona photo 7" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/04.jpg" alt="Verona photo 4" /></div>
+      </figure>
     </div>
   </section>
 
-  <!-- FULL BLEED: Arena exterior -->
-  <section class="full-bleed">
-    <figure>
-      <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/02.jpg" alt="Verona photo 2" /></div>
-    </figure>
+  <!-- ROW 2: 12, then the caption below it -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/12.jpg" alt="Verona photo 12" /></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>One really needs to marvel at the beauty of these Roman arcs, not just along the periphery of the arena but all across town. Verona is essentially an open-air museum of Roman architecture, and the Arena sits at its heart like a still-beating pulse.</figcaption>
+    </div>
   </section>
 
+  <!-- PASTEL PARAGRAPH, then full page width 05 (no parallax) -->
   <section class="space-sm">
     <div class="text">
-      <p>
-        One really needs to marvel at the beauty of these Roman arcs, not just along the periphery of the arena
-        but all across town. Verona is essentially an open-air museum of Roman architecture, and the Arena
-        sits at its heart like a still-beating pulse.
-      </p>
       <p>
         The pastel shades of the Piazza Bra are best appreciated from the upper stands of the colosseum. On a
         lazy afternoon, one can bask in the ambient sounds of the daily hustle of the cafes and their many
@@ -57,44 +64,14 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID 2: Arena stands + Piazza Bra -->
+  <!-- FULL BLEED: 05 -->
+  <section class="full-bleed">
+    <figure>
+      <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/05.jpg" alt="Verona photo 5" /></div>
+    </figure>
+  </section>
+
   <section class="space-md">
-    <div class="grid grid-2">
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/03.jpg" alt="Verona photo 3" /></div>
-      </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/04.jpg" alt="Verona photo 4" /></div>
-      </figure>
-    </div>
-    <div class="text" style="margin-top:14px;">
-      <figcaption>The Piazza Bra as seen from the upper stands. The colosseum's relationship with the living city below is still very much intact.</figcaption>
-    </div>
-  </section>
-
-  <!-- COVER QUOTE (Verona uses serif italic style, not sans bold) -->
-  <section class="cover-quote" style="min-height:380px;">
-    <style is:inline>
-      .verona-quote{ font-family:"Fraunces",serif; font-style:italic; font-weight:500; line-height:1.35; font-size:clamp(18px,2.6vw,34px); max-width:28ch; margin:0; }
-      .verona-credit{ text-align:left; color:rgba(255,255,255,.6); margin-top:14px; font-family:"Montserrat",sans-serif; font-size:10px; font-style:normal; letter-spacing:.14em; text-transform:uppercase; }
-    </style>
-    <div class="cover-ph" style="background:linear-gradient(135deg, #4a2c1a 0%, #2e1a0e 100%)"></div>
-    <div class="inner">
-      <figure>
-        <p class="verona-quote">Very, very functional. Even 2000 years later.</p>
-        <figcaption class="verona-credit">Arena di Verona, 30 AD</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- SECTION: OLD CITY -->
-  <section class="space-sm" style="padding-top:44px;">
-    <div class="text">
-      <h2 class="section-title">The Old City</h2>
-    </div>
-  </section>
-
-  <section class="space-sm">
     <div class="text">
       <p>
         Gorgeous Roman ruins are scattered all across town. A stroll through the old city is a definite
@@ -104,30 +81,59 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID 3: City ruins -->
+  <!-- ROW: 17 -->
   <section class="space-md">
-    <div class="grid grid-3">
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/05.jpg" alt="Verona photo 5" /></div>
+    <div class="grid grid-2plus1">
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/17.jpg" alt="Verona photo 17" /></div>
       </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/06.jpg" alt="Verona photo 6" /></div>
-      </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/07.jpg" alt="Verona photo 7" /></div>
-      </figure>
-    </div>
-    <div class="text" style="margin-top:14px;">
-      <figcaption>Roman ruins woven into the streets and squares of the centro storico. Verona, VR, Italy.</figcaption>
     </div>
   </section>
 
-  <!-- SINGLE: Wide city panorama -->
+  <!-- ROW: 13, 15 -->
   <section class="space-md">
-    <div class="single">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/13.jpg" alt="Verona photo 13" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/15.jpg" alt="Verona photo 15" /></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FULL WIDTH, PARALLAX: 14 -->
+  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/verona/14.jpg" alt="Verona photo 14" />
+
+  <!-- ROW: 16, 08 -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/16.jpg" alt="Verona photo 16" /></div>
+      </figure>
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/08.jpg" alt="Verona photo 8" /></div>
-        <figcaption>Verona from above: the Adige river bending through the old city, the Arena visible at centre.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ROW: 10 -->
+  <section class="space-md">
+    <div class="grid grid-2plus1">
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/10.jpg" alt="Verona photo 10" /></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ROW: 01, 02 -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/01.jpg" alt="Verona photo 1" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/verona/02.jpg" alt="Verona photo 2" /></div>
       </figure>
     </div>
   </section>
