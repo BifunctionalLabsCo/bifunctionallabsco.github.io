@@ -7,8 +7,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
   heroTitle="Andaman<br>Sands"
   heroSubtitle="Glimpses of Thailand 2018"
   seriesLabel="Thailand &mdash; Vol. I"
-  heroBgLabel="Hero image: Phuket beachfront at golden hour, Andaman coast"
-  heroBgGradient="linear-gradient(135deg, #7a4a1a 0%, #4a2c0e 100%)"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/andaman/08.jpg')"
   date="JANUARY 7TH, 2019"
   location="Phuket, Thailand"
   footnote="A shout-out to long-planned good times with good friends &mdash; Bhaskar, Umang, Gravy and Shivam. Prost! &copy; Zubin John"
@@ -17,6 +16,15 @@ import PostLayout from '../../layouts/PostLayout.astro';
 >
   <Fragment slot="nav-left">Thailand</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
+
+  <!-- HERO TRANSITION: fade the bottom of the hero photo into the white page -->
+  <style is:inline>
+    .post-hero::after{
+      background:
+        linear-gradient(to top, #fff 0%, rgba(255,255,255,0) 14%),
+        linear-gradient(to top, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.12) 100%);
+    }
+  </style>
 
   <!-- INTRO -->
   <section class="space-md">
@@ -29,41 +37,21 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- SECTION: PASTEL SUNSETS -->
+  <!-- SECTION: WHEELS DOWN -->
   <section class="space-sm">
     <div class="text">
-      <h2 class="section-title">Pastel Sunsets</h2>
+      <h2 class="section-title">Wheels Down, Thailand</h2>
     </div>
   </section>
 
-  <section class="space-sm">
-    <div class="text">
-      <p>
-        Turning your eyes west to an unspoiled horizon spills its reward in a scintillating climax to the day's
-        activity. The Andaman coast at dusk is something quite particular &mdash; the sky goes through every
-        shade between terracotta and pale rose before settling into a soft, bruised violet.
-      </p>
-    </div>
-  </section>
-
-  <!-- FULL BLEED: Sunset -->
-  <section class="full-bleed">
-    <figure>
-      <div class="media ph" data-label="Phuket sunset looking west over the Andaman Sea &mdash; pastel horizon"></div>
-    </figure>
-  </section>
-  <div class="text" style="margin-top:14px; padding-bottom:28px;">
-    <figcaption>The Andaman coast at golden hour. Turning west is never the wrong decision.</figcaption>
-  </div>
-
-  <!-- 2-UP: Beach + sunset -->
-  <section class="space-md">
+  <!-- 2-UP: Arrival (10, 09) -->
+  <section class="space-md" style="padding-bottom:0;">
     <div class="grid grid-2">
       <figure>
-        <div class="media ph" data-label="Pristine sand beach, Phuket &mdash; calm midday waters"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/10.jpg" alt="Beach with palm trees and birds, Phuket" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Silhouette of beach trees against Andaman sunset"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/09.jpg" alt="Rocky shoreline and turquoise sea, Phuket" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
@@ -71,50 +59,79 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- SECTION: ROCK POOLS -->
-  <section class="space-sm">
-    <div class="text">
-      <h2 class="section-title">Fortuitous Rock Pools</h2>
+  <!-- SINGLE: Arrival (08) -->
+  <section class="space-md" style="padding-top:28px;">
+    <div class="single">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/08.jpg" alt="Sunset over dark rocks and the Andaman Sea, Phuket" /></div>
+      </figure>
     </div>
   </section>
 
-  <section class="space-sm">
-    <div class="text">
-      <p>
-        A chance seaside natural rock pool beckons the weary traveller with the promise of a cool respite and
-        a captivating vista. Do not underestimate the calming effects of a quick sunset dip &mdash; but look
-        out for exposed oyster shells. They have been known to ruin quite a few happy tourists' days.
-      </p>
+  <!-- PARALLAX: Pastel Sunsets (text over the photo, edges fade into the page) -->
+  <style is:inline>
+    .parallax-section{ position:relative; min-height:72vh; display:flex; align-items:center; background:center/cover no-repeat fixed; }
+    .parallax-section::before{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 14%, rgba(0,0,0,.42) 32%, rgba(0,0,0,.42) 68%, rgba(255,255,255,0) 86%, #fff 100%);
+    }
+    .parallax-inner{ position:relative; z-index:1; width:100%; max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
+    .parallax-inner .text{ padding:0; }
+    .parallax-section .section-title{ color:#fff; }
+    .parallax-section p{ color:rgba(255,255,255,.92); }
+    @media (max-width:768px){ .parallax-section{ min-height:60vh; background-attachment:scroll; } }
+  </style>
+  <section class="parallax-section" style="background-image:url('https://media.bifunctional.xyz/expeditions/andaman/06.jpg')">
+    <div class="parallax-inner">
+      <div class="text">
+        <h2 class="section-title">Pastel Sunsets</h2>
+        <p>Turning your eyes west to an unspoiled horizon spills its reward in a scintillating climax to the day's activity. The sight awaits...</p>
+      </div>
     </div>
   </section>
 
-  <!-- 2+1: Rock pools -->
+  <!-- SPLIT: Rock pools (text left, solo photo right) -->
+  <section class="space-md">
+    <div class="grid grid-2">
+      <div class="text">
+        <h2 class="section-title">Fortuitous Rock Pools</h2>
+        <p>
+          A chance seaside natural rock pool beckons the weary traveller with the promise of a cool respite and
+          a captivating vista. Do not underestimate the calming effects of a quick sunset dip &mdash; but look
+          out for exposed oyster shells. They have been known to ruin quite a few happy tourists' days.
+        </p>
+      </div>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/07.jpg" alt="Splash in a sunlit Phuket rock pool" /></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SECTION: DIVING IN -->
+  <section class="space-sm" style="padding-top:44px;">
+    <div class="text">
+      <h2 class="section-title">Speaking of diving in..</h2>
+    </div>
+  </section>
+
+  <!-- 2+1: Diving in (03, 04 top, 05 full width) -->
   <section class="space-md">
     <div class="grid grid-2plus1">
       <figure>
-        <div class="media ph" data-label="Natural rock pool, Phuket coastline &mdash; sunset light"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/03.jpg" alt="Limestone cliffs and turquoise water, Phuket" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Coastal rock formation, Andaman Sea in background"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/04.jpg" alt="Long-tail boat on turquoise water with a diver, Andaman Sea" /></div>
       </figure>
       <figure class="span-2">
-        <div class="media ph" data-label="Wide view of seaside rock pools at golden hour, Phuket"></div>
-        <figcaption>
-          The rock pools along the Phuket coastline offer a natural respite &mdash; and one of the finest spots
-          to watch the sun disappear into the Andaman Sea.
-        </figcaption>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/05.jpg" alt="Swimmer floating in clear turquoise water, Andaman Sea" /></div>
       </figure>
     </div>
-  </section>
-
-  <!-- COVER QUOTE -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #7a4a1a 0%, #4a2c0e 100%)"></div>
-    <div class="inner">
-      <figure>
-        <p class="quote">Speaking of diving in &mdash; Day 3 on the open sea.</p>
-        <figcaption>Ko Phi Phi Don, Andaman Sea, Thailand</figcaption>
-      </figure>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>
+        The iconic limestone karsts of Ko Phi Phi Don and Ko Phi Phi Le &mdash; everything the brochure promised
+        and then some.
+      </figcaption>
     </div>
   </section>
 
@@ -140,36 +157,20 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID 3: Island hopping -->
+  <!-- 2-UP: Open sea (02, 01) -->
   <section class="space-md">
-    <div class="grid grid-3">
+    <div class="grid grid-2">
       <figure>
-        <div class="media ph" data-label="Limestone karsts rising from the Andaman Sea, Ko Phi Phi"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/02.jpg" alt="Turquoise waters between islands, Ko Phi Phi Le" /></div>
       </figure>
       <figure>
-        <div class="media ph" data-label="Long-tail boat approaching Ko Phi Phi Don jetty"></div>
-      </figure>
-      <figure>
-        <div class="media ph" data-label="Turquoise waters between islands, Ko Phi Phi Le"></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/andaman/01.jpg" alt="Panoramic view of Maya Bay from the cliffs above, Ko Phi Phi Le" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
       <figcaption>
-        The iconic limestone karsts of Ko Phi Phi Don and Ko Phi Phi Le &mdash; everything the brochure promised
-        and then some.
+        Maya Bay, Ko Phi Phi Le. Notoriously crowded on a map, unexpectedly serene in person.
       </figcaption>
-    </div>
-  </section>
-
-  <!-- SINGLE: Panorama -->
-  <section class="space-md">
-    <div class="single">
-      <figure>
-        <div class="media ph" data-label="Panoramic view of Maya Bay from the cliffs above, Ko Phi Phi Le"></div>
-        <figcaption>
-          Maya Bay, Ko Phi Phi Le. Notoriously crowded on a map, unexpectedly serene in person.
-        </figcaption>
-      </figure>
     </div>
   </section>
 
