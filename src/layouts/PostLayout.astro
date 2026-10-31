@@ -289,6 +289,10 @@ const {
     .photo-group{ margin:0; padding:0; }
     .photo-group + .photo-group, .photo-group + .full-bleed, .full-bleed + .photo-group, .full-bleed + .full-bleed{ margin-top:8px; }
     .caption-block{ margin-top:10px; }
+    /* a heading sits close to what follows it */
+    section:is(.space-sm, .space-md):has(> .text > h2.section-title, > .text > h2.section-title-center){ padding-bottom:0; }
+    section:is(.space-sm, .space-md):has(> .text > h2.section-title, > .text > h2.section-title-center) + section{ padding-top:14px; }
+    section:is(.space-sm, .space-md):has(> .text > h2.section-title, > .text > h2.section-title-center) + section .text > p:first-child{ margin-top:0; }
 
     /* ─── COVER QUOTE ─── */
     .cover-quote{
