@@ -300,6 +300,13 @@ const {
       border-left:3px solid var(--mint); padding-left:20px;
     }
     .cover-quote figcaption{ text-align:left; color:rgba(255,255,255,.6); margin-top:14px; }
+    /* postcard: a framed photo, narrower than the page, for closing images */
+    .postcard{
+      max-width:520px; margin:0 auto; background:#fff;
+      padding:14px 14px 44px; box-shadow:0 12px 32px rgba(0,0,0,.18);
+      transform:rotate(-1.2deg);
+    }
+    .postcard .media{ aspect-ratio:4/3; }
     /* small quote emphasis for parallax bands that also carry a title */
     .parallax-band .quote.quote-sm{
       font-family:var(--serif); font-style:italic; font-weight:400; text-transform:none; letter-spacing:0;
