@@ -19,6 +19,10 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
   <Fragment slot="nav-left">Into the Alps</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
 
+  <style is:inline>
+    .row-equal .media{ aspect-ratio:auto; height:360px; }
+  </style>
+
   <!-- SECTION: ALTSTADT (title at the very top) -->
   <section class="space-sm">
     <div class="text">
@@ -37,19 +41,9 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
     </div>
   </section>
 
-  <section class="space-sm">
-    <div class="text">
-      <p>
-        The first item on every itinerary has to be a stroll around the Altstadt to soak in the general vibe and the
-        gorgeous natural mountain scenery that frames the entire city. The old town sits right at the foot of the
-        Nordkette range, making every street corner feel like a painting.
-      </p>
-    </div>
-  </section>
-
   <!-- 2-UP: Altstadt (06, 013) -->
   <section class="space-md">
-    <div class="grid grid-2">
+    <div class="grid grid-2" style="gap:8px;">
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/06.jpg" alt="Into the Alps: Innsbruck photo 6" /></div>
       </figure>
@@ -58,13 +52,12 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
-      <figcaption>The heart of the Altstadt, with the iconic Golden Roof at its centre.</figcaption>
+      <figcaption>The first item on every itinerary has got to be a quick stroll around the Altstadt to soak in the general vibe and gorgeous natural mountain scenery.</figcaption>
     </div>
   </section>
 
   <!-- PARALLAX: City Tower (08, text on top, full width) -->
-  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/innsbruck/08.jpg" alt="Into the Alps: Innsbruck photo 8">
-    <h2 slot="title" class="section-title">The City Tower</h2>
+  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/innsbruck/08.jpg" alt="Into the Alps: Innsbruck photo 8" minHeight="clamp(512px, 67vh, 672px)">
     <p class="quote quote-sm">
       For the best views of the city, we made our way up the spiral staircase to the top of the Innsbruck
       Stadtturm. The intricate design, added to the original 450-year-old structure, allows two-way traffic
@@ -74,7 +67,7 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
 
   <!-- 2-UP: City Tower (09 portrait, 07 landscape, wider) -->
   <section class="space-md">
-    <div class="grid grid-2" style="grid-template-columns:1fr 1.5fr;">
+    <div class="grid grid-2 row-equal" style="grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:8px;">
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/09.jpg" alt="Into the Alps: Innsbruck photo 9" /></div>
       </figure>
@@ -106,7 +99,7 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
 
   <!-- 2+1: Nordkette (01, 11 top, 10 full width) -->
   <section class="space-md">
-    <div class="grid grid-2plus1">
+    <div class="grid grid-2plus1" style="gap:8px;">
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/01.jpg" alt="Into the Alps: Innsbruck photo 1" /></div>
       </figure>
@@ -135,16 +128,13 @@ import ParallaxBand from '../../components/ParallaxBand.astro';
 
   <!-- 2-UP: Castle Ambras (02, 03) -->
   <section class="space-md">
-    <div class="grid grid-2">
+    <div class="grid grid-2" style="gap:8px;">
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/02.jpg" alt="Into the Alps: Innsbruck photo 2" /></div>
       </figure>
       <figure>
         <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/03.jpg" alt="Into the Alps: Innsbruck photo 3" /></div>
       </figure>
-    </div>
-    <div class="text" style="margin-top:14px;">
-      <figcaption>The grounds of Schloss Ambras, with the Inn valley stretching out below.</figcaption>
     </div>
   </section>
 
