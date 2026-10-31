@@ -136,12 +136,12 @@ const {
 
     /* ─── HERO ─── */
     .post-hero{
-      position:relative; min-height:520px; display:flex;
+      position:relative; min-height:88vh; display:flex;
       align-items:flex-end; background:#333 center/cover no-repeat; overflow:hidden;
     }
     .post-hero::after{
       content:""; position:absolute; inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.12) 100%);
+      background:rgba(0,0,0,.45);
     }
     /* brand gradient hairline — visual punctuation at the very top of the page */
     .post-hero::before{
@@ -387,7 +387,7 @@ const {
       :root{ --gutter:18px; --gap:14px; }
       .grid-2, .grid-3, .grid-2plus1{ grid-template-columns:1fr; }
       .span-2{ grid-column:auto; }
-      .post-hero{ min-height:420px; }
+      .post-hero{ min-height:72vh; }
       .hero-content .post-title{ font-size:32px; }
       .more-grid{ grid-template-columns:1fr; max-width:360px; }
     }

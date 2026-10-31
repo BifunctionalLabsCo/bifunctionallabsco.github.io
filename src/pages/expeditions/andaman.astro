@@ -17,15 +17,6 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <Fragment slot="nav-left">Thailand</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
 
-  <!-- HERO TRANSITION: fade the bottom of the hero photo into the white page -->
-  <style is:inline>
-    .post-hero::after{
-      background:
-        linear-gradient(to top, #fff 0%, rgba(255,255,255,0) 14%),
-        linear-gradient(to top, rgba(0,0,0,.70) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.12) 100%);
-    }
-  </style>
-
   <!-- INTRO -->
   <section class="space-md">
     <div class="text">
@@ -71,10 +62,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <!-- PARALLAX: Pastel Sunsets (text over the photo, edges fade into the page) -->
   <style is:inline>
     .parallax-section{ position:relative; min-height:72vh; display:flex; align-items:center; background:center/cover no-repeat fixed; }
-    .parallax-section::before{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 14%, rgba(0,0,0,.42) 32%, rgba(0,0,0,.42) 68%, rgba(255,255,255,0) 86%, #fff 100%);
-    }
+    .parallax-section::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.42); }
     .parallax-inner{ position:relative; z-index:1; width:100%; max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
     .parallax-inner .text{ padding:0; }
     .parallax-section .section-title{ color:#fff; }
