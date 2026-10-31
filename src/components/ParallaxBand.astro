@@ -33,6 +33,7 @@ const { image, alt, minHeight } = Astro.props;
   style={`background-image:url('${image}');${minHeight ? ` --band-h:${minHeight};` : ''}`}
 >
   <div class="parallax-band-inner">
+    <slot name="title" />
     <slot />
   </div>
 </section>
@@ -54,6 +55,7 @@ const { image, alt, minHeight } = Astro.props;
   .parallax-band-inner :global(p),
   .parallax-band-inner :global(h2),
   .parallax-band-inner :global(h3){ color:#fff; }
+  .parallax-band-inner :global(h2.section-title){ margin-bottom:18px; }
   @media (max-width:768px){
     .parallax-band{ min-height:var(--band-h-mobile, clamp(260px, 36vh, 340px)); background-attachment:scroll; }
   }
