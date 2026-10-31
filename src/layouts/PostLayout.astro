@@ -288,7 +288,9 @@ const {
     /* photo groups sit 8px apart; captions sit 10px under their photos */
     .photo-group{ margin:0; padding:0; }
     .photo-group + .photo-group, .photo-group + .full-bleed, .full-bleed + .photo-group, .full-bleed + .full-bleed{ margin-top:8px; }
-    .caption-block{ margin-top:10px; }
+    .caption-block{ margin-top:10px; margin-bottom:44px; }
+    /* parallax bands breathe from the photos and text around them */
+    .photo-group + .parallax-band, .full-bleed + .parallax-band, .text + .parallax-band, .parallax-band + *{ margin-top:44px; }
     /* a heading sits close to what follows it */
     section:is(.space-sm, .space-md):has(> .text > h2.section-title, > .text > h2.section-title-center){ padding-bottom:0; }
     section:is(.space-sm, .space-md):has(> .text > h2.section-title, > .text > h2.section-title-center) + section{ padding-top:14px; }

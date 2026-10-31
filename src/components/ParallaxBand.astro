@@ -2,13 +2,17 @@
 /**
  * ParallaxBand.astro: full-width photo band with text on top.
  *
+ * The photo is an absolutely positioned <img> that overscans the band by
+ * 15% top and bottom. A small scroll handler shifts it within that margin,
+ * so the band never clips the photo, at any height, on any screen.
+ *
  * Text placed inside the band uses the mint quote style (`.quote`), which
  * PostLayout defines for both `.cover-quote` and `.parallax-band`.
  *
  * Props
  * ──────────────────────────────────────────────────────────────
- * image       string   background photo URL
- * alt?        string   accessible label for the photo
+ * image       string   photo URL
+ * alt?        string   accessible description (empty when decorative)
  * minHeight?  string   CSS min-height for desktop (default: a narrow band)
  *
  * Usage
@@ -23,29 +27,64 @@ interface Props {
   minHeight?: string;
 }
 
-const { image, alt, minHeight } = Astro.props;
+const { image, alt = '', minHeight } = Astro.props;
 ---
 
 <section
   class="parallax-band"
-  role={alt ? 'img' : undefined}
-  aria-label={alt}
-  style={`background-image:url('${image}');${minHeight ? ` --band-h:${minHeight};` : ''}`}
+  style={minHeight ? `--band-h:${minHeight};` : undefined}
 >
+  <img class="parallax-bg" src={image} alt={alt} loading="lazy" decoding="async" />
   <div class="parallax-band-inner">
     <slot name="title" />
     <slot />
   </div>
 </section>
 
+<script>
+  // Shift each band's photo inside its overscan margin as the band crosses the viewport.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const bands = Array.from(document.querySelectorAll<HTMLElement>('.parallax-band'));
+
+  function update() {
+    if (reduceMotion) return;
+    const vh = window.innerHeight;
+    for (const band of bands) {
+      const img = band.querySelector<HTMLImageElement>('.parallax-bg');
+      if (!img) continue;
+      const r = band.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) continue;
+      // -1 when the band enters from the bottom, +1 when it leaves at the top
+      const p = ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2);
+      const overscan = (img.offsetHeight - band.offsetHeight) / 2;
+      img.style.transform = `translate3d(0, ${(-p * overscan).toFixed(1)}px, 0)`;
+    }
+  }
+
+  let queued = false;
+  window.addEventListener('scroll', () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; update(); });
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+</script>
+
 <style>
   .parallax-band{
-    position:relative; display:flex; align-items:center;
+    position:relative; overflow:hidden; isolation:isolate;
+    display:flex; align-items:center;
     min-height:var(--band-h, clamp(320px, 42vh, 420px));
-    background:center/cover no-repeat fixed; color:#fff;
+    color:#fff;
+  }
+  .parallax-bg{
+    position:absolute; left:0; top:-15%; z-index:-2;
+    width:100%; height:130%; object-fit:cover; display:block;
+    will-change:transform;
   }
   .parallax-band::before{
-    content:""; position:absolute; inset:0;
+    content:""; position:absolute; inset:0; z-index:-1;
     background:rgba(0,0,0,.42);
   }
   .parallax-band-inner{
@@ -57,6 +96,9 @@ const { image, alt, minHeight } = Astro.props;
   .parallax-band-inner :global(h3){ color:#fff; }
   .parallax-band-inner :global(h2.section-title){ margin-bottom:18px; }
   @media (max-width:768px){
-    .parallax-band{ min-height:var(--band-h-mobile, clamp(260px, 36vh, 340px)); background-attachment:scroll; }
+    .parallax-band{ min-height:var(--band-h-mobile, clamp(260px, 36vh, 340px)); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .parallax-bg{ top:0; height:100%; transform:none !important; }
   }
 </style>
