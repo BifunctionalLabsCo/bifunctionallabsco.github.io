@@ -19,12 +19,12 @@ import PostLayout from '../../layouts/PostLayout.astro';
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
 
   <style is:inline>
-    .parallax-section{ position:relative; min-height:72vh; display:flex; align-items:center; background:center/cover no-repeat fixed; }
+    .parallax-section{ position:relative; min-height:clamp(320px, 42vh, 420px); display:flex; align-items:center; background:center/cover no-repeat fixed; }
     .parallax-section::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.42); }
     .parallax-inner{ position:relative; z-index:1; width:100%; max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
     .parallax-inner .text{ padding:0; }
-    .parallax-section p{ color:rgba(255,255,255,.92); }
-    @media (max-width:768px){ .parallax-section{ min-height:60vh; background-attachment:scroll; } }
+    .parallax-section p{ color:rgba(255,255,255,.95); font-size:clamp(1.9rem, 3.6vw, 3rem); line-height:1.2; }
+    @media (max-width:768px){ .parallax-section{ min-height:clamp(260px, 36vh, 340px); background-attachment:scroll; } }
   </style>
 
   <!-- INTRO -->
