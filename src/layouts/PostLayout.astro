@@ -382,6 +382,15 @@ const {
     .more-card:nth-child(2) .more-thumb{ background:linear-gradient(150deg, var(--emerald) 0%, var(--evergreen) 100%); }
     .more-card:nth-child(3) .more-thumb{ background:linear-gradient(150deg, #1a1f1d 0%, #22302b 100%); }
     .more-card:hover .more-thumb{ box-shadow:0 14px 32px rgba(3,43,34,.26); }
+    /* small framed postcard inside a more-card thumbnail */
+    .more-card .more-thumb{ position:relative; }
+    .more-card .more-thumb .postcard-mini{
+      position:absolute; left:50%; top:50%; width:64%;
+      transform:translate(-50%,-50%) rotate(-4deg);
+      background:#fff; padding:6px 6px 22px;
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+    .more-card .more-thumb .postcard-mini img{ display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; }
     .more-card .more-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
     .more-card .more-card-title{
       font-family:var(--sans); font-size:13px; font-weight:700;
