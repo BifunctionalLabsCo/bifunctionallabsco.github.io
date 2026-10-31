@@ -301,7 +301,11 @@ const {
     }
     .cover-quote figcaption{ text-align:left; color:rgba(255,255,255,.6); margin-top:14px; }
     /* small quote emphasis for parallax bands that also carry a title */
-    .parallax-band .quote.quote-sm{ font-size:clamp(14px,1.5vw,18px); line-height:1.4; max-width:48ch; }
+    .parallax-band .quote.quote-sm{
+      font-family:var(--serif); font-style:italic; font-weight:400; text-transform:none; letter-spacing:0;
+      font-size:clamp(16px,1.8vw,22px); line-height:1.5; max-width:48ch;
+      margin:0 auto; text-align:center; border-left:0; padding-left:0;
+    }
 
     /* ─── ARTICLE FOOTER ─── */
     .article-footer{
