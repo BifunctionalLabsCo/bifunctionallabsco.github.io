@@ -1,0 +1,60 @@
+---
+/**
+ * ParallaxBand.astro: full-width photo band with text on top.
+ *
+ * Text placed inside the band uses the mint quote style (`.quote`), which
+ * PostLayout defines for both `.cover-quote` and `.parallax-band`.
+ *
+ * Props
+ * ──────────────────────────────────────────────────────────────
+ * image       string   background photo URL
+ * alt?        string   accessible label for the photo
+ * minHeight?  string   CSS min-height for desktop (default: a narrow band)
+ *
+ * Usage
+ *   <ParallaxBand image="https://…/04.jpg" alt="Mirabell Gardens">
+ *     <p class="quote">Text on top of the photo.</p>
+ *   </ParallaxBand>
+ */
+
+interface Props {
+  image: string;
+  alt?: string;
+  minHeight?: string;
+}
+
+const { image, alt, minHeight } = Astro.props;
+---
+
+<section
+  class="parallax-band"
+  role={alt ? 'img' : undefined}
+  aria-label={alt}
+  style={`background-image:url('${image}');${minHeight ? ` --band-h:${minHeight};` : ''}`}
+>
+  <div class="parallax-band-inner">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .parallax-band{
+    position:relative; display:flex; align-items:center;
+    min-height:var(--band-h, clamp(320px, 42vh, 420px));
+    background:center/cover no-repeat fixed; color:#fff;
+  }
+  .parallax-band::before{
+    content:""; position:absolute; inset:0;
+    background:rgba(0,0,0,.42);
+  }
+  .parallax-band-inner{
+    position:relative; z-index:1; width:100%;
+    max-width:var(--page); margin:0 auto; padding:0 var(--gutter);
+  }
+  .parallax-band-inner :global(p),
+  .parallax-band-inner :global(h2),
+  .parallax-band-inner :global(h3){ color:#fff; }
+  @media (max-width:768px){
+    .parallax-band{ min-height:var(--band-h-mobile, clamp(260px, 36vh, 340px)); background-attachment:scroll; }
+  }
+</style>

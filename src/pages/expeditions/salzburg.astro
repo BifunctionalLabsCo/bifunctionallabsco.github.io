@@ -1,5 +1,6 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 ---
 
 <PostLayout
@@ -17,15 +18,6 @@ import PostLayout from '../../layouts/PostLayout.astro';
 >
   <Fragment slot="nav-left">Into the Alps</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
-
-  <style is:inline>
-    .parallax-section{ position:relative; min-height:clamp(320px, 42vh, 420px); display:flex; align-items:center; background:center/cover no-repeat fixed; }
-    .parallax-section::before{ content:""; position:absolute; inset:0; background:rgba(0,0,0,.42); }
-    .parallax-inner{ position:relative; z-index:1; width:100%; max-width:var(--page); margin:0 auto; padding:0 var(--gutter); }
-    .parallax-inner .text{ padding:0; }
-    .parallax-section h3{ font-family:var(--sans); font-size:clamp(24px,3.3vw,38px); letter-spacing:.08em; font-weight:800; text-transform:uppercase; line-height:1.25; color:#fff; margin:0; }
-    @media (max-width:768px){ .parallax-section{ min-height:clamp(260px, 36vh, 340px); background-attachment:scroll; } }
-  </style>
 
   <!-- INTRO -->
   <section class="space-md">
@@ -148,17 +140,6 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- COVER QUOTE: Hohensalzburg (mint quote) -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #2c3e50 0%, #1a2533 100%)"></div>
-    <div class="inner">
-      <figure>
-        <p class="quote">Panoramic views in every direction, a leisured stroll inside the fortress.</p>
-        <figcaption>Hohensalzburg Fortress, Salzburg, Austria</figcaption>
-      </figure>
-    </div>
-  </section>
-
   <!-- SECTION: SOUND OF MUSIC -->
   <section class="space-sm" style="padding-top:44px;">
     <div class="text">
@@ -192,13 +173,9 @@ import PostLayout from '../../layouts/PostLayout.astro';
   </section>
 
   <!-- PARALLAX: closing, 04 with text on top, directly above the location footer -->
-  <section class="parallax-section" style="background-image:url('https://media.bifunctional.xyz/expeditions/salzburg/04.jpg')">
-    <div class="parallax-inner">
-      <div class="text">
-        <h3>With that, our short day in Salzburg is at an end. Other must see spots include the Mirabell Gardens and Dom Quarter in Old Town.</h3>
-      </div>
-    </div>
-  </section>
+  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/salzburg/04.jpg" alt="Mirabell Gardens, Salzburg">
+    <p class="quote">With that, our short day in Salzburg is at an end. Other must see spots include the Mirabell Gardens and Dom Quarter in Old Town.</p>
+  </ParallaxBand>
 
   <!-- MORE CARDS -->
   <Fragment slot="more-cards">
