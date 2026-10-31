@@ -1,5 +1,6 @@
 ---
 import PostLayout from '../../layouts/PostLayout.astro';
+import ParallaxBand from '../../components/ParallaxBand.astro';
 ---
 
 <PostLayout
@@ -7,16 +8,23 @@ import PostLayout from '../../layouts/PostLayout.astro';
   heroTitle="Into the Alps:<br>Innsbruck"
   heroSubtitle="Weekend getaway options in the Austrian Alps"
   seriesLabel="Into the Alps &mdash; Vol. I"
-  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/innsbruck/01.jpg')"
+  heroStyle="background-image: url('https://media.bifunctional.xyz/expeditions/innsbruck/05.jpg')"
   date="OCTOBER 9TH, 2021"
   location="Innsbruck, Tyrol, Austria"
   footnote="Our weekend getaway to Innsbruck occurred in the Fall of 2021. &copy; Zubin John"
   moreTitle="More Expeditions"
   description="A weekend in Innsbruck: Altstadt, the City Tower, the Nordkette trail, and Castle Ambras. October 2021."
-  ogImage="https://media.bifunctional.xyz/expeditions/innsbruck/01.jpg"
+  ogImage="https://media.bifunctional.xyz/expeditions/innsbruck/05.jpg"
 >
   <Fragment slot="nav-left">Into the Alps</Fragment>
   <a slot="nav-right" class="back-btn" href="/expeditions/">&#8592; All Expeditions</a>
+
+  <!-- SECTION: ALTSTADT (title at the very top) -->
+  <section class="space-sm">
+    <div class="text">
+      <h2 class="section-title">Altstadt Innsbruck</h2>
+    </div>
+  </section>
 
   <!-- INTRO -->
   <section class="space-md">
@@ -26,13 +34,6 @@ import PostLayout from '../../layouts/PostLayout.astro';
         The Tyrolean capital has a history going back at least 800 years, yet in modern times it has built quite a
         reputation as a skiing capital and a hub for all things outdoors.
       </p>
-    </div>
-  </section>
-
-  <!-- SECTION: ALTSTADT -->
-  <section class="space-sm">
-    <div class="text">
-      <h2 class="section-title">Altstadt Innsbruck</h2>
     </div>
   </section>
 
@@ -46,14 +47,14 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 2-UP: Altstadt -->
+  <!-- 2-UP: Altstadt (06, 013) -->
   <section class="space-md">
     <div class="grid grid-2">
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/02.jpg" alt="Into the Alps: Innsbruck photo 2" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/06.jpg" alt="Into the Alps: Innsbruck photo 6" /></div>
       </figure>
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/03.jpg" alt="Into the Alps: Innsbruck photo 3" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/013.jpg" alt="Into the Alps: Innsbruck photo 13" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
@@ -61,32 +62,29 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- SECTION: CITY TOWER -->
-  <section class="space-sm">
-    <div class="text">
-      <h2 class="section-title">The City Tower</h2>
+  <!-- PARALLAX: City Tower (08, text on top, full width) -->
+  <ParallaxBand image="https://media.bifunctional.xyz/expeditions/innsbruck/08.jpg" alt="Into the Alps: Innsbruck photo 8">
+    <p class="quote">
+      For the best views of the city, we made our way up the spiral staircase to the top of the Innsbruck
+      Stadtturm. The intricate design, added to the original 450-year-old structure, allows two-way traffic
+      and ascends 51 metres to offer panoramic views of the entire city and its surrounding landscape.
+    </p>
+  </ParallaxBand>
+
+  <!-- 2-UP: City Tower (09 portrait, 07 landscape, wider) -->
+  <section class="space-md">
+    <div class="grid grid-2" style="grid-template-columns:1fr 1.5fr;">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/09.jpg" alt="Into the Alps: Innsbruck photo 9" /></div>
+      </figure>
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/07.jpg" alt="Into the Alps: Innsbruck photo 7" /></div>
+      </figure>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>Views of the river Inn and the Golden Terrace from the top of the Innsbruck Tower.</figcaption>
     </div>
   </section>
-
-  <section class="space-sm">
-    <div class="text">
-      <p>
-        For the best views of the city, we made our way up the spiral staircase to the top of the Innsbruck
-        Stadtturm. The intricate design, added to the original 450-year-old structure, allows two-way traffic
-        and ascends 51 metres to offer panoramic views of the entire city and its surrounding landscape.
-      </p>
-    </div>
-  </section>
-
-  <!-- FULL BLEED: Tower view -->
-  <section class="full-bleed">
-    <figure>
-      <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/04.jpg" alt="Into the Alps: Innsbruck photo 4" /></div>
-    </figure>
-  </section>
-  <div class="text" style="margin-top:14px; padding-bottom:28px;">
-    <figcaption>Views of the river Inn and the Golden Terrace from the top of the Innsbruck Tower.</figcaption>
-  </div>
 
   <!-- SECTION: NORDKETTE -->
   <section class="space-sm">
@@ -105,17 +103,17 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- GRID-3: Nordkette -->
+  <!-- 2+1: Nordkette (01, 11 top, 10 full width) -->
   <section class="space-md">
-    <div class="grid grid-3">
+    <div class="grid grid-2plus1">
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/05.jpg" alt="Into the Alps: Innsbruck photo 5" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/01.jpg" alt="Into the Alps: Innsbruck photo 1" /></div>
       </figure>
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/06.jpg" alt="Into the Alps: Innsbruck photo 6" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/11.jpg" alt="Into the Alps: Innsbruck photo 11" /></div>
       </figure>
-      <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/07.jpg" alt="Into the Alps: Innsbruck photo 7" /></div>
+      <figure class="span-2">
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/10.jpg" alt="Into the Alps: Innsbruck photo 10" /></div>
       </figure>
     </div>
     <div class="text" style="margin-top:14px;">
@@ -123,25 +121,8 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- COVER QUOTE -->
-  <section class="cover-quote">
-    <div class="cover-ph" style="background:linear-gradient(135deg, #2c4a3e 0%, #1a3028 100%)"></div>
-    <div class="inner">
-      <figure>
-        <p class="quote">On a good visibility day, views extend far into the Karwendel Mountains.</p>
-        <figcaption>Hafelekar summit, Nordkette, Innsbruck</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- SECTION: CASTLE AMBRAS -->
+  <!-- SECTION: CASTLE AMBRAS (heading removed, paragraph kept) -->
   <section class="space-sm" style="padding-top:44px;">
-    <div class="text">
-      <h2 class="section-title">Castle Ambras</h2>
-    </div>
-  </section>
-
-  <section class="space-sm">
     <div class="text">
       <p>
         Rounding out the trip was a short excursion outside the city centre to Schloss Ambras, known for housing
@@ -151,18 +132,33 @@ import PostLayout from '../../layouts/PostLayout.astro';
     </div>
   </section>
 
-  <!-- 2+1: Castle -->
+  <!-- 2-UP: Castle Ambras (02, 03) -->
   <section class="space-md">
-    <div class="grid grid-2plus1">
+    <div class="grid grid-2">
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/08.jpg" alt="Into the Alps: Innsbruck photo 8" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/02.jpg" alt="Into the Alps: Innsbruck photo 2" /></div>
       </figure>
       <figure>
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/09.jpg" alt="Into the Alps: Innsbruck photo 9" /></div>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/03.jpg" alt="Into the Alps: Innsbruck photo 3" /></div>
       </figure>
-      <figure class="span-2">
-        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/10.jpg" alt="Into the Alps: Innsbruck photo 10" /></div>
-        <figcaption>The grounds of Schloss Ambras, with the Inn valley stretching out below.</figcaption>
+    </div>
+    <div class="text" style="margin-top:14px;">
+      <figcaption>The grounds of Schloss Ambras, with the Inn valley stretching out below.</figcaption>
+    </div>
+  </section>
+
+  <!-- SECTION: AUF WIEDERSEHEN -->
+  <section class="space-sm" style="padding-top:44px;">
+    <div class="text">
+      <h2 class="section-title">Auf Wiedersehen</h2>
+    </div>
+  </section>
+
+  <!-- SINGLE: centred image (04), no caption -->
+  <section class="space-md">
+    <div class="single">
+      <figure>
+        <div class="media"><img src="https://media.bifunctional.xyz/expeditions/innsbruck/04.jpg" alt="Into the Alps: Innsbruck photo 4" /></div>
       </figure>
     </div>
   </section>
