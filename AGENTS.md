@@ -22,6 +22,12 @@ This repository has two deliberately separate products:
 - Preserve explicit confirmation gates for filesystem and GitHub writes.
 - Add tests for path handling, authorization, redaction, and external command changes.
 
+## GitHub identity
+
+- Repository changes (pull requests, issues, comments) are made as the `bifunctional-foxy` GitHub App bot, not as a personal account.
+- Authenticate with a short-lived installation token minted from the app's private key. The key stays in the operator's local keychain. Never print, log or commit the key or any token.
+- Confirmation gates still apply: pushes and pull request updates need the repository owner's go-ahead.
+
 ## Verification
 
 Website changes:
